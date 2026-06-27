@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>えにわ愛ポイント 公式ポータルサイト ご説明資料</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --pink:#e85a9c;--pink-d:#d63f86;--magenta:#e4007f;--pink-soft:#ffd6e6;
+    --pink-bg:#ffeef5;--cream:#fff7da;--ink:#4c444a;--ink-d:#3a3338;--line:#f2d4e3;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;}
+  body{color:var(--ink);font-size:10.5pt;line-height:1.7;
+    font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN","Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",Meiryo,sans-serif;
+    -webkit-font-smoothing:antialiased;background:#fff;}
+  .mag{color:var(--magenta);}
+  .page{width:210mm;min-height:297mm;padding:16mm 16mm 18mm;position:relative;}
+  .page.cover{padding:0;}
+  .brk{break-after:page;page-break-after:always;}
+  section,.card,.kpi,table,.preview,.flow,.copy-quote{break-inside:avoid;page-break-inside:avoid;}
+
+  /* cover */
+  .cover{display:flex;flex-direction:column;min-height:297mm;
+    background:linear-gradient(180deg,#ffe3ef 0%,#fff3f8 70%,#fff 100%);}
+  .cover .top{height:10mm;background:var(--pink);}
+  .cover .inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 22mm;}
+  .cover .doc-tag{display:inline-block;width:max-content;background:#fff;color:var(--pink-d);font-weight:800;
+    font-size:11pt;padding:6px 18px;border-radius:999px;box-shadow:0 8px 20px rgba(214,63,134,.15);margin-bottom:8mm;}
+  .cover .logo{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink-d);font-size:13pt;margin-bottom:6mm;}
+  .cover .logo img{width:42px;height:42px;object-fit:contain;}
+  .cover .logo small{display:block;font-size:8pt;letter-spacing:.16em;color:var(--pink);}
+  .cover h1{font-size:34pt;line-height:1.25;font-weight:900;color:var(--ink-d);margin:0 0 6mm;}
+  .cover h1 b{color:var(--magenta);}
+  .cover .copy{font-size:13pt;font-weight:900;color:var(--pink-d);margin-bottom:3mm;}
+  .cover .meta{font-size:10pt;color:#7a6671;line-height:1.9;}
+  .cover .char{position:absolute;right:16mm;bottom:14mm;width:62mm;
+    filter:drop-shadow(0 10px 16px rgba(214,63,134,.25));}
+  .cover .foot{height:14mm;background:var(--pink);color:#fff;display:flex;align-items:center;
+    justify-content:center;font-weight:800;font-size:9pt;letter-spacing:.04em;}
+
+  /* sections */
+  .head{display:flex;align-items:center;gap:10px;margin:0 0 10px;}
+  .head .no{flex:none;width:30px;height:30px;border-radius:9px;background:var(--pink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11pt;}
+  .head h2{font-size:15pt;font-weight:900;color:var(--ink-d);margin:0;}
+  section{margin-bottom:9mm;}
+  .lead{color:#6a5560;margin:0 0 8px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:0 4px 12px rgba(214,63,134,.08);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .kpi{display:flex;gap:10px;}
+  .kpi .k{flex:1;background:var(--pink-bg);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;}
+  .kpi .k .b{font-size:18pt;font-weight:900;color:var(--magenta);line-height:1;}
+  .kpi .k .n{font-size:9.5pt;font-weight:900;color:var(--pink-d);}
+  ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:5px;}
+  ul.clean li{display:flex;gap:8px;align-items:flex-start;}
+  ul.clean li::before{content:"♥";color:var(--pink);font-weight:900;flex:none;}
+  table{width:100%;border-collapse:collapse;font-size:9.5pt;}
+  th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--pink-bg);color:var(--ink-d);font-weight:800;}
+  .pill{display:inline-block;background:var(--cream);color:#7a5a00;font-weight:800;font-size:8.5pt;padding:2px 9px;border-radius:999px;}
+  .copy-quote{background:linear-gradient(135deg,#fff0f6,#ffe3ef);border:1px dashed var(--pink-soft);
+    border-radius:14px;padding:12px 16px;text-align:center;font-weight:900;color:var(--ink-d);font-size:11pt;}
+  .copy-quote .big{display:block;font-size:19pt;margin:3px 0;}
+  .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:center;}
+  .flow .step{display:flex;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 11px;}
+  .flow .step .ic{width:34px;height:34px;flex:none;border-radius:9px;background:var(--pink-bg);display:flex;align-items:center;justify-content:center;font-size:15pt;}
+  .flow .arrow{color:var(--pink);font-weight:900;font-size:14pt;text-align:center;}
+  .note{background:#fffbe7;border:1px solid #f1e3a0;border-radius:11px;padding:9px 12px;font-size:9.5pt;}
+  .big-date{font-size:18pt;font-weight:900;color:var(--magenta);margin:2mm 0;}
+  .preview{display:grid;grid-template-columns:1.4fr .7fr;gap:10px;align-items:start;}
+  .preview .frame{background:#fff;border:1px solid var(--line);border-radius:12px;padding:7px;box-shadow:0 4px 12px rgba(214,63,134,.08);}
+  .preview .frame img{border-radius:6px;display:block;margin:0 auto;}
+  .preview .pc img{max-height:135mm;width:auto;}
+  .preview .sp img{width:100%;max-height:135mm;object-fit:contain;}
+  .preview .cap{font-size:8.5pt;color:#7a6671;text-align:center;margin-top:4px;font-weight:700;}
+  .secfoot{position:absolute;left:0;right:0;bottom:7mm;text-align:center;font-size:8pt;color:#c79bb2;}
+  strong{color:var(--ink-d);}
+</style>
+</head>
+<body>
+
+<!-- ===== Cover ===== -->
+<div class="page cover brk">
+  <div class="top"></div>
+  <div class="inner">
+    <span class="doc-tag">公式ポータルサイト ご説明資料</span>
+    <div class="logo"><img src="images/logo-mark.png" alt="">えにわ愛ポイント<small>ENIWA AI POINT</small></div>
+    <h1>えにわ<b>愛</b>ポイント<br>公式ポータルサイト</h1>
+    <div class="copy">使うほど、まちが元気になる。／ ポイントは、愛。</div>
+    <div class="meta">
+      恵庭駅通商店街振興組合（事務局：株式会社北央商事）<br>
+      地域共通ポイント・CRM事業 ／ ドメイン：eniwa-point.com ／ 2026年6月
+    </div>
+    <img class="char" src="images/character.png" alt="えにわ愛ポイント キャラクター">
+  </div>
+  <div class="foot">使うほど、まちが元気になる。　えにわ愛ポイント</div>
+</div>
+
+<!-- ===== Page 2 : 目的〜利用者 ===== -->
+<div class="page brk">
+  <section>
+    <div class="head"><span class="no">1</span><h2>このサイトの目的</h2></div>
+    <p class="lead">本サイトは、地域共通ポイントアプリへ利用者を導く<strong>「入口サイト」</strong>です。
+    きれいなホームページを作ること自体ではなく、<strong>アプリ会員登録と加盟店利用につなげること</strong>を目的とします。</p>
+    <div class="kpi">
+      <div class="k"><div class="b">①</div><div class="n">アプリ会員登録数</div></div>
+      <div class="k"><div class="b">②</div><div class="n">加盟店利用</div></div>
+      <div class="k"><div class="b">③</div><div class="n">問い合わせ数</div></div>
+    </div>
+    <div class="card" style="margin-top:8px;"><strong>利用者の流れ</strong><br>
+      利用者 → ポータルサイト → QRコード・リンク → アプリ登録 → 加盟店利用 → データ蓄積・CRM活用</div>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">2</span><h2>コンセプト・ブランド</h2></div>
+    <div class="copy-quote">買って、貯めて、地域を応援！
+      <span class="big">使うほど、<span class="mag">まち</span>が元気になる。</span>ポイントは、愛。</div>
+    <div class="grid2" style="margin-top:10px;">
+      <div class="card"><strong>プラットフォーム名</strong><br>えにわ愛ポイント（ENIWA AI POINT）<br>
+        <span style="color:#7a6671;font-size:9pt;">※ ラフ案（デザイン：目谷裕美子氏／コピー：三浦清隆氏）に準拠</span></div>
+      <div class="card"><strong>ポイントの仕組み</strong><br>100円で <b class="mag">1ポイント</b>／<b class="mag">1pt＝1円</b> として加盟店で使える。使うほど地域内でお金が循環します。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">3</span><h2>想定利用者</h2></div>
+    <ul class="clean">
+      <li>一般市民・アプリ会員（ポイントの使い方・加盟店・クーポンを知る）</li>
+      <li>ポイント加盟店／加盟を検討する事業者</li>
+      <li>北海道文教大学の学生・教職員（学生参加・スタンプラリー）</li>
+      <li>地域活動・イベントに関心のある人</li>
+    </ul>
+    <div class="note" style="margin-top:8px;">デザインは <strong>スマートフォン利用の一般市民・高齢者</strong> を最優先ターゲットに設計します。</div>
+  </section>
+  <div class="secfoot">えにわ愛ポイント 公式ポータルサイト ご説明資料 ・ 2</div>
+</div>
+
+<!-- ===== Page 3 : サイト構成＋デザイン ===== -->
+<div class="page brk">
+  <section>
+    <div class="head"><span class="no">4</span><h2>サイトの全体像（ページ構成）</h2></div>
+    <p class="lead">ナビ：トップ／えにわ愛ポイントとは／使えるお店を探す／キャンペーン／お知らせ／よくあるご質問（＋会員登録）</p>
+    <table>
+      <tr><th>ページ</th><th>主な内容</th></tr>
+      <tr><td>トップ</td><td>キャッチ・キャラクター・会員登録/アプリDL/使えるお店の導線・使い方・キャンペーン</td></tr>
+      <tr><td>えにわ愛ポイントとは</td><td>ポイントの仕組み（100円=1pt／1pt=1円）・地域内循環</td></tr>
+      <tr><td>アプリ登録方法／会員登録（無料）</td><td>QRコード・登録手順（かんたん3ステップ）・Apple/Android</td></tr>
+      <tr><td>使えるお店を探す（加盟店一覧）</td><td>飲食店／買い物／サービス／美容・健康／すべて・地図</td></tr>
+      <tr><td>キャンペーン</td><td>新規登録500ptプレゼント・学生スタンプラリー・クーポン</td></tr>
+      <tr><td>お知らせ ／ 学生・大学連携 ／ FAQ ／ お問い合わせ</td><td>新着情報・学生参加・Q&A・問い合わせフォーム</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">5</span><h2>トップページ デザイン</h2></div>
+    <p class="lead">ピンク（桜・愛）を基調に、親しみやすく信頼感のあるデザイン。スマホ最優先で制作。</p>
+    <div class="preview">
+      <div class="frame pc"><img src="images/preview-pc.jpg" alt="PC表示"><div class="cap">PC表示</div></div>
+      <div class="frame sp"><img src="images/preview-sp.jpg" alt="スマホ表示"><div class="cap">スマホ表示</div></div>
+    </div>
+  </section>
+  <div class="secfoot">えにわ愛ポイント 公式ポータルサイト ご説明資料 ・ 3</div>
+</div>
+
+<!-- ===== Page 4 : 機能＋更新方法 ===== -->
+<div class="page brk">
+  <section>
+    <div class="head"><span class="no">6</span><h2>主な機能</h2></div>
+    <div class="grid2">
+      <div class="card"><strong>👤 会員登録・アプリ誘導</strong><br>会員登録（無料）／アプリDL／QRで登録まで最短誘導。</div>
+      <div class="card"><strong>📢 お知らせ</strong><br>説明会・イベント・新規加盟店を管理画面から発信。</div>
+      <div class="card"><strong>🏬 加盟店一覧</strong><br>カテゴリ別表示＋Googleマップ連携。</div>
+      <div class="card"><strong>🎁 キャンペーン</strong><br>新規登録500pt・学生スタンプラリー等。</div>
+      <div class="card"><strong>✉️ お問い合わせ</strong><br>加盟希望・利用者の問い合わせを受付。</div>
+      <div class="card"><strong>🔗 SNS・解析</strong><br>Facebook/LINE/Instagram、GA4で効果測定。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">7</span><h2>更新方法（ここがポイント）</h2></div>
+    <p class="lead">サイトは<strong>全てHTML（静的サイト）</strong>で制作。<strong>WordPressは使いません。</strong>
+    お知らせ・加盟店の追加は、<strong>管理者画面からえにわ愛ポイント様が簡単に追加・更新</strong>できます。</p>
+    <div class="flow">
+      <div class="step"><span class="ic">🔑</span><div><strong>① ログイン</strong><br><span style="color:#7a6671;font-size:8.5pt;">PC/スマホから</span></div></div>
+      <div class="arrow">➜</div>
+      <div class="step"><span class="ic">⌨️</span><div><strong>② 画面入力</strong><br><span style="color:#7a6671;font-size:8.5pt;">お知らせ／加盟店</span></div></div>
+      <div class="arrow">➜</div>
+      <div class="step"><span class="ic">🌐</span><div><strong>③ サイト反映</strong><br><span style="color:#7a6671;font-size:8.5pt;">HTMLは触らない</span></div></div>
+    </div>
+    <div class="grid2" style="margin-top:10px;">
+      <div class="card"><strong>お知らせの追加</strong><br>タイトル・日付・カテゴリ・本文を入力するだけ。</div>
+      <div class="card"><strong>加盟店の追加</strong><br>店名・カテゴリ・所在地・営業時間・写真・地図リンクを入力するだけ。</div>
+    </div>
+    <div class="note" style="margin-top:8px;">専門知識は不要。納品時に「お知らせ追加／加盟店追加／画像差し替え／QR差し替え」の<strong>簡易マニュアル</strong>をお渡しします。</div>
+  </section>
+  <div class="secfoot">えにわ愛ポイント 公式ポータルサイト ご説明資料 ・ 4</div>
+</div>
+
+<!-- ===== Page 5 : 方針・技術・スケジュール・費用・確認 ===== -->
+<div class="page">
+  <section>
+    <div class="head"><span class="no">8</span><h2>デザイン方針</h2></div>
+    <ul class="clean">
+      <li><strong>スマートフォン閲覧を最優先</strong>（モバイルファースト）</li>
+      <li><strong>高齢者にも見やすい</strong>文字サイズ・コントラスト・大きなボタン</li>
+      <li>明るいピンク（桜・愛）で恵庭・商店街らしい親しみやすさ／日本語が安定する丸ゴシック系</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">9</span><h2>技術・インフラ</h2></div>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>構築</td><td>全て HTML（静的サイト）。高速・安全・低コスト。WordPress不使用</td></tr>
+      <tr><td>更新</td><td>管理画面（ヘッドレスCMS：microCMS等）でお知らせ・加盟店を更新</td></tr>
+      <tr><td>サーバー</td><td>北央商事の既存サーバーを利用（新たな費用なし）。PHP/MySQL不要</td></tr>
+      <tr><td>ドメイン</td><td>eniwa-point.com ／ 常時SSL（HTTPS） ／ 解析：GA4</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">10</span><h2>スケジュール</h2></div>
+    <p class="lead">完成・公開は<strong>来月（2026年7月）</strong>を予定。設計・トップデザインは確定済みのため約5週間で公開を目指します。</p>
+    <div class="big-date">公開予定：2026年7月31日（金）</div>
+    <table>
+      <tr><th>週</th><th>内容</th></tr>
+      <tr><td>W1（6/29〜7/5）</td><td>キックオフ・要件確定・素材提供・サーバー確認</td></tr>
+      <tr><td>W2（7/6〜7/12）</td><td>デザイン下層展開・HTML構築・管理画面連携・加盟店リスト確定</td></tr>
+      <tr><td>W3〜W4（7/13〜7/26）</td><td>機能実装・コンテンツ投入・テスト・検収</td></tr>
+      <tr><td>W5（7/27〜7/31）</td><td>公開準備・<strong>公開（7/31）</strong></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="head"><span class="no">11</span><h2>費用・ご確認事項</h2></div>
+    <div class="grid2">
+      <div class="card"><strong>制作費</strong><div class="big-date" style="font-size:16pt;">500,000円（税別）</div>
+        <span style="font-size:9pt;color:#7a6671;">納品物：完成サイト一式（HTML）／管理画面ログイン・操作マニュアル／元データ 等</span></div>
+      <div class="card"><strong>着手時のお願い</strong>
+        <ul class="clean" style="margin-top:5px;">
+          <li><span class="pill">素材</span> ロゴ・公式キャラ・QR・各URL・SNS</li>
+          <li><span class="pill">加盟店</span> 初期掲載の確定リスト</li>
+          <li><span class="pill">承認</span> 各確認を原則1営業日以内で</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:8px;">詳細は <strong>要件確認書「14. 確認・要決定事項」</strong>・各資料をご参照ください。</div>
+  </section>
+  <div class="secfoot">えにわ愛ポイント｜ポイントは、愛。 ・ 恵庭駅通商店街振興組合／株式会社北央商事 ・ 5</div>
+</div>
+
+</body>
+</html>
