@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="えにわ愛ポイント｜使うほど、まちが元気になる。">
 <meta name="twitter:description" content="地域でのお買い物でポイントが貯まり、地域に還元される、恵庭の共通ポイント。ポイントは、愛。">
 <meta name="twitter:image" content="https://playmark0227-svg.github.io/aipoint/ogp.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 43C13 35 5 28 5 18.5 5 12 10 7.5 16 7.5c4 0 7 2 8 5 1-3 4-5 8-5 6 0 11 4.5 11 11C43 28 35 35 24 43Z' fill='%23e85a9c'/%3E%3Ctext x='24' y='30' font-size='17' text-anchor='middle' fill='white' font-family='sans-serif'%3E愛%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="images/favicon.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"えにわ愛ポイント","alternateName":"ENIWA AI POINT","url":"https://playmark0227-svg.github.io/aipoint/","slogan":"使うほど、まちが元気になる。","description":"えにわ愛ポイントは、地域でのお買い物でポイントが貯まり、使うことでまちのお店を応援し、地域に還元されるポイントサービスです。","areaServed":"北海道恵庭市","founder":"恵庭駅通商店街振興組合・株式会社北央商事"}
 </script>
@@ -86,7 +86,7 @@
     backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
   .navbar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;}
   .brand{display:flex;align-items:center;gap:9px;}
-  .brand .mk{width:40px;height:40px;flex:none;}
+  .brand .mk{width:40px;height:40px;flex:none;object-fit:contain;}
   .brand .bt{font-weight:900;font-size:16px;line-height:1.05;color:var(--ink-d);white-space:nowrap;}
   .brand .bt b{color:var(--magenta);}
   .brand .bt small{display:block;font-size:9.5px;letter-spacing:.18em;color:var(--pink);font-weight:800;}
@@ -106,12 +106,12 @@
 
   /* ===== Hero ===== */
   .hero{position:relative;overflow:hidden;
-    background:linear-gradient(180deg,#ffe3ef 0%,#fff0f6 60%,#fff 100%);}
-  .hero .hearts{position:absolute;inset:0;pointer-events:none;}
-  .hero .hearts span{position:absolute;color:#ffc4dd;opacity:.6;}
-  .town{position:absolute;left:0;right:0;bottom:0;height:120px;width:100%;}
+    background:url("images/hero-bg.jpg") center bottom/cover no-repeat, #ffe7f0;}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+    background:linear-gradient(100deg, rgba(255,238,245,.94) 0%, rgba(255,238,245,.7) 38%, rgba(255,238,245,0) 68%);}
   .hero-grid{position:relative;display:grid;grid-template-columns:1fr;gap:8px;
     padding:26px 0 40px;align-items:center;z-index:2;}
+  .char-img{width:min(80%,300px);height:auto;filter:drop-shadow(0 10px 16px rgba(214,63,134,.28));}
   .hero-copy .eyebrow{display:inline-block;background:#fff;color:var(--pink-d);font-weight:800;
     font-size:13px;padding:5px 16px;border-radius:999px;box-shadow:var(--shadow);margin-bottom:14px;}
   .hero h1{font-size:clamp(30px,8vw,40px);line-height:1.28;font-weight:900;color:var(--ink-d);margin:6px 0 14px;letter-spacing:.01em;}
@@ -138,11 +138,13 @@
   .step .no{width:30px;height:30px;flex:none;border-radius:50%;background:var(--pink);color:#fff;
     display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;}
   .step .em{font-size:30px;line-height:1;}
+  .step .stepic{width:62px;height:62px;flex:none;border-radius:50%;object-fit:cover;
+    background:#fff;box-shadow:0 2px 6px rgba(214,63,134,.14);}
   .step b{display:block;font-size:16px;color:var(--ink-d);}
   .step span{font-size:13px;color:#7a6671;}
 
-  .promo{background:linear-gradient(160deg,#fff4ea,#ffe6cf);border:1px solid #ffd9b8;border-radius:18px;
-    padding:18px;text-align:center;position:relative;overflow:hidden;}
+  .promo{background:url("images/campaign.jpg") center/cover, #fff4ea;border:1px solid #ffd9b8;border-radius:18px;
+    padding:22px 18px;text-align:center;position:relative;overflow:hidden;}
   .promo .now{display:inline-block;background:var(--magenta);color:#fff;font-weight:900;font-size:12px;
     padding:3px 12px;border-radius:999px;margin-bottom:6px;}
   .promo .pt{font-size:30px;font-weight:900;color:var(--magenta);line-height:1.1;}
@@ -222,10 +224,7 @@
 <header class="site">
   <div class="wrap navbar">
     <a class="brand" href="#top" aria-label="えにわ愛ポイント">
-      <svg class="mk" viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M24 43C13 35 5 28 5 18.5 5 12 10 7.5 16 7.5c4 0 7 2 8 5 1-3 4-5 8-5 6 0 11 4.5 11 11C43 28 35 35 24 43Z" fill="#e85a9c"/>
-        <text x="24" y="27" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="sans-serif">愛</text>
-      </svg>
+      <img class="mk" src="images/logo-mark.png" alt="" width="40" height="40">
       <span class="bt">えにわ<b>愛</b>ポイント<small>ENIWA AI POINT</small></span>
     </a>
     <nav class="gnav">
@@ -248,13 +247,6 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero">
-  <div class="hearts" aria-hidden="true">
-    <span style="top:14%;left:8%;font-size:22px;">♥</span>
-    <span style="top:30%;left:46%;font-size:14px;">♥</span>
-    <span style="top:12%;left:62%;font-size:18px;">♥</span>
-    <span style="top:54%;left:30%;font-size:12px;">♥</span>
-    <span style="top:20%;left:88%;font-size:16px;">♥</span>
-  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">買って、貯めて、地域を応援！</span>
@@ -264,50 +256,9 @@
     </div>
     <div class="hero-char">
       <div class="bubble">みんなで<br>えにわをもっと<br>元気にしよう！</div>
-      <!-- マスコットキャラクター（プレースホルダー：公式キャラクターに差し替え予定） -->
-      <svg viewBox="0 0 240 280" width="240" style="max-width:78%;" role="img" aria-label="えにわ愛ポイント キャラクター（イメージ）">
-        <ellipse cx="120" cy="270" rx="70" ry="10" fill="#f4b8d2" opacity=".5"/>
-        <!-- leaf -->
-        <path d="M120 28C120 10 138 4 150 8 146 24 134 32 120 32Z" fill="#74c36b"/>
-        <rect x="118" y="28" width="5" height="16" rx="2" fill="#74c36b"/>
-        <!-- peach/sakura costume body -->
-        <path d="M120 40C70 40 54 92 54 134c0 60 30 104 66 104s66-44 66-104C186 92 170 40 120 40Z" fill="#f58fb9"/>
-        <path d="M120 40C70 40 54 92 54 134c0 60 30 104 66 104s66-44 66-104C186 92 170 40 120 40Z" fill="none" stroke="#ec74a8" stroke-width="3"/>
-        <!-- face -->
-        <circle cx="120" cy="118" r="50" fill="#ffe6d6"/>
-        <!-- hair fringe -->
-        <path d="M73 108c2-30 24-46 47-46s45 16 47 46c-14-12-30-16-47-16s-33 4-47 16Z" fill="#7a5544"/>
-        <!-- eyes -->
-        <ellipse cx="103" cy="120" rx="8" ry="11" fill="#3a2a25"/>
-        <ellipse cx="137" cy="120" rx="8" ry="11" fill="#3a2a25"/>
-        <circle cx="106" cy="116" r="3" fill="#fff"/><circle cx="140" cy="116" r="3" fill="#fff"/>
-        <!-- cheeks -->
-        <circle cx="92" cy="134" r="8" fill="#ff9fc4" opacity=".7"/>
-        <circle cx="148" cy="134" r="8" fill="#ff9fc4" opacity=".7"/>
-        <!-- smile -->
-        <path d="M110 138c5 7 15 7 20 0" fill="none" stroke="#c0506f" stroke-width="3" stroke-linecap="round"/>
-        <!-- arm holding phone -->
-        <ellipse cx="170" cy="178" rx="16" ry="22" fill="#f58fb9"/>
-        <rect x="176" y="150" width="34" height="56" rx="8" fill="#fff" stroke="#ec74a8" stroke-width="3"/>
-        <text x="193" y="184" text-anchor="middle" font-size="22" fill="#e4007f">♥</text>
-        <!-- label -->
-        <text x="120" y="206" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="sans-serif">えにわ愛</text>
-        <text x="120" y="222" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" letter-spacing="2" font-family="sans-serif">POINT</text>
-      </svg>
+      <img class="char-img" src="images/character.png" alt="えにわ愛ポイント キャラクター" width="300">
     </div>
   </div>
-  <svg class="town" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-    <g fill="#ffc9de">
-      <rect x="40" y="60" width="70" height="60"/><rect x="120" y="40" width="56" height="80"/>
-      <rect x="190" y="72" width="80" height="48"/><polygon points="690,72 730,44 770,72"/>
-      <rect x="690" y="72" width="80" height="48"/><rect x="300" y="50" width="60" height="70"/>
-      <rect x="380" y="74" width="90" height="46"/><rect x="500" y="56" width="64" height="64"/>
-      <rect x="820" y="48" width="58" height="72"/><rect x="900" y="70" width="86" height="50"/>
-      <rect x="1010" y="56" width="66" height="64"/><rect x="1100" y="74" width="70" height="46"/>
-      <circle cx="160" cy="36" r="10"/><circle cx="846" cy="44" r="9"/>
-    </g>
-    <g fill="#7cc873"><circle cx="600" cy="104" r="16"/><circle cx="270" cy="108" r="14"/><circle cx="990" cy="106" r="15"/></g>
-  </svg>
 </section>
 
 <!-- ===== CTA row ===== -->
@@ -329,15 +280,15 @@
       <h2 class="use-title">えにわ愛ポイントの使い方</h2>
       <div class="steps">
         <div class="step">
-          <span class="no">1</span><span class="em">🪙</span>
+          <span class="no">1</span><img class="stepic" src="images/step-tameru.png" alt="" loading="lazy">
           <span><b>貯まる</b><span>お買い物やイベント参加でポイントが貯まる！</span></span>
         </div>
         <div class="step">
-          <span class="no">2</span><span class="em">🏪</span>
+          <span class="no">2</span><img class="stepic" src="images/step-tsukaeru.png" alt="" loading="lazy">
           <span><b>使える</b><span>市内の加盟店で1ポイント＝1円として使える！</span></span>
         </div>
         <div class="step">
-          <span class="no">3</span><span class="em">💗</span>
+          <span class="no">3</span><img class="stepic" src="images/step-yakudatsu.png" alt="" loading="lazy">
           <span><b>役立つ</b><span>ポイントの一部は地域に還元・寄付されます</span></span>
         </div>
       </div>
@@ -346,11 +297,8 @@
     <div>
       <div class="promo" id="promo">
         <span class="now">今だけ！</span>
-        <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
-          <div class="pt">500<small>pt</small><br><small style="font-size:13px;">新規登録でプレゼント！</small></div>
-          <div class="gift">🎁</div>
-        </div>
-        <a class="btn btn-pink btn-sm" href="#" style="margin-top:8px;">詳しくはこちら ›</a>
+        <div class="pt">500<small>pt</small><br><small style="font-size:13px;">新規登録でプレゼント！</small></div>
+        <a class="btn btn-pink btn-sm" href="#" style="margin-top:10px;">詳しくはこちら ›</a>
       </div>
       <div class="student">
         <span class="tag">学生の方はこちら！</span>
@@ -373,6 +321,15 @@
       <a class="cat" href="#"><span class="ic">💄</span><b>美容・健康</b></a>
       <a class="cat" href="#"><span class="ic">🏬</span><b>すべてのお店</b></a>
     </div>
+  </div>
+</section>
+
+<!-- ===== stamp rally ===== -->
+<section class="sec" id="stamp">
+  <div class="sec-head"><span class="ribbon"><span class="mini-heart">♥</span> 学生スタンプラリー</span></div>
+  <div class="wrap" style="max-width:640px;text-align:center;">
+    <p class="lead" style="margin:-8px auto 18px;color:#6a5560;">えにわのお店をめぐってスタンプを集めよう！集めると特典がもらえる、学生向け企画です。</p>
+    <img src="images/stamp-rally.jpg" alt="スタンプラリーの使い方：スタンプを押す前→押す→たまる→特典をゲット" style="width:100%;border-radius:18px;box-shadow:var(--shadow);" loading="lazy">
   </div>
 </section>
 
@@ -420,7 +377,7 @@
       </div>
       <div class="appqr">
         <div class="phone">
-          <svg viewBox="0 0 48 48" width="42" aria-hidden="true"><path d="M24 43C13 35 5 28 5 18.5 5 12 10 7.5 16 7.5c4 0 7 2 8 5 1-3 4-5 8-5 6 0 11 4.5 11 11C43 28 35 35 24 43Z" fill="#e85a9c"/><text x="24" y="27" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="sans-serif">愛</text></svg>
+          <img src="images/logo-mark.png" alt="" width="46" style="object-fit:contain;">
         </div>
         <svg class="qr" viewBox="0 0 100 100" aria-label="アプリ登録QR（サンプル）">
           <rect width="100" height="100" rx="6" fill="#fff" stroke="#f6d9e6"/>
