@@ -34,6 +34,7 @@
 | 3 | トップページ ワイヤーフレーム | [docs/03_トップページ_ワイヤーフレーム.md](docs/03_トップページ_ワイヤーフレーム.md) ／ [HTMLワイヤー](docs/wireframe/top.html) |
 | 4 | 工程表 | [docs/04_工程表.md](docs/04_工程表.md) |
 | 5 | トップページ レイアウト（デザインモック） | [docs/05_トップページ_レイアウト.md](docs/05_トップページ_レイアウト.md) ／ [ソース](site/index.html) |
+| 6 | デザイン依頼文テンプレート（ChatGPT用） | [docs/06_デザイン依頼文_ChatGPT.md](docs/06_デザイン依頼文_ChatGPT.md) |
 
 ### 🌐 トップページ プレビュー（GitHub Pages）
 
