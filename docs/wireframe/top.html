@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トップページ ワイヤーフレーム｜恵庭サイモンズポイント会</title>
+<style>
+  :root{
+    --line:#9aa0a6; --box:#e9ecef; --box2:#f1f3f4; --ink:#3c4043;
+    --muted:#80868b; --cta:#cfd8dc; --accent:#b0bec5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:#d9dee3; color:var(--ink);
+    font-family:"游ゴシック","Yu Gothic",Meiryo,sans-serif; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .note{max-width:820px;margin:20px auto 0;padding:0 16px;color:#455;}
+  .note h1{font-size:18px;margin:0 0 4px;}
+  .note p{font-size:13px;color:#566;margin:4px 0;}
+  .legend{font-size:12px;color:#566;border:1px dashed var(--line);padding:8px 12px;border-radius:6px;display:inline-block;margin-top:8px;background:#eef1f4;}
+
+  /* スマホ枠 */
+  .device{
+    width:390px;max-width:94vw;margin:24px auto 60px;background:#fff;
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.18);position:relative;
+  }
+  .ph{ /* placeholder block */
+    background:var(--box);border:1px dashed var(--line);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    color:var(--muted);font-size:12px;padding:10px;
+  }
+  header.bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 14px;border-bottom:1px solid var(--line);background:#fff;
+    position:sticky;top:0;z-index:5;
+  }
+  .logo{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;}
+  .logo .mark{width:26px;height:26px;border:1px solid var(--line);border-radius:6px;background:var(--box);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);}
+  .hamb{width:26px;height:18px;display:flex;flex-direction:column;justify-content:space-between;}
+  .hamb span{display:block;height:2px;background:var(--ink);border-radius:2px;}
+
+  section{padding:16px 14px;border-bottom:8px solid #eceff1;}
+  .tag{font-size:11px;color:var(--muted);letter-spacing:.04em;margin-bottom:8px;text-transform:uppercase;}
+
+  /* FV */
+  .fv{background:linear-gradient(180deg,#eef2f4,#fff);}
+  .copy{font-size:26px;font-weight:800;line-height:1.35;margin:6px 0 4px;letter-spacing:.01em;}
+  .subcopy{font-size:13px;color:#556;margin:0 0 14px;}
+  .cta{
+    display:block;width:100%;text-align:center;background:var(--cta);
+    border:2px solid #90a4ae;border-radius:30px;padding:14px;font-size:16px;font-weight:800;
+    color:#37474f;margin:4px 0;
+  }
+  .qrrow{display:flex;align-items:center;gap:12px;margin-top:12px;}
+  .qr{width:84px;height:84px;flex:none;background:
+      repeating-linear-gradient(0deg,#90a4ae 0 4px,transparent 4px 8px),
+      repeating-linear-gradient(90deg,#90a4ae 0 4px,transparent 4px 8px);
+      background-color:#fff;border:1px solid var(--line);border-radius:6px;}
+  .qrtxt{font-size:12px;color:#556;}
+
+  /* 3導線 */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .card{min-height:84px;}
+  .card .ph{height:100%;flex-direction:column;gap:6px;font-weight:700;color:#546;}
+  .card .ico{font-size:22px;}
+
+  .row{display:flex;gap:12px;align-items:center;}
+  .circ{width:60px;height:60px;border-radius:50%;flex:none;}
+  .lnk{font-size:13px;color:#37474f;font-weight:700;margin-top:10px;}
+  .lnk::after{content:" ＞";color:var(--muted);}
+
+  ul.news{list-style:none;padding:0;margin:6px 0 0;}
+  ul.news li{font-size:13px;padding:8px 0;border-bottom:1px dashed #cfd5da;display:flex;gap:8px;}
+  ul.news li .d{color:var(--muted);font-size:11px;flex:none;}
+
+  .two{display:grid;grid-template-columns:1fr;gap:8px;}
+  h2.h{font-size:15px;margin:0 0 6px;font-weight:800;}
+  p.s{font-size:13px;color:#556;margin:2px 0;}
+
+  footer{background:#cfd6db;color:#37474f;padding:18px 14px 90px;font-size:12px;}
+  footer .frow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0;}
+  .sns{display:flex;gap:8px;}
+  .sns .s{width:30px;height:30px;border:1px solid #90a4ae;border-radius:8px;background:#eceff1;display:flex;align-items:center;justify-content:center;font-size:11px;color:#556;}
+  .fqr{width:60px;height:60px;background:
+      repeating-linear-gradient(0deg,#78909c 0 4px,transparent 4px 8px),
+      repeating-linear-gradient(90deg,#78909c 0 4px,transparent 4px 8px);
+      background-color:#fff;border:1px solid var(--line);border-radius:4px;}
+
+  /* 追従CTA */
+  .sticky{
+    position:sticky;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(2px);
+    border-top:1px solid var(--line);padding:10px 14px;
+  }
+  .sticky .cta{margin:0;}
+  .badge{position:absolute;top:8px;right:8px;background:#fff3cd;border:1px solid #e0c97f;color:#7a5b00;font-size:10px;padding:2px 6px;border-radius:10px;}
+</style>
+</head>
+<body>
+
+<div class="note">
+  <h1>トップページ ワイヤーフレーム（モバイル）</h1>
+  <p>恵庭サイモンズポイント会 公式ポータルサイト ／ スマートフォン閲覧を最優先に設計したロー・ファイ ワイヤーです。</p>
+  <p class="legend">グレーのブロック＝画像・装飾の入る箱（仮）。配色・写真・フォント等のデザインは確定版で作り込みます。</p>
+</div>
+
+<div class="device">
+
+  <!-- ヘッダー -->
+  <header class="bar">
+    <div class="logo"><span class="mark">LOGO</span> 恵庭ポイント</div>
+    <div class="hamb"><span></span><span></span><span></span></div>
+  </header>
+
+  <!-- ① ファーストビュー -->
+  <section class="fv">
+    <div class="tag">① ファーストビュー</div>
+    <div class="copy">使うほど、<br>恵庭が元気になる。</div>
+    <p class="subcopy">恵庭の地域共通ポイント。お店で使って、地域に還元。</p>
+    <a class="cta">▶ アプリを登録する（無料）</a>
+    <div class="qrrow">
+      <div class="qr"></div>
+      <div class="qrtxt"><b>QRコードで かんたん登録</b><br>Apple / Android 対応 ・ 約1分</div>
+    </div>
+  </section>
+
+  <!-- ② 3導線 -->
+  <section>
+    <div class="tag">② 3つの導線</div>
+    <div class="cards">
+      <div class="card"><div class="ph"><span class="ico">🏪</span>加盟店を見る</div></div>
+      <div class="card"><div class="ph"><span class="ico">🎟</span>クーポンを見る</div></div>
+      <div class="card" style="grid-column:1 / -1"><div class="ph"><span class="ico">💡</span>ポイントの使い方</div></div>
+    </div>
+  </section>
+
+  <!-- ③ 地域内循環 -->
+  <section>
+    <div class="tag">③ 地域内循環メッセージ</div>
+    <div class="row">
+      <div class="ph circ">循環図</div>
+      <p class="s">お店で使う → 地域が潤う → みんなに還る。<br>ポイントで地域内消費を循環させます。</p>
+    </div>
+    <div class="lnk">ポイントとは</div>
+  </section>
+
+  <!-- ④ お知らせ -->
+  <section>
+    <div class="tag">④ お知らせ（新着）</div>
+    <ul class="news">
+      <li><span class="d">2026/0X/0X</span> 説明会のご案内</li>
+      <li><span class="d">2026/0X/0X</span> 新規加盟店のお知らせ</li>
+      <li><span class="d">2026/0X/0X</span> イベント情報</li>
+    </ul>
+    <div class="lnk">お知らせ一覧</div>
+  </section>
+
+  <!-- ⑤ 大学連携 -->
+  <section>
+    <div class="tag">⑤ 北海道文教大学連携</div>
+    <h2 class="h">🎓 学生参加プログラム</h2>
+    <p class="s">連携協定・学生参加・地域での学びを紹介します。</p>
+    <div class="lnk">連携・学生参加を見る</div>
+  </section>
+
+  <!-- ⑥ 愛称投票（公開時特設） -->
+  <section style="position:relative;">
+    <span class="badge">公開時 特設</span>
+    <div class="tag">⑥ 愛称投票・プレゼント応募</div>
+    <h2 class="h">🎁 サイトの愛称を投票しよう</h2>
+    <p class="s">公開記念。応募でプレゼントが当たる企画です。</p>
+    <div class="lnk">応募する</div>
+  </section>
+
+  <!-- ⑦ お問い合わせ -->
+  <section>
+    <div class="tag">⑦ お問い合わせ誘導</div>
+    <h2 class="h">❓ 加盟のご相談・ご質問</h2>
+    <div class="lnk">お問い合わせ</div>
+  </section>
+
+  <!-- ⑧ フッター -->
+  <footer>
+    <div class="tag">⑧ フッター</div>
+    <b>恵庭サイモンズポイント会</b><br>
+    事務局：株式会社北央商事<br>
+    〒北海道恵庭市〇〇／TEL 000-000-0000／info@eniwa-point.com
+    <div class="frow">
+      <div>
+        <div class="lnk" style="color:#37474f">アプリ登録はこちら</div>
+      </div>
+      <div class="fqr"></div>
+    </div>
+    <div class="frow">
+      <div class="sns"><span class="s">f</span><span class="s">LINE</span><span class="s">ig</span></div>
+      <span>プライバシーポリシー</span>
+    </div>
+  </footer>
+
+  <!-- ⑨ 追従CTA -->
+  <div class="sticky">
+    <a class="cta">▶ アプリ登録（無料）</a>
+  </div>
+
+</div>
+
+</body>
+</html>
