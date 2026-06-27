@@ -29,6 +29,7 @@
 
 | No. | ドキュメント | ファイル |
 | --- | --- | --- |
+| 0 | **ご説明資料（全体まとめ）** | [docs/00_ご説明資料.md](docs/00_ご説明資料.md) ／ [ブラウザ版](site/about.html) |
 | 1 | 要件確認書 | [docs/01_要件確認書.md](docs/01_要件確認書.md) |
 | 2 | サイトマップ | [docs/02_サイトマップ.md](docs/02_サイトマップ.md) |
 | 3 | トップページ ワイヤーフレーム | [docs/03_トップページ_ワイヤーフレーム.md](docs/03_トップページ_ワイヤーフレーム.md) ／ [HTMLワイヤー](docs/wireframe/top.html) |
@@ -40,7 +41,8 @@
 
 実際に制作したトップページのレイアウトは、下記URLでブラウザからご確認いただけます。
 
-> **https://playmark0227-svg.github.io/aipoint/**
+> トップページ：**https://playmark0227-svg.github.io/aipoint/**
+> ご説明資料（ブラウザ版）：**https://playmark0227-svg.github.io/aipoint/about.html**
 
 （本ブランチの push 後、GitHub Actions が `site/` を自動デプロイします。反映に数分かかる場合があります。
 スマホ・PCどちらでも、画面幅に応じてレイアウトが切り替わります。）
