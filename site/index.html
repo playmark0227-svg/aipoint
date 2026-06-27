@@ -3,206 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>恵庭サイモンズポイント会｜使うほど、恵庭が元気になる。</title>
-<meta name="description" content="恵庭の地域共通ポイント。アプリ登録で、まちのお店がもっとおトクに。使うほど、恵庭が元気になる。">
+<title>えにわ愛ポイント｜使うほど、まちが元気になる。</title>
+<meta name="description" content="えにわ愛ポイントは、地域でのお買い物でポイントが貯まり、使うことでまちのお店を応援し、地域に還元されるポイントサービスです。ポイントは、愛。">
 <style>
   :root{
-    --green:#1f9d6b;       /* 恵庭・ガーデンの緑 */
-    --green-d:#157a52;
-    --orange:#f5852b;      /* 元気・あたたかさ */
-    --orange-d:#e16f15;
-    --yellow:#ffc83d;
-    --cream:#fff9ef;
-    --paper:#ffffff;
-    --ink:#2b2b2b;
-    --muted:#6b6b6b;
-    --line:#ece3d4;
+    --pink:#e85a9c;        /* メインピンク */
+    --pink-d:#d63f86;
+    --magenta:#e4007f;     /* 強調（元気・愛） */
+    --pink-soft:#ffd6e6;
+    --pink-bg:#ffeef5;
+    --pink-bg2:#ffe1ee;
+    --cream:#fff7da;       /* 学生バナー */
+    --cream-line:#f1e3a0;
+    --ink:#534a4f;
+    --ink-d:#3f383c;
+    --line:#f6d9e6;
     --radius:16px;
-    --shadow:0 8px 24px rgba(60,40,10,.10);
-    --maxw:1100px;
+    --shadow:0 8px 22px rgba(214,63,134,.12);
+    --maxw:1120px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;background:var(--cream);color:var(--ink);
-    font-family:"Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",YuGothic,Meiryo,sans-serif;
-    font-size:17px;line-height:1.8;-webkit-font-smoothing:antialiased;
+    margin:0;background:#fff;color:var(--ink);
+    font-family:"Hiragino Maru Gothic ProN","ヒラギノ丸ゴ ProN",
+      "Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",Meiryo,sans-serif;
+    font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none;}
   img{max-width:100%;display:block;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px;}
+  .mag{color:var(--magenta);}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    font-weight:800;border-radius:999px;padding:15px 26px;font-size:17px;
-    border:none;cursor:pointer;line-height:1.2;transition:transform .05s ease;
+    font-weight:800;border-radius:999px;padding:14px 22px;font-size:16px;
+    border:2px solid transparent;cursor:pointer;line-height:1.2;transition:transform .05s,filter .15s;
   }
   .btn:active{transform:translateY(1px);}
-  .btn-app{background:var(--orange);color:#fff;box-shadow:0 6px 16px rgba(245,133,43,.4);}
-  .btn-app:hover{background:var(--orange-d);}
-  .btn-ghost{background:#fff;color:var(--green-d);border:2px solid var(--green);}
-  .sec{padding:54px 0;}
-  .sec h2{font-size:26px;font-weight:900;margin:0 0 6px;letter-spacing:.02em;}
-  .sec .lead{color:var(--muted);margin:0 0 26px;font-size:16px;}
-  .eyebrow{display:inline-block;background:#eafaf2;color:var(--green-d);font-weight:800;
-    font-size:13px;padding:5px 14px;border-radius:999px;margin-bottom:12px;letter-spacing:.06em;}
-  .pill{display:inline-block;background:var(--yellow);color:#5a3d00;font-weight:800;
-    font-size:13px;padding:4px 12px;border-radius:999px;}
+  .btn .chev{margin-left:auto;opacity:.8;}
+  .btn-pink{background:linear-gradient(180deg,#f06daa,#e85a9c);color:#fff;
+    box-shadow:0 6px 14px rgba(232,90,156,.4);}
+  .btn-pink:hover{filter:brightness(1.05);}
+  .btn-out{background:#fff;color:var(--pink-d);border-color:var(--pink-soft);box-shadow:0 4px 12px rgba(214,63,134,.08);}
+  .btn-out:hover{border-color:var(--pink);}
+  .btn-sm{padding:9px 16px;font-size:14px;}
+  .sec{padding:46px 0;}
+  .sec-head{text-align:center;margin-bottom:30px;}
+  .ribbon{display:inline-flex;align-items:center;gap:10px;font-size:22px;font-weight:900;color:var(--ink-d);}
+  .ribbon::before,.ribbon::after{content:"";width:26px;height:2px;background:var(--pink-soft);}
+  .ribbon .mini-heart{color:var(--pink);}
 
-  /* Header */
-  header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);
+  /* ===== Header ===== */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
     backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
-  .navbar{display:flex;align-items:center;justify-content:space-between;height:64px;}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;}
-  .brand .logo{width:38px;height:38px;border-radius:11px;
-    background:linear-gradient(135deg,var(--green),#37c98a);display:flex;align-items:center;
-    justify-content:center;color:#fff;font-size:18px;box-shadow:0 3px 8px rgba(31,157,107,.4);}
-  .brand small{display:block;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.04em;}
-  .gnav{display:none;gap:22px;font-weight:700;font-size:15px;}
-  .gnav a:hover{color:var(--green-d);}
-  .nav-cta{display:flex;align-items:center;gap:10px;}
+  .navbar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;}
+  .brand{display:flex;align-items:center;gap:9px;}
+  .brand .mk{width:40px;height:40px;flex:none;}
+  .brand .bt{font-weight:900;font-size:16px;line-height:1.05;color:var(--ink-d);white-space:nowrap;}
+  .brand .bt b{color:var(--magenta);}
+  .brand .bt small{display:block;font-size:9.5px;letter-spacing:.18em;color:var(--pink);font-weight:800;}
+  .gnav{display:none;gap:18px;font-weight:700;font-size:14px;color:#6a5560;}
+  .gnav a:hover{color:var(--pink-d);}
+  .head-cta{display:flex;align-items:center;gap:8px;}
   .hamb{display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:8px;cursor:pointer;}
-  .hamb span{width:24px;height:2.5px;background:var(--ink);border-radius:2px;}
+  .hamb span{width:24px;height:2.5px;background:var(--pink);border-radius:2px;}
+  .hamb small{position:absolute;}
 
-  /* Hero */
-  .hero{background:
-      radial-gradient(120% 80% at 90% 0%,#eafaf2 0%,transparent 55%),
-      radial-gradient(120% 80% at 0% 100%,#fff2e0 0%,transparent 55%),
-      var(--cream);
-    padding:38px 0 46px;overflow:hidden;}
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;}
-  .hero h1{font-size:38px;line-height:1.3;font-weight:900;margin:10px 0 14px;letter-spacing:.01em;}
-  .hero h1 .hl{color:var(--green-d);}
-  .hero p.sub{font-size:18px;color:#444;margin:0 0 24px;}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
-  .qrcard{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:16px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow);max-width:380px;}
-  .qrcard .qr{width:96px;height:96px;flex:none;}
-  .qrcard .qt b{font-size:16px;}
-  .qrcard .qt span{display:block;color:var(--muted);font-size:13px;}
-  .stores-badges{display:flex;gap:8px;margin-top:8px;}
-  .stores-badges .b{font-size:11px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;color:var(--muted);font-weight:700;}
-  .hero-visual{background:linear-gradient(160deg,#37c98a,#1f9d6b);border-radius:24px;
-    min-height:280px;position:relative;color:#fff;padding:24px;box-shadow:var(--shadow);overflow:hidden;}
-  .hero-visual .big{font-size:64px;font-weight:900;line-height:1;}
-  .hero-visual .coin{position:absolute;border-radius:50%;background:var(--yellow);
-    box-shadow:0 6px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;
-    color:#7a5400;font-weight:900;}
-  .c1{width:72px;height:72px;top:30px;right:30px;font-size:24px;}
-  .c2{width:48px;height:48px;top:120px;right:120px;font-size:16px;opacity:.9;}
-  .c3{width:90px;height:90px;bottom:24px;right:48px;font-size:30px;}
-  .hero-visual .cap{position:absolute;left:24px;bottom:22px;font-weight:800;font-size:15px;
-    background:rgba(0,0,0,.16);padding:8px 14px;border-radius:999px;}
+  /* ===== Hero ===== */
+  .hero{position:relative;overflow:hidden;
+    background:linear-gradient(180deg,#ffe3ef 0%,#fff0f6 60%,#fff 100%);}
+  .hero .hearts{position:absolute;inset:0;pointer-events:none;}
+  .hero .hearts span{position:absolute;color:#ffc4dd;opacity:.6;}
+  .town{position:absolute;left:0;right:0;bottom:0;height:120px;width:100%;}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1fr;gap:8px;
+    padding:26px 0 40px;align-items:center;z-index:2;}
+  .hero-copy .eyebrow{display:inline-block;background:#fff;color:var(--pink-d);font-weight:800;
+    font-size:13px;padding:5px 16px;border-radius:999px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .hero h1{font-size:40px;line-height:1.28;font-weight:900;color:var(--ink-d);margin:6px 0 14px;letter-spacing:.01em;}
+  .hero h1 .big{font-size:46px;}
+  .hero p.lead{font-size:15.5px;color:#6a5560;margin:0 0 8px;max-width:30em;}
+  .hero-char{position:relative;display:flex;justify-content:center;align-items:flex-end;}
+  .bubble{position:absolute;top:6px;right:4px;background:#fff;border:2px solid var(--pink-soft);
+    border-radius:18px;padding:10px 14px;font-weight:800;color:var(--pink-d);font-size:13px;
+    box-shadow:var(--shadow);max-width:160px;text-align:center;z-index:3;}
+  .bubble::after{content:"";position:absolute;left:30px;bottom:-10px;border:9px solid transparent;
+    border-top-color:#fff;}
 
-  /* 3 nav cards */
-  .cards3{display:grid;grid-template-columns:1fr;gap:16px;}
-  .navcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow);
-    transition:transform .12s ease, box-shadow .12s ease;}
-  .navcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(60,40,10,.14);}
-  .navcard .ic{width:58px;height:58px;border-radius:14px;flex:none;display:flex;align-items:center;
-    justify-content:center;font-size:28px;}
-  .ic-shop{background:#eafaf2;}.ic-coupon{background:#fff2e0;}.ic-point{background:#fff6d6;}
-  .navcard b{font-size:19px;display:block;}
-  .navcard span{color:var(--muted);font-size:14px;}
-  .navcard .arrow{margin-left:auto;color:var(--green);font-weight:900;font-size:20px;}
+  /* ===== CTA row ===== */
+  .cta-row{display:grid;grid-template-columns:1fr;gap:12px;margin-top:6px;}
 
-  /* point mechanism */
-  .mech{background:#fff;}
-  .mech-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;}
-  .rate{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 18px;}
-  .rate .r{flex:1;min-width:150px;background:var(--cream);border:1px solid var(--line);
-    border-radius:14px;padding:16px 18px;text-align:center;}
-  .rate .r .num{font-size:26px;font-weight:900;color:var(--green-d);}
-  .rate .r small{color:var(--muted);}
-  .loop{background:linear-gradient(160deg,#fff7ea,#ffeccc);border:1px solid var(--line);
-    border-radius:20px;padding:24px;}
-  .loop ol{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
-  .loop li{display:flex;align-items:center;gap:14px;font-weight:700;}
-  .loop li .n{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-weight:900;flex:none;}
-  .loop li.last{color:var(--orange-d);}
+  /* ===== usage + promo grid ===== */
+  .midgrid{display:grid;grid-template-columns:1fr;gap:24px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);}
+  .use-title{text-align:center;font-weight:900;font-size:19px;color:var(--ink-d);margin:0 0 18px;
+    display:flex;align-items:center;justify-content:center;gap:10px;}
+  .use-title::before,.use-title::after{content:"╱";color:var(--pink-soft);font-weight:700;}
+  .steps{display:grid;grid-template-columns:1fr;gap:14px;}
+  .step{display:flex;gap:14px;align-items:flex-start;background:var(--pink-bg);border-radius:14px;padding:14px 16px;}
+  .step .no{width:30px;height:30px;flex:none;border-radius:50%;background:var(--pink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;}
+  .step .em{font-size:30px;line-height:1;}
+  .step b{display:block;font-size:16px;color:var(--ink-d);}
+  .step span{font-size:13px;color:#7a6671;}
 
-  /* shop categories */
-  .cats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-  .cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;
-    box-shadow:var(--shadow);}
-  .cat .e{font-size:34px;}
-  .cat b{display:block;margin-top:6px;font-size:16px;}
-  .cat span{color:var(--muted);font-size:13px;}
+  .promo{background:linear-gradient(160deg,#fff4ea,#ffe6cf);border:1px solid #ffd9b8;border-radius:18px;
+    padding:18px;text-align:center;position:relative;overflow:hidden;}
+  .promo .now{display:inline-block;background:var(--magenta);color:#fff;font-weight:900;font-size:12px;
+    padding:3px 12px;border-radius:999px;margin-bottom:6px;}
+  .promo .pt{font-size:30px;font-weight:900;color:var(--magenta);line-height:1.1;}
+  .promo .pt small{font-size:15px;color:var(--ink-d);}
+  .promo .gift{font-size:34px;}
+  .student{background:var(--cream);border:1px solid var(--cream-line);border-radius:18px;padding:18px;text-align:center;margin-top:16px;}
+  .student .tag{display:inline-block;background:#ffce4d;color:#7a5a00;font-weight:900;font-size:12px;padding:3px 12px;border-radius:999px;margin-bottom:6px;}
+  .student b{display:block;color:var(--ink-d);font-size:17px;}
+  .student .sr{color:var(--magenta);font-weight:900;}
 
-  /* coupon */
-  .coupons{display:grid;grid-template-columns:1fr;gap:14px;}
-  .coupon{display:flex;gap:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);
-    background:#fff;box-shadow:var(--shadow);}
-  .coupon .tab{background:var(--orange);color:#fff;writing-mode:vertical-rl;text-orientation:upright;
-    font-weight:900;padding:14px 10px;display:flex;align-items:center;justify-content:center;letter-spacing:.1em;}
-  .coupon .body{padding:16px 18px;}
-  .coupon .body .big{font-size:22px;font-weight:900;color:var(--orange-d);}
-  .coupon .body small{color:var(--muted);}
+  /* ===== categories ===== */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 8px;text-align:center;
+    box-shadow:var(--shadow);transition:transform .12s;}
+  .cat:hover{transform:translateY(-3px);}
+  .cat .ic{width:54px;height:54px;margin:0 auto 8px;border-radius:50%;background:var(--pink-bg);
+    display:flex;align-items:center;justify-content:center;font-size:26px;}
+  .cat b{font-size:14px;color:var(--ink-d);}
 
-  /* news */
-  .news{background:#fff;}
-  .newslist{border-top:1px solid var(--line);}
-  .newslist a{display:flex;gap:16px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);}
-  .newslist a:hover{background:#fafafa;}
-  .newslist .date{color:var(--muted);font-size:14px;font-weight:700;flex:none;width:96px;}
-  .newslist .cat-tag{font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;flex:none;}
-  .t-info{background:#eafaf2;color:var(--green-d);}.t-event{background:#fff2e0;color:var(--orange-d);}
-  .t-shop{background:#fff6d6;color:#9a6b00;}
-  .newslist .ttl{font-weight:700;}
+  /* ===== app section ===== */
+  .app{background:linear-gradient(180deg,#fff,#ffeef5);}
+  .app-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+    display:grid;grid-template-columns:1fr;gap:22px;padding:26px;align-items:center;}
+  .app-card h3{font-size:22px;color:var(--ink-d);margin:0 0 6px;font-weight:900;}
+  .app-feats{list-style:none;padding:0;margin:10px 0 16px;display:grid;gap:8px;}
+  .app-feats li{display:flex;gap:8px;align-items:center;font-weight:700;color:#5f4d57;}
+  .app-feats li::before{content:"✓";color:var(--pink);font-weight:900;}
+  .stores{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .store{display:inline-flex;align-items:center;gap:8px;background:#222;color:#fff;border-radius:10px;
+    padding:8px 14px;font-weight:700;font-size:13px;}
+  .store .em{font-size:18px;}
+  .appqr{display:flex;align-items:center;gap:14px;justify-content:center;}
+  .appqr .phone{width:96px;height:170px;border-radius:18px;background:linear-gradient(160deg,#ffd9e8,#fff);
+    border:5px solid #2b2b2b;display:flex;align-items:center;justify-content:center;flex:none;}
+  .appqr .qr{width:110px;height:110px;flex:none;}
 
-  /* university */
-  .uni{background:linear-gradient(160deg,#eafaf2,#dff5ea);}
-  .uni-card{background:#fff;border-radius:20px;padding:26px;box-shadow:var(--shadow);
-    display:grid;grid-template-columns:1fr;gap:14px;}
-  .uni-card .tags{display:flex;flex-wrap:wrap;gap:8px;}
-  .uni-card .tags span{background:#eafaf2;color:var(--green-d);font-weight:700;font-size:13px;
-    padding:4px 12px;border-radius:999px;}
+  /* ===== footer ===== */
+  footer.site{background:linear-gradient(180deg,#ec6ea6,#e85a9c);color:#fff;padding:34px 0 110px;}
+  footer .fnav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-size:13.5px;font-weight:700;
+    padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.3);}
+  footer .fnav a:hover{text-decoration:underline;}
+  footer .fbottom{display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:18px;text-align:center;font-size:12.5px;}
+  footer .sns{display:flex;gap:10px;}
+  footer .sns a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.2);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;}
+  footer .org{opacity:.92;}
 
-  /* vote banner */
-  .vote{background:linear-gradient(135deg,var(--orange),var(--yellow));color:#fff;}
-  .vote-inner{display:grid;grid-template-columns:1fr;gap:14px;align-items:center;text-align:center;}
-  .vote h2{color:#fff;font-size:26px;}
-  .vote p{margin:0 0 6px;font-weight:700;}
-  .vote .btn-ghost{background:#fff;color:var(--orange-d);border:none;}
+  /* ===== mobile sticky cta ===== */
+  .mcta{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.97);
+    border-top:1px solid var(--line);padding:9px 14px;box-shadow:0 -4px 16px rgba(214,63,134,.1);}
+  .mcta .btn{width:100%;}
 
-  /* contact */
-  .contact{background:#fff;}
-  .contact-card{background:var(--cream);border:1px solid var(--line);border-radius:20px;
-    padding:28px;text-align:center;}
-
-  /* footer */
-  footer.site{background:#173f31;color:#dfeee7;padding:46px 0 110px;font-size:14px;}
-  footer .fcols{display:grid;grid-template-columns:1fr;gap:26px;}
-  footer h4{color:#fff;font-size:16px;margin:0 0 10px;}
-  footer a:hover{color:#fff;text-decoration:underline;}
-  footer .flist{display:flex;flex-direction:column;gap:8px;}
-  footer .sns{display:flex;gap:10px;margin-top:6px;}
-  footer .sns a{width:40px;height:40px;border-radius:10px;background:#21513f;display:flex;
-    align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;}
-  footer .fqr{width:88px;height:88px;background:#fff;border-radius:10px;padding:6px;}
-  footer .copy{border-top:1px solid #2c5b48;margin-top:26px;padding-top:16px;color:#9cc4b4;}
-
-  /* sticky mobile cta */
-  .mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.96);
-    border-top:1px solid var(--line);padding:10px 14px;box-shadow:0 -4px 16px rgba(0,0,0,.06);}
-  .mobile-cta .btn-app{width:100%;}
-
-  /* Desktop */
-  @media(min-width:880px){
+  /* ===== Desktop ===== */
+  @media(min-width:900px){
     .gnav{display:flex;}
     .hamb{display:none;}
-    .hero-grid{grid-template-columns:1.05fr .95fr;gap:40px;}
+    .brand .bt{font-size:19px;}
+    .hero-grid{grid-template-columns:1.15fr .85fr;gap:24px;padding:34px 0 60px;}
     .hero h1{font-size:50px;}
-    .cards3{grid-template-columns:repeat(3,1fr);}
-    .mech-grid{grid-template-columns:1.1fr .9fr;}
-    .cats{grid-template-columns:repeat(4,1fr);}
-    .coupons{grid-template-columns:1fr 1fr;}
-    .uni-card{grid-template-columns:1.4fr 1fr;align-items:center;}
-    .vote-inner{grid-template-columns:1fr auto;text-align:left;}
-    footer .fcols{grid-template-columns:1.4fr 1fr 1fr;}
-    .mobile-cta{display:none;}
-    footer.site{padding-bottom:46px;}
+    .hero h1 .big{font-size:58px;}
+    .cta-row{grid-template-columns:repeat(3,1fr);max-width:none;}
+    .midgrid{grid-template-columns:1.3fr .7fr;}
+    .steps{grid-template-columns:repeat(3,1fr);}
+    .step{flex-direction:column;text-align:center;align-items:center;}
+    .cats{grid-template-columns:repeat(5,1fr);}
+    .app-card{grid-template-columns:1.3fr .7fr;}
+    .mcta{display:none;}
+    footer.site{padding-bottom:34px;}
   }
 </style>
 </head>
@@ -211,20 +184,24 @@
 <!-- ===== Header ===== -->
 <header class="site">
   <div class="wrap navbar">
-    <a class="brand" href="#top">
-      <span class="logo">恵</span>
-      <span>恵庭サイモンズポイント会<small>地域共通ポイント 公式サイト</small></span>
+    <a class="brand" href="#top" aria-label="えにわ愛ポイント">
+      <svg class="mk" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 43C13 35 5 28 5 18.5 5 12 10 7.5 16 7.5c4 0 7 2 8 5 1-3 4-5 8-5 6 0 11 4.5 11 11C43 28 35 35 24 43Z" fill="#e85a9c"/>
+        <text x="24" y="27" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="sans-serif">愛</text>
+      </svg>
+      <span class="bt">えにわ<b>愛</b>ポイント<small>ENIWA AI POINT</small></span>
     </a>
     <nav class="gnav">
-      <a href="#point">ポイントとは</a>
-      <a href="#app">アプリ登録</a>
-      <a href="#shops">加盟店</a>
-      <a href="#coupon">クーポン</a>
+      <a href="#top">トップ</a>
+      <a href="#about">えにわ愛ポイントとは</a>
+      <a href="#shops">使えるお店を探す</a>
+      <a href="#promo">キャンペーン</a>
       <a href="#news">お知らせ</a>
-      <a href="#uni">大学連携</a>
+      <a href="#faq">よくあるご質問</a>
     </nav>
-    <div class="nav-cta">
-      <a class="btn btn-app" href="#app">アプリ登録</a>
+    <div class="head-cta">
+      <a class="btn btn-pink btn-sm" href="#join">会員登録（無料）</a>
+      <a class="btn btn-out btn-sm" href="#login" style="display:none;">ログイン</a>
       <button class="hamb" aria-label="メニュー"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -234,210 +211,190 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero">
+  <div class="hearts" aria-hidden="true">
+    <span style="top:14%;left:8%;font-size:22px;">♥</span>
+    <span style="top:30%;left:46%;font-size:14px;">♥</span>
+    <span style="top:12%;left:62%;font-size:18px;">♥</span>
+    <span style="top:54%;left:30%;font-size:12px;">♥</span>
+    <span style="top:20%;left:88%;font-size:16px;">♥</span>
+  </div>
   <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">恵庭の地域共通ポイント</span>
-      <h1>使うほど、<br><span class="hl">恵庭が元気になる。</span></h1>
-      <p class="sub">まちのお店で貯まる・使える地域共通ポイント。<br>アプリ登録は無料。お買い物が、地域への応援になります。</p>
-      <div class="hero-cta">
-        <a class="btn btn-app" href="#app">▶ アプリを無料で登録する</a>
-        <a class="btn btn-ghost" href="#point">ポイントの使い方</a>
+    <div class="hero-copy">
+      <span class="eyebrow">買って、貯めて、地域を応援！</span>
+      <h1>使うほど、<br><span class="big">まちが<span class="mag">元気</span>になる。</span></h1>
+      <p class="lead">えにわ愛ポイントは、地域でのお買い物でポイントが貯まり、使うことでまちのお店を応援し、地域に還元されるポイントサービスです。</p>
+      <p class="lead" style="font-weight:900;color:var(--pink-d);">ポイントは、愛。💗</p>
+    </div>
+    <div class="hero-char">
+      <div class="bubble">みんなで<br>えにわをもっと<br>元気にしよう！</div>
+      <!-- マスコットキャラクター（プレースホルダー：公式キャラクターに差し替え予定） -->
+      <svg viewBox="0 0 240 280" width="240" style="max-width:78%;" role="img" aria-label="えにわ愛ポイント キャラクター（イメージ）">
+        <ellipse cx="120" cy="270" rx="70" ry="10" fill="#f4b8d2" opacity=".5"/>
+        <!-- leaf -->
+        <path d="M120 28C120 10 138 4 150 8 146 24 134 32 120 32Z" fill="#74c36b"/>
+        <rect x="118" y="28" width="5" height="16" rx="2" fill="#74c36b"/>
+        <!-- peach/sakura costume body -->
+        <path d="M120 40C70 40 54 92 54 134c0 60 30 104 66 104s66-44 66-104C186 92 170 40 120 40Z" fill="#f58fb9"/>
+        <path d="M120 40C70 40 54 92 54 134c0 60 30 104 66 104s66-44 66-104C186 92 170 40 120 40Z" fill="none" stroke="#ec74a8" stroke-width="3"/>
+        <!-- face -->
+        <circle cx="120" cy="118" r="50" fill="#ffe6d6"/>
+        <!-- hair fringe -->
+        <path d="M73 108c2-30 24-46 47-46s45 16 47 46c-14-12-30-16-47-16s-33 4-47 16Z" fill="#7a5544"/>
+        <!-- eyes -->
+        <ellipse cx="103" cy="120" rx="8" ry="11" fill="#3a2a25"/>
+        <ellipse cx="137" cy="120" rx="8" ry="11" fill="#3a2a25"/>
+        <circle cx="106" cy="116" r="3" fill="#fff"/><circle cx="140" cy="116" r="3" fill="#fff"/>
+        <!-- cheeks -->
+        <circle cx="92" cy="134" r="8" fill="#ff9fc4" opacity=".7"/>
+        <circle cx="148" cy="134" r="8" fill="#ff9fc4" opacity=".7"/>
+        <!-- smile -->
+        <path d="M110 138c5 7 15 7 20 0" fill="none" stroke="#c0506f" stroke-width="3" stroke-linecap="round"/>
+        <!-- arm holding phone -->
+        <ellipse cx="170" cy="178" rx="16" ry="22" fill="#f58fb9"/>
+        <rect x="176" y="150" width="34" height="56" rx="8" fill="#fff" stroke="#ec74a8" stroke-width="3"/>
+        <text x="193" y="184" text-anchor="middle" font-size="22" fill="#e4007f">♥</text>
+        <!-- label -->
+        <text x="120" y="206" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="sans-serif">えにわ愛</text>
+        <text x="120" y="222" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" letter-spacing="2" font-family="sans-serif">POINT</text>
+      </svg>
+    </div>
+  </div>
+  <svg class="town" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="#ffc9de">
+      <rect x="40" y="60" width="70" height="60"/><rect x="120" y="40" width="56" height="80"/>
+      <rect x="190" y="72" width="80" height="48"/><polygon points="690,72 730,44 770,72"/>
+      <rect x="690" y="72" width="80" height="48"/><rect x="300" y="50" width="60" height="70"/>
+      <rect x="380" y="74" width="90" height="46"/><rect x="500" y="56" width="64" height="64"/>
+      <rect x="820" y="48" width="58" height="72"/><rect x="900" y="70" width="86" height="50"/>
+      <rect x="1010" y="56" width="66" height="64"/><rect x="1100" y="74" width="70" height="46"/>
+      <circle cx="160" cy="36" r="10"/><circle cx="846" cy="44" r="9"/>
+    </g>
+    <g fill="#7cc873"><circle cx="600" cy="104" r="16"/><circle cx="270" cy="108" r="14"/><circle cx="990" cy="106" r="15"/></g>
+  </svg>
+</section>
+
+<!-- ===== CTA row ===== -->
+<section class="sec" id="join" style="padding-top:30px;padding-bottom:10px;">
+  <div class="wrap">
+    <div class="cta-row">
+      <a class="btn btn-pink" href="#">👤＋ 会員登録する（無料）<span class="chev">›</span></a>
+      <a class="btn btn-out" href="#app">⬇ アプリをダウンロード<span class="chev">›</span></a>
+      <a class="btn btn-out" href="#shops">🏬 使えるお店を見る<span class="chev">›</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== usage + promo ===== -->
+<section class="sec" id="about">
+  <div class="wrap midgrid">
+    <!-- usage -->
+    <div class="panel">
+      <h2 class="use-title">えにわ愛ポイントの使い方</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="no">1</span><span class="em">🪙</span>
+          <span><b>貯まる</b><span>お買い物やイベント参加でポイントが貯まる！</span></span>
+        </div>
+        <div class="step">
+          <span class="no">2</span><span class="em">🏪</span>
+          <span><b>使える</b><span>市内の加盟店で1ポイント＝1円として使える！</span></span>
+        </div>
+        <div class="step">
+          <span class="no">3</span><span class="em">💗</span>
+          <span><b>役立つ</b><span>ポイントの一部は地域に還元・寄付されます</span></span>
+        </div>
       </div>
-      <div class="qrcard">
-        <svg class="qr" viewBox="0 0 100 100" role="img" aria-label="アプリ登録用QRコード（サンプル）">
-          <rect width="100" height="100" fill="#fff"/>
-          <g fill="#173f31">
-            <rect x="6" y="6" width="22" height="22"/><rect x="10" y="10" width="14" height="14" fill="#fff"/><rect x="13" y="13" width="8" height="8"/>
-            <rect x="72" y="6" width="22" height="22"/><rect x="76" y="10" width="14" height="14" fill="#fff"/><rect x="79" y="13" width="8" height="8"/>
-            <rect x="6" y="72" width="22" height="22"/><rect x="10" y="76" width="14" height="14" fill="#fff"/><rect x="13" y="79" width="8" height="8"/>
-            <rect x="36" y="10" width="6" height="6"/><rect x="48" y="10" width="6" height="6"/><rect x="60" y="16" width="6" height="6"/>
-            <rect x="36" y="22" width="6" height="6"/><rect x="54" y="22" width="6" height="6"/>
-            <rect x="10" y="36" width="6" height="6"/><rect x="22" y="36" width="6" height="6"/><rect x="40" y="36" width="6" height="6"/><rect x="52" y="36" width="6" height="6"/><rect x="64" y="36" width="6" height="6"/><rect x="82" y="36" width="6" height="6"/>
-            <rect x="16" y="48" width="6" height="6"/><rect x="34" y="48" width="6" height="6"/><rect x="46" y="48" width="6" height="6"/><rect x="70" y="48" width="6" height="6"/><rect x="88" y="48" width="6" height="6"/>
-            <rect x="40" y="60" width="6" height="6"/><rect x="52" y="60" width="6" height="6"/><rect x="64" y="60" width="6" height="6"/><rect x="76" y="60" width="6" height="6"/>
-            <rect x="36" y="72" width="6" height="6"/><rect x="48" y="78" width="6" height="6"/><rect x="60" y="72" width="6" height="6"/><rect x="72" y="78" width="6" height="6"/><rect x="84" y="72" width="6" height="6"/>
-            <rect x="40" y="86" width="6" height="6"/><rect x="58" y="86" width="6" height="6"/><rect x="76" y="86" width="6" height="6"/><rect x="88" y="86" width="6" height="6"/>
+    </div>
+    <!-- promo + student -->
+    <div>
+      <div class="promo" id="promo">
+        <span class="now">今だけ！</span>
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
+          <div class="pt">500<small>pt</small><br><small style="font-size:13px;">新規登録でプレゼント！</small></div>
+          <div class="gift">🎁</div>
+        </div>
+        <a class="btn btn-pink btn-sm" href="#" style="margin-top:8px;">詳しくはこちら ›</a>
+      </div>
+      <div class="student">
+        <span class="tag">学生の方はこちら！</span>
+        <b>えにわを回るとポイントが増える！</b>
+        <span class="sr">🎓 スタンプラリー開催中！</span>
+        <div><a class="btn btn-out btn-sm" href="#" style="margin-top:8px;">詳しくはこちら ›</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== categories ===== -->
+<section class="sec" id="shops" style="background:var(--pink-bg);">
+  <div class="sec-head"><span class="ribbon"><span class="mini-heart">♥</span> 使えるお店を探す</span></div>
+  <div class="wrap">
+    <div class="cats">
+      <a class="cat" href="#"><span class="ic">🍴</span><b>飲食店</b></a>
+      <a class="cat" href="#"><span class="ic">🛍️</span><b>買い物</b></a>
+      <a class="cat" href="#"><span class="ic">✂️</span><b>サービス</b></a>
+      <a class="cat" href="#"><span class="ic">💄</span><b>美容・健康</b></a>
+      <a class="cat" href="#"><span class="ic">🏬</span><b>すべてのお店</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== news ===== -->
+<section class="sec" id="news">
+  <div class="sec-head"><span class="ribbon"><span class="mini-heart">♥</span> お知らせ</span></div>
+  <div class="wrap" style="max-width:760px;">
+    <div style="border-top:1px solid var(--line);">
+      <a href="#" style="display:flex;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);">
+        <span style="color:var(--pink-d);font-weight:800;font-size:13px;width:92px;flex:none;">2026.0X.0X</span>
+        <span style="background:var(--pink-bg);color:var(--pink-d);font-weight:800;font-size:12px;padding:3px 10px;border-radius:999px;flex:none;">説明会</span>
+        <span style="font-weight:700;">加盟店向け説明会を開催します</span>
+      </a>
+      <a href="#" style="display:flex;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);">
+        <span style="color:var(--pink-d);font-weight:800;font-size:13px;width:92px;flex:none;">2026.0X.0X</span>
+        <span style="background:#fff0d6;color:#9a6b00;font-weight:800;font-size:12px;padding:3px 10px;border-radius:999px;flex:none;">新規加盟</span>
+        <span style="font-weight:700;">新しい加盟店が仲間入りしました</span>
+      </a>
+      <a href="#" style="display:flex;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);">
+        <span style="color:var(--pink-d);font-weight:800;font-size:13px;width:92px;flex:none;">2026.0X.0X</span>
+        <span style="background:#e6f6e0;color:#3f8c2f;font-weight:800;font-size:12px;padding:3px 10px;border-radius:999px;flex:none;">イベント</span>
+        <span style="font-weight:700;">えにわまちなかイベントのお知らせ</span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:22px;"><a class="btn btn-out btn-sm" href="#">お知らせ一覧 ›</a></div>
+  </div>
+</section>
+
+<!-- ===== app ===== -->
+<section class="sec app" id="app">
+  <div class="wrap">
+    <div class="app-card">
+      <div>
+        <span class="ribbon" style="font-size:16px;"><span class="mini-heart">♥</span> もっと便利に！</span>
+        <h3>えにわ愛ポイントアプリ</h3>
+        <ul class="app-feats">
+          <li>ポイント残高の確認</li>
+          <li>お得なクーポンを配信</li>
+          <li>使えるお店の検索が簡単</li>
+        </ul>
+        <div class="stores">
+          <span class="store"><span class="em"></span> App Store</span>
+          <span class="store"><span class="em">▶</span> Google Play</span>
+        </div>
+      </div>
+      <div class="appqr">
+        <div class="phone">
+          <svg viewBox="0 0 48 48" width="42" aria-hidden="true"><path d="M24 43C13 35 5 28 5 18.5 5 12 10 7.5 16 7.5c4 0 7 2 8 5 1-3 4-5 8-5 6 0 11 4.5 11 11C43 28 35 35 24 43Z" fill="#e85a9c"/><text x="24" y="27" text-anchor="middle" font-size="15" font-weight="900" fill="#fff" font-family="sans-serif">愛</text></svg>
+        </div>
+        <svg class="qr" viewBox="0 0 100 100" aria-label="アプリ登録QR（サンプル）">
+          <rect width="100" height="100" rx="6" fill="#fff" stroke="#f6d9e6"/>
+          <g fill="#534a4f">
+            <rect x="8" y="8" width="22" height="22"/><rect x="12" y="12" width="14" height="14" fill="#fff"/><rect x="15" y="15" width="8" height="8"/>
+            <rect x="70" y="8" width="22" height="22"/><rect x="74" y="12" width="14" height="14" fill="#fff"/><rect x="77" y="15" width="8" height="8"/>
+            <rect x="8" y="70" width="22" height="22"/><rect x="12" y="74" width="14" height="14" fill="#fff"/><rect x="15" y="77" width="8" height="8"/>
+            <rect x="38" y="12" width="6" height="6"/><rect x="52" y="20" width="6" height="6"/><rect x="40" y="40" width="6" height="6"/><rect x="58" y="46" width="6" height="6"/><rect x="74" y="40" width="6" height="6"/><rect x="46" y="58" width="6" height="6"/><rect x="66" y="62" width="6" height="6"/><rect x="40" y="78" width="6" height="6"/><rect x="60" y="80" width="6" height="6"/><rect x="80" y="74" width="6" height="6"/><rect x="86" y="86" width="6" height="6"/>
           </g>
         </svg>
-        <div class="qt">
-          <b>QRコードで かんたん登録</b>
-          <span>カメラで読み取るだけ・約1分</span>
-          <div class="stores-badges"><span class="b"> App Store</span><span class="b">▶ Google Play</span></div>
-        </div>
       </div>
-    </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="big">100円<br>= 1pt</div>
-      <div class="coin c1">P</div>
-      <div class="coin c2">P</div>
-      <div class="coin c3">P</div>
-      <div class="cap">🌸 花のまち 恵庭から</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 3 nav cards ===== -->
-<section class="sec" id="explore">
-  <div class="wrap">
-    <div class="cards3">
-      <a class="navcard" href="#shops">
-        <span class="ic ic-shop">🏪</span>
-        <span><b>加盟店を見る</b><span>近くの使えるお店をチェック</span></span>
-        <span class="arrow">›</span>
-      </a>
-      <a class="navcard" href="#coupon">
-        <span class="ic ic-coupon">🎟️</span>
-        <span><b>クーポンを見る</b><span>おトクな最新キャンペーン</span></span>
-        <span class="arrow">›</span>
-      </a>
-      <a class="navcard" href="#point">
-        <span class="ic ic-point">💡</span>
-        <span><b>ポイントの使い方</b><span>貯め方・使い方をやさしく解説</span></span>
-        <span class="arrow">›</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Point mechanism ===== -->
-<section class="sec mech" id="point">
-  <div class="wrap mech-grid">
-    <div>
-      <span class="eyebrow">ポイントとは</span>
-      <h2>使うほど、おトク。<br>そして、地域がうるおう。</h2>
-      <p class="lead">恵庭の加盟店で使える地域共通ポイント。1ポイント＝1円として、次のお買い物に使えます。</p>
-      <div class="rate">
-        <div class="r"><div class="num">100円 = 1pt</div><small>お買い物でたまる</small></div>
-        <div class="r"><div class="num">1pt = 1円</div><small>加盟店で つかえる</small></div>
-      </div>
-      <a class="btn btn-ghost" href="#">ポイントとは を詳しく ›</a>
-    </div>
-    <div class="loop">
-      <b style="font-size:18px;">🔄 地域内で、ぐるぐる循環。</b>
-      <ol>
-        <li><span class="n">1</span> まちのお店でお買い物</li>
-        <li><span class="n">2</span> ポイントがたまる</li>
-        <li><span class="n">3</span> たまったポイントをお店で使う</li>
-        <li class="last"><span class="n" style="background:var(--orange)">♥</span> 売上が地域に還り、恵庭が元気に</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ===== App registration ===== -->
-<section class="sec" id="app" style="background:linear-gradient(160deg,#eafaf2,#fff);">
-  <div class="wrap" style="text-align:center;">
-    <span class="eyebrow">アプリ登録方法</span>
-    <h2>登録は無料・かんたん3ステップ</h2>
-    <p class="lead">Apple / Android どちらにも対応。個人情報はしっかり管理します。</p>
-    <div class="cats" style="margin-bottom:26px;">
-      <div class="cat"><div class="e">①</div><b>QRを読み取る</b><span>カメラでピッ</span></div>
-      <div class="cat"><div class="e">②</div><b>アプリを入れる</b><span>無料ダウンロード</span></div>
-      <div class="cat"><div class="e">③</div><b>かんたん登録</b><span>約1分で完了</span></div>
-      <div class="cat"><div class="e">🎉</div><b>使えます！</b><span>すぐにお店で</span></div>
-    </div>
-    <a class="btn btn-app" href="#">▶ アプリを無料で登録する</a>
-  </div>
-</section>
-
-<!-- ===== Shop categories ===== -->
-<section class="sec" id="shops" style="background:#fff;">
-  <div class="wrap">
-    <span class="eyebrow">加盟店一覧</span>
-    <h2>恵庭の、いろんなお店で。</h2>
-    <p class="lead">飲食・小売・サービスなど、加盟店が続々参加中。カテゴリから探せます。</p>
-    <div class="cats">
-      <a class="cat" href="#"><div class="e">🍜</div><b>飲食</b><span>カフェ・食堂・居酒屋</span></a>
-      <a class="cat" href="#"><div class="e">🛍️</div><b>小売</b><span>食品・雑貨・専門店</span></a>
-      <a class="cat" href="#"><div class="e">💇</div><b>サービス</b><span>美容・くらし・教室</span></a>
-      <a class="cat" href="#"><div class="e">➕</div><b>その他</b><span>地域のいろいろ</span></a>
-    </div>
-    <div style="text-align:center;margin-top:26px;">
-      <a class="btn btn-ghost" href="#">加盟店一覧をすべて見る ›</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Coupons ===== -->
-<section class="sec" id="coupon" style="background:var(--cream);">
-  <div class="wrap">
-    <span class="eyebrow">クーポン・キャンペーン</span>
-    <h2>いま使える、おトク情報。</h2>
-    <p class="lead">最新クーポン、期間限定企画、スタンプラリーなどを掲載します。</p>
-    <div class="coupons">
-      <div class="coupon">
-        <div class="tab">COUPON</div>
-        <div class="body"><span class="pill">期間限定</span><div class="big">ポイント2倍キャンペーン</div><small>対象加盟店で 〇/〇 まで</small></div>
-      </div>
-      <div class="coupon">
-        <div class="tab">EVENT</div>
-        <div class="body"><span class="pill">参加無料</span><div class="big">スタンプラリー開催</div><small>まちを巡ってポイントGET</small></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:26px;">
-      <a class="btn btn-ghost" href="#">クーポンをもっと見る ›</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== News ===== -->
-<section class="sec news" id="news">
-  <div class="wrap">
-    <span class="eyebrow">お知らせ</span>
-    <h2>最新のお知らせ</h2>
-    <p class="lead">説明会・イベント・新規加盟店・メンテナンス情報をお届けします。</p>
-    <div class="newslist">
-      <a href="#"><span class="date">2026.0X.0X</span><span class="cat-tag t-info">説明会</span><span class="ttl">加盟店向け説明会を開催します</span></a>
-      <a href="#"><span class="date">2026.0X.0X</span><span class="cat-tag t-shop">新規加盟</span><span class="ttl">新しい加盟店が仲間入りしました</span></a>
-      <a href="#"><span class="date">2026.0X.0X</span><span class="cat-tag t-event">イベント</span><span class="ttl">恵庭まちなかイベントのお知らせ</span></a>
-    </div>
-    <div style="text-align:center;margin-top:24px;">
-      <a class="btn btn-ghost" href="#">お知らせ一覧 ›</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== University ===== -->
-<section class="sec uni" id="uni">
-  <div class="wrap">
-    <span class="eyebrow">北海道文教大学 連携</span>
-    <h2>学生と、地域と、いっしょに。</h2>
-    <div class="uni-card">
-      <div>
-        <p style="margin-top:0;">北海道文教大学との連携協定のもと、学生参加プログラムを通じて地域での学びと、まちの賑わいづくりを進めています。</p>
-        <div class="tags">
-          <span>連携協定</span><span>学生参加プログラム</span><span>地域での学び</span><span>取材・発信</span>
-        </div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:54px;">🎓</div>
-        <a class="btn btn-ghost" href="#">連携・学生参加を見る ›</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Vote / present banner ===== -->
-<section class="sec vote">
-  <div class="wrap vote-inner">
-    <div>
-      <span class="pill">公開記念・期間限定</span>
-      <h2>サイトの愛称を決めよう！</h2>
-      <p>あなたの一票でこのサイトの愛称が決まります。ご応募でプレゼントが当たる！</p>
-    </div>
-    <div><a class="btn btn-ghost" href="#">🎁 愛称投票・プレゼントに応募する</a></div>
-  </div>
-</section>
-
-<!-- ===== Contact ===== -->
-<section class="sec contact" id="contact">
-  <div class="wrap">
-    <div class="contact-card">
-      <span class="eyebrow">お問い合わせ</span>
-      <h2>加盟のご相談・ご質問はこちら</h2>
-      <p class="lead" style="margin-bottom:20px;">加盟をご検討の事業者さま、ご利用中のみなさまからのお問い合わせを受け付けています。</p>
-      <a class="btn btn-app" href="#">お問い合わせフォームへ</a>
-      <p style="margin-top:16px;color:var(--muted);font-size:14px;">事務局：株式会社北央商事／TEL 000-000-0000</p>
     </div>
   </div>
 </section>
@@ -447,54 +404,31 @@
 <!-- ===== Footer ===== -->
 <footer class="site">
   <div class="wrap">
-    <div class="fcols">
-      <div>
-        <h4>恵庭サイモンズポイント会</h4>
-        <p style="margin:0 0 4px;">使うほど、恵庭が元気になる。<br>恵庭の地域共通ポイント公式サイト</p>
-        <p style="margin:10px 0 0;color:#9cc4b4;">事務局：株式会社北央商事<br>〒北海道恵庭市〇〇〇〇<br>TEL 000-000-0000／info@eniwa-point.com</p>
-        <div class="sns">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="LINE">LINE</a>
-          <a href="#" aria-label="Instagram">ig</a>
-        </div>
+    <nav class="fnav">
+      <a href="#">利用規約</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引に基づく表記</a>
+      <a href="#">お問い合わせ</a>
+      <a href="#">運営会社</a>
+      <a href="#faq">よくあるご質問</a>
+    </nav>
+    <div class="fbottom">
+      <div style="font-weight:900;font-size:17px;">えにわ愛ポイント<span style="font-weight:700;font-size:13px;opacity:.9;">｜ポイントは、愛。</span></div>
+      <div class="sns">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="LINE">LINE</a>
+        <a href="#" aria-label="Instagram">ig</a>
       </div>
-      <div>
-        <h4>メニュー</h4>
-        <div class="flist">
-          <a href="#point">ポイントとは</a>
-          <a href="#app">アプリ登録方法</a>
-          <a href="#shops">加盟店一覧</a>
-          <a href="#coupon">クーポン・キャンペーン</a>
-          <a href="#news">お知らせ</a>
-          <a href="#uni">北海道文教大学連携</a>
-          <a href="#contact">お問い合わせ</a>
-        </div>
-      </div>
-      <div>
-        <h4>アプリ登録</h4>
-        <p style="margin:0 0 10px;color:#9cc4b4;">QRから無料で登録</p>
-        <svg class="fqr" viewBox="0 0 100 100" aria-label="アプリ登録QR（サンプル）">
-          <rect width="100" height="100" fill="#fff"/>
-          <g fill="#173f31">
-            <rect x="6" y="6" width="22" height="22"/><rect x="10" y="10" width="14" height="14" fill="#fff"/><rect x="13" y="13" width="8" height="8"/>
-            <rect x="72" y="6" width="22" height="22"/><rect x="76" y="10" width="14" height="14" fill="#fff"/><rect x="79" y="13" width="8" height="8"/>
-            <rect x="6" y="72" width="22" height="22"/><rect x="10" y="76" width="14" height="14" fill="#fff"/><rect x="13" y="79" width="8" height="8"/>
-            <rect x="40" y="14" width="6" height="6"/><rect x="54" y="22" width="6" height="6"/><rect x="40" y="40" width="6" height="6"/><rect x="58" y="46" width="6" height="6"/><rect x="74" y="40" width="6" height="6"/><rect x="46" y="60" width="6" height="6"/><rect x="66" y="62" width="6" height="6"/><rect x="40" y="78" width="6" height="6"/><rect x="60" y="80" width="6" height="6"/><rect x="80" y="74" width="6" height="6"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <div class="copy">
-      <a href="#" style="color:#9cc4b4;">プライバシーポリシー</a> ・
-      © 2026 恵庭サイモンズポイント会（事務局：株式会社北央商事）
-      <br><span style="font-size:12px;">※本ページはデザインモック（レイアウト確認用）です。文言・画像・QR・各種リンクはサンプルです。</span>
+      <div class="org">事務局：恵庭駅通商店街振興組合／株式会社北央商事</div>
+      <div style="opacity:.85;">© 2026 えにわ愛ポイント</div>
+      <div style="opacity:.8;font-size:11px;">※本ページはデザインモック（レイアウト確認用）です。キャラクター・文言・QR・各リンクはサンプル/イメージです。</div>
     </div>
   </div>
 </footer>
 
-<!-- ===== Sticky mobile CTA ===== -->
-<div class="mobile-cta">
-  <a class="btn btn-app" href="#app">▶ アプリ登録（無料・約1分）</a>
+<!-- ===== mobile sticky cta ===== -->
+<div class="mcta">
+  <a class="btn btn-pink" href="#join">👤＋ 会員登録する（無料）</a>
 </div>
 
 </body>
