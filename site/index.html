@@ -89,6 +89,7 @@
   .navbar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;}
   .brand{display:flex;align-items:center;gap:9px;}
   .brand .mk{width:40px;height:40px;flex:none;object-fit:contain;}
+  .brand .logo-img{height:26px;width:auto;display:block;}
   .brand .bt{font-weight:900;font-size:16px;line-height:1.05;color:var(--ink-d);white-space:nowrap;}
   .brand .bt b{color:var(--magenta);}
   .brand .bt small{display:block;font-size:9.5px;letter-spacing:.18em;color:var(--pink);font-weight:800;}
@@ -213,7 +214,7 @@
     .gnav{display:flex;}
     .gnav.open{position:static;flex-direction:row;padding:0;background:none;border:none;box-shadow:none;font-size:14px;}
     .hamb{display:none;}
-    .brand .bt{font-size:19px;}
+    .brand .logo-img{height:32px;}
     .hero-grid{grid-template-columns:1.1fr .9fr;gap:24px;padding:30px 0 0;min-height:440px;}
     .hero h1{font-size:50px;}
     .hero h1 .big{font-size:58px;}
@@ -237,8 +238,7 @@
 <header class="site">
   <div class="wrap navbar">
     <a class="brand" href="#top" aria-label="えにわ愛ポイント">
-      <img class="mk" src="images/logo-mark.png" alt="" width="40" height="40">
-      <span class="bt">えにわ<b>愛</b>ポイント<small>ENIWA AI POINT</small></span>
+      <img class="logo-img" src="images/logo-pink.png" alt="えにわ愛ポイント" width="200">
     </a>
     <nav class="gnav">
       <a href="#top">トップ</a>
