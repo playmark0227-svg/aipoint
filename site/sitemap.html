@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>えにわ愛ポイント サイトマップ</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    --pink:#e85a9c;--pink-d:#d63f86;--magenta:#e4007f;--pink-soft:#ffd6e6;
+    --pink-bg:#ffeef5;--cream:#fff7da;--ink:#4c444a;--ink-d:#3a3338;--line:#eccfdd;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;}
+  body{color:var(--ink);font-size:10pt;line-height:1.6;
+    font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",Meiryo,sans-serif;background:#fff;}
+  .page{width:210mm;min-height:297mm;padding:13mm 14mm;position:relative;}
+  .titlebar{display:flex;align-items:center;gap:10px;margin-bottom:6mm;}
+  .titlebar img{width:34px;height:34px;object-fit:contain;}
+  .titlebar h1{font-size:16pt;font-weight:900;color:var(--ink-d);margin:0;}
+  .titlebar h1 b{color:var(--magenta);}
+  .titlebar small{display:block;font-size:8pt;letter-spacing:.1em;color:var(--pink);font-weight:800;}
+  .meta{font-size:8.6pt;color:#7a6671;margin-left:auto;text-align:right;}
+
+  .top-node{margin:0 auto 3mm;width:74mm;background:linear-gradient(180deg,#ef5ea0,#e4007f);color:#fff;
+    border-radius:14px;padding:9px 14px;text-align:center;box-shadow:0 6px 14px rgba(214,63,134,.28);}
+  .top-node .n{font-weight:900;font-size:12pt;}
+  .top-node .p{font-size:8pt;opacity:.95;}
+  .stem{width:2px;height:5mm;background:var(--pink-soft);margin:0 auto;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm;}
+  .card{background:#fff;border:1.5px solid var(--pink-soft);border-radius:12px;padding:10px 12px;
+    box-shadow:0 4px 12px rgba(214,63,134,.08);break-inside:avoid;}
+  .card .h{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
+  .card .num{flex:none;width:20px;height:20px;border-radius:6px;background:var(--pink);color:#fff;
+    font-weight:900;font-size:9pt;display:flex;align-items:center;justify-content:center;}
+  .card .nm{font-weight:900;color:var(--ink-d);font-size:10.5pt;}
+  .card .pa{margin-left:auto;font-size:7.6pt;color:#b07f97;font-weight:700;}
+  .card ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 6px;}
+  .card li{font-size:8pt;color:#6a5560;background:var(--pink-bg);border-radius:999px;padding:1px 8px;}
+  .card.span{grid-column:1 / -1;}
+
+  .band{margin-top:5mm;background:var(--pink-bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;}
+  .band h3{margin:0 0 4px;font-size:9.5pt;font-weight:900;color:var(--pink-d);}
+  .band .row{display:flex;flex-wrap:wrap;gap:5px;}
+  .band .row span{font-size:8pt;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-weight:700;color:var(--ink-d);}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:8pt;color:#7a6671;margin-top:4mm;}
+  .future{color:#b07f97;font-style:normal;}
+  .foot{position:absolute;left:0;right:0;bottom:6mm;text-align:center;font-size:7.6pt;color:#c79bb2;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="titlebar">
+    <img src="images/logo-mark.png" alt="">
+    <div><h1>えにわ<b>愛</b>ポイント｜サイトマップ</h1><small>ENIWA AI POINT</small></div>
+    <div class="meta">ドメイン：eniwa-point.com<br>公開：2026/9/1（仮納品 7/31）</div>
+  </div>
+
+  <div class="top-node"><div class="n">トップ</div><div class="p">/ ｜キャッチ・キャラクター・会員登録/アプリDL/使えるお店・使い方・キャンペーン</div></div>
+  <div class="stem"></div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="h"><span class="num">2</span><span class="nm">えにわ愛ポイントとは</span><span class="pa">/about/</span></div>
+      <ul><li>ポイントの仕組み</li><li>100円=1pt</li><li>1pt=1円</li><li>地域内循環</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">3</span><span class="nm">アプリ登録／会員登録（無料）</span><span class="pa">/join/</span></div>
+      <ul><li>QRコード</li><li>かんたん3ステップ</li><li>Apple/Android</li><li>登録無料</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">4</span><span class="nm">使えるお店を探す（加盟店）</span><span class="pa">/shops/</span></div>
+      <ul><li>飲食店</li><li>買い物</li><li>サービス</li><li>美容・健康</li><li>すべて</li><li>地図</li><li class="future">＋検索（将来）</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">5</span><span class="nm">キャンペーン</span><span class="pa">/campaign/</span></div>
+      <ul><li>新規登録500pt</li><li>学生スタンプラリー</li><li>クーポン</li><li class="future">＋検索（将来）</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">6</span><span class="nm">お知らせ</span><span class="pa">/news/</span></div>
+      <ul><li>一覧＋個別記事</li><li>説明会</li><li>イベント</li><li>新規加盟店</li><li>メンテ</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">7</span><span class="nm">学生・北海道文教大学連携</span><span class="pa">/student/</span></div>
+      <ul><li>学生参加プログラム</li><li>スタンプラリー</li><li>連携協定</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">8</span><span class="nm">よくあるご質問（FAQ）</span><span class="pa">/faq/</span></div>
+      <ul><li>利用方法</li><li>会員登録</li><li>加盟</li><li>ポイント</li></ul>
+    </div>
+    <div class="card">
+      <div class="h"><span class="num">9</span><span class="nm">お問い合わせ</span><span class="pa">/contact/</span></div>
+      <ul><li>フォーム（加盟希望／利用者）</li><li>送信完了</li><li>電話・メール</li></ul>
+    </div>
+  </div>
+
+  <div class="band">
+    <h3>共通要素（全ページ）</h3>
+    <div class="row">
+      <span>ヘッダー：ロゴ＋ナビ＋会員登録（SPはハンバーガー）</span>
+      <span>フッター：規約類・SNS・「ポイントは、愛。」</span>
+      <span>SNS：Facebook / LINE / Instagram</span>
+      <span>SP：会員登録 追従ボタン</span>
+    </div>
+  </div>
+
+  <div class="band" style="background:#fff;">
+    <h3>規約類</h3>
+    <div class="row">
+      <span>利用規約 /terms/</span>
+      <span>プライバシーポリシー /privacy/</span>
+      <span>特定商取引法に基づく表記 /legal/</span>
+      <span>運営会社 /company/</span>
+      <span>404 / エラー</span>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span>■ 初期公開ページ（9ページ）</span>
+    <span class="future">＋ … 後から追加（将来拡張）</span>
+    <span>パスは英字スラッグの一例（確定値は設計工程で決定）</span>
+  </div>
+
+  <div class="foot">えにわ愛ポイント 公式ポータルサイト サイトマップ ・ ポイントは、愛。 ・ 恵庭駅通商店街振興組合／株式会社北央商事</div>
+</div>
+</body>
+</html>

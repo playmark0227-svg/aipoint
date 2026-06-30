@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>えにわ愛ポイント 工程表</title>
+<style>
+  @page { size: A4 landscape; margin: 0; }
+  :root{
+    --pink:#e85a9c;--pink-d:#d63f86;--magenta:#e4007f;--pink-soft:#ffd6e6;
+    --pink-bg:#ffeef5;--amber:#f5a623;--red:#e4007f;--cream:#fff7da;--ink:#4c444a;--ink-d:#3a3338;--line:#eccfdd;
+  }
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;}
+  body{color:var(--ink);font-size:9.5pt;line-height:1.55;
+    font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","游ゴシック体","Yu Gothic",Meiryo,sans-serif;background:#fff;}
+  .page{width:297mm;min-height:210mm;padding:11mm 13mm;position:relative;}
+  .titlebar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:7mm;}
+  .titlebar .t{display:flex;align-items:center;gap:10px;}
+  .titlebar .t img{width:34px;height:34px;object-fit:contain;}
+  .titlebar h1{font-size:17pt;font-weight:900;color:var(--ink-d);margin:0;}
+  .titlebar h1 b{color:var(--magenta);}
+  .titlebar .t small{display:block;font-size:8pt;letter-spacing:.12em;color:var(--pink);font-weight:800;}
+  .dates{display:flex;gap:10px;}
+  .dates .d{border-radius:12px;padding:7px 16px;text-align:center;color:#fff;font-weight:900;box-shadow:0 4px 10px rgba(214,63,134,.2);}
+  .dates .d small{display:block;font-weight:800;font-size:8pt;opacity:.95;}
+  .dates .d .v{font-size:13pt;}
+  .d.kari{background:linear-gradient(180deg,#ffb74d,#f5a623);}
+  .d.open{background:linear-gradient(180deg,#ef5ea0,#e4007f);}
+
+  table{width:100%;border-collapse:collapse;}
+  .gantt th,.gantt td{border:1px solid var(--line);padding:0;text-align:center;font-size:8pt;height:8.4mm;}
+  .gantt thead th{background:var(--pink-bg);color:var(--ink-d);font-weight:800;height:auto;padding:4px 2px;}
+  .gantt thead th .wk{font-size:8.5pt;}
+  .gantt thead th .dt{font-size:6.6pt;color:#8a7480;font-weight:700;}
+  .gantt td.lab{text-align:left;padding:0 8px;font-weight:800;color:var(--ink-d);white-space:nowrap;width:54mm;font-size:8.6pt;}
+  .gantt td.lab.sub{font-weight:700;color:#6a5560;}
+  .cell{position:relative;}
+  .bar{position:absolute;inset:1.4mm 0.6mm;border-radius:6px;background:linear-gradient(180deg,#f489b9,#e85a9c);}
+  .bar.lite{background:linear-gradient(180deg,#ffd0e3,#ffbcd8);}
+  .ms{font-weight:900;font-size:11pt;line-height:8.4mm;}
+  .ms.kari{color:#f5a623;}
+  .ms.open{color:var(--magenta);}
+  .tags{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:3px;font-size:6.6pt;font-weight:900;color:#fff;}
+  .tag-r{position:absolute;right:1.4mm;top:0.6mm;font-size:6.4pt;font-weight:900;color:var(--pink-d);}
+
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:8pt;color:#6a5560;margin:5mm 0 4mm;}
+  .legend b{color:var(--ink-d);}
+  .swatch{display:inline-block;width:18px;height:9px;border-radius:4px;vertical-align:middle;margin-right:4px;background:linear-gradient(180deg,#f489b9,#e85a9c);}
+  .swatch.lite{background:#ffbcd8;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:8mm;}
+  h2.s{font-size:11pt;font-weight:900;color:var(--ink-d);margin:0 0 4px;display:flex;align-items:center;gap:7px;}
+  h2.s::before{content:"";width:14px;height:14px;border-radius:5px;background:var(--pink);display:inline-block;}
+  .mini{width:100%;border-collapse:collapse;font-size:8.4pt;}
+  .mini th,.mini td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top;}
+  .mini th{background:var(--pink-bg);color:var(--ink-d);font-weight:800;}
+  .pill{display:inline-block;background:var(--cream);color:#7a5a00;font-weight:800;font-size:7.6pt;padding:1px 7px;border-radius:999px;}
+  .note{background:#fffbe7;border:1px solid #f1e3a0;border-radius:9px;padding:7px 10px;font-size:8pt;margin-top:4mm;}
+  .foot{position:absolute;left:0;right:0;bottom:5mm;text-align:center;font-size:7.4pt;color:#c79bb2;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="titlebar">
+    <div class="t">
+      <img src="images/logo-mark.png" alt="">
+      <div><h1>えにわ<b>愛</b>ポイント 公式ポータルサイト｜工程表</h1>
+      <small>ENIWA AI POINT ・ 恵庭駅通商店街振興組合／株式会社北央商事 ・ 2026年6月</small></div>
+    </div>
+    <div class="dates">
+      <div class="d kari"><small>仮納品（レビュー用）</small><span class="v">7/31（金）</span></div>
+      <div class="d open"><small>公開（本番）</small><span class="v">9/1（火）</span></div>
+    </div>
+  </div>
+
+  <table class="gantt">
+    <thead>
+      <tr>
+        <th class="lab" style="text-align:left;">フェーズ ＼ 週</th>
+        <th><div class="wk">W1</div><div class="dt">6/29-7/5</div></th>
+        <th><div class="wk">W2</div><div class="dt">7/6-7/12</div></th>
+        <th><div class="wk">W3</div><div class="dt">7/13-7/19</div></th>
+        <th><div class="wk">W4</div><div class="dt">7/20-7/26</div></th>
+        <th><div class="wk">W5</div><div class="dt">7/27-8/2</div></th>
+        <th><div class="wk">W6</div><div class="dt">8/3-8/9</div></th>
+        <th><div class="wk">W7</div><div class="dt">8/10-8/16</div></th>
+        <th><div class="wk">W8</div><div class="dt">8/17-8/23</div></th>
+        <th><div class="wk">W9</div><div class="dt">8/24-8/30</div></th>
+        <th><div class="wk">W10</div><div class="dt">8/31-9/1</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="lab">0. キックオフ・要件確定</td>
+        <td class="cell"><div class="bar"></div><span class="tag-r">★</span></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab">1. 設計・素材提供</td>
+        <td class="cell"><div class="bar"></div></td>
+        <td class="cell"><div class="bar"></div><span class="tag-r">◇</span></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab">2. デザイン（下層展開）</td>
+        <td></td>
+        <td class="cell"><div class="bar"></div></td>
+        <td class="cell"><div class="bar"></div></td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab">3. 構築（HTML・管理画面CMS）</td>
+        <td></td><td></td>
+        <td class="cell"><div class="bar"></div></td>
+        <td class="cell"><div class="bar"></div></td>
+        <td class="cell"><div class="bar"></div></td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab" style="color:#c47a00;">🟡 仮納品（レビュー用）</td>
+        <td></td><td></td><td></td><td></td>
+        <td class="cell"><span class="ms kari">★</span></td>
+        <td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab">4. レビュー反映・コンテンツ投入</td>
+        <td></td><td></td><td></td><td></td><td></td>
+        <td class="cell"><div class="bar"></div><span class="tag-r">◇</span></td>
+        <td class="cell"><div class="bar"></div></td>
+        <td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab">5. テスト・修正</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td class="cell"><div class="bar"></div><span class="tag-r">◇</span></td>
+        <td></td><td></td>
+      </tr>
+      <tr>
+        <td class="lab">6. 検収・公開準備</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td class="cell"><div class="bar"></div><span class="tag-r">◇</span></td>
+        <td class="cell"><div class="bar"></div></td>
+      </tr>
+      <tr>
+        <td class="lab" style="color:var(--magenta);">🔴 公開（本番）</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td class="cell"><span class="ms open">★</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="legend">
+    <span><span class="swatch"></span><b>●</b> 制作側 主作業</span>
+    <span><b>◇</b> 先方レビュー・承認</span>
+    <span><b>▲</b> 先方 素材・原稿提供</span>
+    <span><b>★</b> マイルストーン</span>
+    <span>🟡 仮納品（7/31） ／ 🔴 公開（9/1）</span>
+  </div>
+
+  <div class="cols">
+    <div>
+      <h2 class="s">マイルストーン</h2>
+      <table class="mini">
+        <tr><th>節目</th><th>目安</th><th>前提</th></tr>
+        <tr><td>要件確定</td><td>7/3</td><td>確認事項へのご回答</td></tr>
+        <tr><td>設計確定・素材提供</td><td>7/12</td><td>ロゴ・キャラ正式データ・写真・QR・SNS</td></tr>
+        <tr><td>🟡 <b>仮納品</b></td><td><b>7/31</b></td><td>トップ・主要ページの構築完了</td></tr>
+        <tr><td>コンテンツ投入完了</td><td>8/16</td><td>加盟店リスト（〜7/12）・原稿</td></tr>
+        <tr><td>検収完了</td><td>8/30</td><td>検収URLでのご確認</td></tr>
+        <tr><td>🔴 <b>公開</b></td><td><b>9/1</b></td><td>上記すべて</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2 class="s">先方へのお願い（期日厳守）</h2>
+      <table class="mini">
+        <tr><th>時期</th><th>お願い</th></tr>
+        <tr><td><span class="pill">〜7/12</span></td><td>確認事項回答／ロゴ・<b>キャラ正式データ</b>・写真・QR・各URL・SNS</td></tr>
+        <tr><td><span class="pill">〜7/12</span></td><td>初期掲載の<b>加盟店 確定リスト</b></td></tr>
+        <tr><td><span class="pill">W6</span></td><td>仮納品版の<b>レビュー・修正指示</b>（速やかに）</td></tr>
+        <tr><td><span class="pill">各レビュー</span></td><td>デザイン／コンテンツ／検収を原則 <b>2営業日以内</b></td></tr>
+      </table>
+      <div class="note">🟡 <b>仮納品（7/31）→ 🔴 公開（9/1）</b> の約1か月で、コンテンツ投入・テスト・修正・検収を行います。この期間のレビュー対応の速さが公開日を左右します。</div>
+    </div>
+  </div>
+
+  <div class="foot">えにわ愛ポイント 公式ポータルサイト 工程表 ・ 仮納品 2026/7/31 ・ 公開 2026/9/1 ・ ポイントは、愛。</div>
+</div>
+</body>
+</html>
