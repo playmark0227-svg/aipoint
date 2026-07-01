@@ -94,6 +94,7 @@
   .brand .bt b{color:var(--magenta);}
   .brand .bt small{display:block;font-size:9.5px;letter-spacing:.18em;color:var(--pink);font-weight:800;}
   .gnav{display:none;gap:18px;font-weight:700;font-size:14px;color:#6a5560;}
+  .gnav a{white-space:nowrap;}
   .gnav a:hover{color:var(--pink-d);}
   .gnav.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;
     background:#fff;border-bottom:1px solid var(--line);padding:16px 20px;gap:16px;
@@ -202,22 +203,18 @@
 
   /* ===== Tablet（大きめスマホ・タブレット） ===== */
   @media(min-width:600px){
-    .cta-row{grid-template-columns:repeat(3,1fr);}
     .steps{grid-template-columns:repeat(3,1fr);}
     .step{flex-direction:column;text-align:center;align-items:center;}
+  }
+  @media(min-width:768px){
     .cats{grid-template-columns:repeat(5,1fr);}
   }
 
-  /* ===== Desktop ===== */
+  /* ===== Desktop（2カラム化） ===== */
   @media(min-width:900px){
-    .pc-only{display:inline-flex!important;}
-    .gnav{display:flex;}
-    .gnav.open{position:static;flex-direction:row;padding:0;background:none;border:none;box-shadow:none;font-size:14px;}
-    .hamb{display:none;}
-    .brand .logo-img{height:32px;}
     .hero-grid{grid-template-columns:1.1fr .9fr;gap:24px;padding:30px 0 0;min-height:440px;}
-    .hero h1{font-size:50px;}
-    .hero h1 .big{font-size:58px;}
+    .hero h1{font-size:clamp(40px,5vw,50px);}
+    .hero h1 .big{font-size:clamp(46px,5.9vw,58px);}
     .char-img{width:min(96%,400px);}
     .cta-row{grid-template-columns:repeat(3,1fr);max-width:none;}
     .midgrid{grid-template-columns:1.3fr .7fr;}
@@ -225,8 +222,17 @@
     .step{flex-direction:column;text-align:center;align-items:center;}
     .cats{grid-template-columns:repeat(5,1fr);}
     .app-card{grid-template-columns:1.3fr .7fr;}
-    .mcta{display:none;}
     footer.site{padding-bottom:34px;}
+  }
+
+  /* ===== グローバルナビ表示（横幅に余裕がある時のみ） ===== */
+  @media(min-width:1080px){
+    .pc-only{display:inline-flex!important;}
+    .gnav{display:flex;}
+    .gnav.open{position:static;flex-direction:row;padding:0;background:none;border:none;box-shadow:none;font-size:14px;}
+    .hamb{display:none;}
+    .brand .logo-img{height:32px;}
+    .mcta{display:none;}
   }
 </style>
 </head>
