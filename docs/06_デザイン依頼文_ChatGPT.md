@@ -5,9 +5,19 @@
 サイト制作で画像・イラストが必要になったとき、**ChatGPT（画像生成）にそのまま貼り付けて使える依頼文**をまとめています。
 各項目の「📋 プロンプト」をコピーして ChatGPT に貼り、出てきた画像を本サイトに差し込みます。
 
-> 現在サイトに入っているキャラクター・アイコン・背景は**仮（プレースホルダー）**です。
-> 公式キャラクター（デザイン：目谷裕美子氏）の正式データがある場合は、そちらを優先してください。
-> 本テンプレートは「正式データが無い／追加の素材が必要」なときの発注用です。
+> ### 🚫 生成が不要な素材（ご支給済み）
+> 次の4点は**公式素材としてご支給いただき済み**のため、**画像生成の対象外**です（サイトに実装済み）。
+> 誤って生成し直さないようご注意ください。
+>
+> | 素材 | ファイル | 備考 |
+> |---|---|---|
+> | 公式ロゴ | `logo-pink.png` ほか | ワードマーク5色。サイトはピンクを使用 |
+> | 公式キャラクター | `character-official.png` | マスコット＋「ポイントは、愛。」 |
+> | アプリDL用QRコード | `qr-app.png` | リンク先 onelink.to/rmdmub（Apple／Android 両対応） |
+> | ファイターズポスター | `fighters.jpg` | 「ファイターズ2軍本拠地が恵庭に！」 |
+>
+> 本テンプレートは、上記**以外**で追加の素材（背景・アイコン・あしらい等）が必要になったときの発注用です。
+> 現在サイトに入っているアイコン・背景の一部は**仮（プレースホルダー）**です。
 
 ---
 
@@ -31,9 +41,9 @@ ChatGPTの画像生成は便利ですが、クセがあります。失敗を減�
 
 ```
 【ブランド】えにわ愛ポイント（ENIWA AI POINT）／北海道・恵庭市の地域共通ポイント
-【世界観】「使うほど、まちが元気になる。」「ポイントは、愛。」
+【世界観】「恵庭の「いいね！」が、ここに集まる。」「ポイントは、愛。」（キャラクターのタグライン）
 【トーン】やさしい・あたたかい・親しみやすい・信頼感。広告的に派手すぎない、公共性のある可愛さ。
-【メインカラー】ピンク（桜・愛）#e85a9c ／ 強調マゼンタ #e4007f ／ ソフトピンク #ffeef5 ／ 白
+【メインカラー】ピンク（桜・愛）#e85a9c ／ 強調マゼンタ #e4007f ／ ソフトピンク #ffd6e6 ／ 背景ピンク #ffeef5 ／ 白
 【テイスト】フラットでシンプルなベクター風イラスト。太めの線、丸み、明るい配色。
 【避けるもの】リアルすぎる写実、暗い色、複雑な陰影、英語以外の文字の描き込み。
 【用途】スマホ最優先のWebサイト。高齢者にも見やすいハッキリした形。
@@ -41,46 +51,54 @@ ChatGPTの画像生成は便利ですが、クセがあります。失敗を減�
 
 ---
 
-## 1. マスコットキャラクター（最優先）
+## 1. マスコットキャラクター（※支給済み・新規生成は不要）
+
+> 公式キャラクター `character-official.png` をご支給いただき済みです（マゼンタ1色のシルエット型マスコット／もこもことした輪郭・白い三日月形の目／下部にタグライン「ポイントは、愛。」）。**新規の生成は行いません。**
+>
+> ⚠️ **AIで作り直すと必ず別のキャラクターになります。** 別ポーズ・別表情が必要になった場合も、ゼロから生成せず、
+> **公式キャラクターの画像を添付したうえで「この画像と同じキャラクターのまま」と指定**してください。
+> 実際に使用する際は、事務局（権利者）へのご確認をお願いします。
+>
+> （参考：`character.png` は初期の**仮キャラクター**（桜モチーフの女の子）で、公式キャラクターとは別物です。現在サイトでは使用していません。）
 
 - **目的／用途**：ヒーロー、各所のアクセント、アプリ、SNS、印刷物
 - **仕様**：透過PNG／正方形〜縦長／高解像度（2000px程度）
 
-### 📋 プロンプト（日本語）
+### 📋 プロンプト（別バリエーションが必要になった場合・画像を添付して使う／日本語）
 ```
-上の「共通スタイルガイド」に沿って、地域ポイントサービスのマスコットキャラクターを作ってください。
-・桜（ピンク）の妖精をモチーフにした、ほっぺが赤い元気な女の子
-・頭に小さな緑の葉っぱの芽、桜色の着ぐるみ（フード）をかぶっている
-・笑顔で、片手にスマートフォン（画面にハートマーク）を持っている
-・フラットでシンプルなベクター風、太い輪郭線、可愛らしく親しみやすい
-・全身、正面向き、背景は透過（白や単色の余白）
-高解像度で、Webサイトのヒーローに置けるように作ってください。
+（公式キャラクター画像を添付したうえで）
+添付した画像のキャラクターを、形・色・目の表情はそのままに、向き（角度）だけ変えたバリエーションを作ってください。
+・元画像と同じマゼンタの1色ベタ塗り、輪郭線なし、フラット
+・目は白い三日月形のまま、パーツを増やさない
+・背景は透過、正方形構図、高解像度
+※文字（「ポイントは、愛。」等のタグライン）は描かないでください。文字はこちらで重ねます。
 ```
 
 ### 📋 Prompt (English / 精度が上がります)
 ```
-A cute mascot character for a local reward-point service. A cheerful little girl
-dressed as a pink cherry-blossom (sakura) fairy: rosy cheeks, a tiny green leaf
-sprout on her head, a soft pink hooded costume. She smiles and holds a smartphone
-showing a heart on its screen. Flat simple vector illustration, bold clean outlines,
-bright friendly colors (pink #e85a9c). Full body, front view, transparent background,
-high resolution. Kawaii, warm, trustworthy, not too flashy.
-```
-
-### 追加で頼むと便利（同じキャラのまま）
-```
-同じキャラクターのまま、次の表情・ポーズも作ってください（それぞれ透過PNG）：
-①手を振って「ようこそ」　②指でQRコードを示す　③ガッツポーズで応援　④おじぎ（お礼）
+Using the attached mascot image as the reference, create a variation of THE SAME
+character: keep the exact silhouette, proportions, single magenta fill color and the
+white crescent-shaped eyes; change only the viewing angle. Flat, no outlines, no added
+parts. Transparent background, square composition, high resolution.
+Do not draw any letters or Japanese characters.
 ```
 
 ---
 
-## 2. ロゴ（えにわ愛ポイント）
+## 2. ロゴ（えにわ愛ポイント）（※支給済み・新規生成は不要）
 
-- **目的／用途**：ヘッダー、フッター、印刷物
-- **仕様**：透過PNG＋できれば後でSVG化。**文字はこちらで入れるので、マーク（記号）部分だけ**を依頼するのが安全。
+> 公式ロゴ（「えにわ愛ポイント」のワードマーク／5色展開）をご支給いただき済みで、サイトはピンク版 `logo-pink.png` を使用しています。
+> **新規の生成は行いません。** ヘッダー・フッター・印刷物とも、支給いただいた画像をそのまま使用します。
+>
+> ⚠️ 文字を含むロゴはAI生成では再現できません（日本語が崩れます）。ロゴを作り直す依頼は行わないでください。
+>
+> （参考：`logo-mark.png` は**仮のシンボルマーク**（ハート＋桜）で、公式ロゴではありません。現在はアプリ紹介欄の「アプリアイコン風の飾り」にのみ仮で使用しています。）
+> 公式のシンボルマーク（記号のみ）が別途必要になった場合は、事務局のご意向を確認のうえご相談ください。
 
-### 📋 プロンプト（マークのみ・日本語）
+- **目的／用途**：ヘッダー、フッター、印刷物（＝支給ロゴをそのまま使用）
+- **仕様**：透過PNG（支給済み）。できれば後日SVG版をいただけると拡大時にきれいです。
+
+### 📋 プロンプト（参考：仮マーク `logo-mark.png` を作った際のもの／通常は使いません・日本語）
 ```
 上の「共通スタイルガイド」に沿って、ロゴのシンボルマークだけを作ってください（文字は入れない）。
 ・ハートをベースにした、やさしく丸いマーク
@@ -90,7 +108,7 @@ high resolution. Kawaii, warm, trustworthy, not too flashy.
 ※文字（日本語）は描かないでください。マーク（記号）だけにしてください。
 ```
 
-### 📋 Prompt (English)
+### 📋 Prompt (English／同上・参考。通常は使いません)
 ```
 A simple flat logo symbol (icon only, NO text) for a community point service.
 A soft rounded heart mark suggesting love and local connection. Pink #e85a9c,
@@ -98,7 +116,7 @@ one or two colors, bold and friendly, square composition, transparent background
 high resolution. Do not draw any letters or Japanese characters.
 ```
 
-> ロゴの「えにわ愛ポイント／ENIWA AI POINT」の文字組みは、フォントで別途組みます（画像生成では文字が崩れるため）。
+> 「えにわ愛ポイント」の文字組みは**支給ロゴ（ワードマーク）をそのまま使用**します。画像生成では日本語が崩れるため、文字部分を作り直すことはありません。
 
 ---
 
@@ -129,37 +147,57 @@ the upper-left for text. No people. Bright, warm, pink #e85a9c palette, high res
 
 ## 4. アイコンセット（使い方・カテゴリ）
 
-- **目的／用途**：「使い方3ステップ」「使えるお店を探す」
+- **目的／用途**：「使い方3ステップ」「加盟店カテゴリ（使えるお店を探す）」
 - **仕様**：透過PNG、同じ太さ・同じテイストで**セット**生成、正方形
+
+| 用途 | 項目 | アイコンの内容 |
+|---|---|---|
+| 使い方3ステップ | ① 会員登録 | スマートフォン＋QRコード |
+| 使い方3ステップ | ② 来店・購入 | 店舗（お店の外観） |
+| 使い方3ステップ | ③ ポイント付与・利用 | コイン（ポイント） |
+| 加盟店カテゴリ | 飲食 | フォークとナイフ |
+| 加盟店カテゴリ | 小売 | ショッピングバッグ |
+| 加盟店カテゴリ | サービス | はさみ |
+| 加盟店カテゴリ | その他 | きらきら（スパークル） |
+
+> カテゴリはUI上、上記4種に加えて「すべてのお店」タイル（お店の建物）を置いています。
+> 現状サイトでは、3ステップは**仮画像** `step-touroku.png` `step-tsukaeru.png` `step-tameru.png`（ファイル名は旧名のまま）、
+> カテゴリは**絵文字**（🍴／🛍️／✂️／✨／🏬）を仮で使用しています。いただいた画像で差し替えます。
 
 ### 📋 プロンプト（日本語）
 ```
-上の「共通スタイルガイド」に沿って、統一感のあるアイコンを6個セットで作ってください。
+上の「共通スタイルガイド」に沿って、統一感のあるアイコンを7個セットで作ってください。
 （すべて同じ線の太さ・同じ丸み・ピンク基調・フラット・透過背景・正方形）
-1) コイン／ポイントが貯まる　2) お店（使える）　3) 両手にハート（地域に役立つ）
-4) フォークとナイフ（飲食店）　5) ショッピングバッグ（買い物）　6) はさみ（サービス）
+＜使い方3ステップ用＞
+1) スマートフォンとQRコード（会員登録）　2) お店の外観（来店・購入）　3) コイン（ポイント付与・利用）
+＜加盟店カテゴリ用＞
+4) フォークとナイフ（飲食）　5) ショッピングバッグ（小売）　6) はさみ（サービス）　7) きらきら（その他）
 かわいくシンプルに、Webのアイコンとして見やすく。
+※文字（日本語・数字）は描かないでください。
 ```
 
 ### 📋 Prompt (English)
 ```
-A set of 6 matching flat icons, same line weight and rounded style, pink theme,
-transparent background, square: 1) coins/points 2) shop storefront 3) two hands
-holding a heart 4) fork & knife 5) shopping bag 6) scissors. Cute, simple, clear
-for web use. High resolution.
+A set of 7 matching flat icons, same line weight and rounded style, pink theme,
+transparent background, square: 1) smartphone with a QR code (sign-up)
+2) shop storefront (visit & purchase) 3) coins (earn & spend points)
+4) fork & knife (restaurant) 5) shopping bag (retail) 6) scissors (services)
+7) sparkles (others). Cute, simple, clear for web use. High resolution.
+Do not draw any letters or numbers.
 ```
 
 ---
 
 ## 5. OGP／キャンペーンバナー（あしらい）
 
-- **目的／用途**：SNSシェア画像、500ptプレゼント・スタンプラリーの飾り
+- **目的／用途**：SNSシェア画像、オープンキャンペーン（愛称投票）・スタンプラリーの飾り
 - **注意**：**文字は入れない**。装飾とイラストだけ作り、文言はこちらで重ねます。
+  （愛称の候補名A／B／C案は未定のため、決定次第反映します）
 
 ### 📋 プロンプト（日本語）
 ```
 上の「共通スタイルガイド」に沿って、キャンペーン用の「飾り（あしらい）」だけを作ってください（文字なし）。
-・プレゼント箱、紙吹雪、リボン、ハート、きらきら
+・投票箱（愛称投票のイメージ）、プレゼント箱、紙吹雪、リボン、ハート、きらきら
 ・ピンク〜マゼンタ、フラットでシンプル、透過背景、高解像度
 ・中央に文字を載せる余白を空けておく
 ※文字（日本語・数字）は描かないでください。
@@ -167,9 +205,10 @@ for web use. High resolution.
 
 ### 📋 Prompt (English)
 ```
-Decorative campaign elements only (NO text): a gift box, confetti, ribbons, hearts,
-sparkles. Pink to magenta, flat simple vector, transparent background, leave empty
-space in the center for text. High resolution. Do not draw any letters or numbers.
+Decorative campaign elements only (NO text): a ballot box (voting), a gift box,
+confetti, ribbons, hearts, sparkles. Pink to magenta, flat simple vector, transparent
+background, leave empty space in the center for text. High resolution.
+Do not draw any letters or numbers.
 ```
 
 ---
@@ -187,9 +226,9 @@ space in the center for text. High resolution. Do not draw any letters or number
 
 ## ✅ 受け取り後のながれ
 
-1. 生成画像を `site/images/` に保存（例：`character.png` `logo-mark.png` `hero-bg.png`）
-2. サイトの仮イラスト（SVG）を、その画像に差し替え
-3. 文字（ロゴ・バナー文言）はサイト側のテキスト or フォントで重ねる
+1. 生成画像を `site/images/` に保存（例：`hero-bg.png` `step-touroku.png` `cat-food.png`）
+2. サイトの仮画像（PNG／JPG）・絵文字アイコンを、その画像に差し替え
+3. 文字（バナー文言など）はサイト側のテキスト or フォントで重ねる（ロゴは支給ワードマークを使用）
 4. プレビューURLで表示確認 → 微調整
 
 > 画像をいただければ、こちらでサイトへの差し込み・サイズ調整・表示確認まで対応します。

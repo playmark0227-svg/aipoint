@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>トップページ ワイヤーフレーム｜恵庭サイモンズポイント会</title>
+<title>トップページ ワイヤーフレーム｜えにわ愛ポイント</title>
 <style>
   :root{
     --line:#9aa0a6; --box:#e9ecef; --box2:#f1f3f4; --ink:#3c4043;
@@ -60,14 +60,11 @@
       background-color:#fff;border:1px solid var(--line);border-radius:6px;}
   .qrtxt{font-size:12px;color:#556;}
 
-  /* 3導線 */
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .card{min-height:84px;}
-  .card .ph{height:100%;flex-direction:column;gap:6px;font-weight:700;color:#546;}
-  .card .ico{font-size:22px;}
+  /* 3導線（SPは縦3段／900px以上で横3列） */
+  .cta.out{background:#fff;border-color:var(--accent);color:#546;}
 
   .row{display:flex;gap:12px;align-items:center;}
-  .circ{width:60px;height:60px;border-radius:50%;flex:none;}
+  .ico{font-size:22px;}
   .lnk{font-size:13px;color:#37474f;font-weight:700;margin-top:10px;}
   .lnk::after{content:" ＞";color:var(--muted);}
 
@@ -83,10 +80,8 @@
   footer .frow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0;}
   .sns{display:flex;gap:8px;}
   .sns .s{width:30px;height:30px;border:1px solid #90a4ae;border-radius:8px;background:#eceff1;display:flex;align-items:center;justify-content:center;font-size:11px;color:#556;}
-  .fqr{width:60px;height:60px;background:
-      repeating-linear-gradient(0deg,#78909c 0 4px,transparent 4px 8px),
-      repeating-linear-gradient(90deg,#78909c 0 4px,transparent 4px 8px);
-      background-color:#fff;border:1px solid var(--line);border-radius:4px;}
+  footer .fnav{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:11px;
+    padding-bottom:10px;border-bottom:1px dashed #aab4bb;margin-bottom:10px;}
 
   /* 追従CTA */
   .sticky{
@@ -95,13 +90,38 @@
   }
   .sticky .cta{margin:0;}
   .badge{position:absolute;top:8px;right:8px;background:#fff3cd;border:1px solid #e0c97f;color:#7a5b00;font-size:10px;padding:2px 6px;border-radius:10px;}
+
+  /* 使い方3ステップ */
+  .steps{display:grid;gap:8px;margin-top:6px;}
+  .step{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;background:var(--box2);border:1px dashed var(--line);border-radius:6px;}
+  .step .no{width:22px;height:22px;flex:none;background:#fff;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;}
+  .step b{display:block;font-size:13px;}
+  .step .t{font-size:12px;color:#556;}
+
+  /* 加盟店カテゴリ */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
+  .cats .ph{height:62px;flex-direction:column;gap:4px;font-weight:700;color:#546;}
+
+  /* 愛称投票フォーム */
+  .form{background:var(--box2);border:1px dashed var(--line);border-radius:6px;padding:10px;margin-top:8px;}
+  .opt{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-bottom:6px;font-size:13px;}
+  .opt .rd{width:14px;height:14px;flex:none;border:1px solid var(--line);border-radius:50%;}
+  .opt .k{font-weight:800;}
+
+  ul.pts{margin:8px 0 0;padding-left:18px;font-size:12px;color:#556;}
+  ul.pts li{margin:2px 0;}
+  .tbd{font-size:11px;color:var(--muted);margin:6px 0 0;}
+  .eyebrow{display:inline-block;font-size:11px;font-weight:800;color:#546;background:var(--box);border:1px solid var(--line);border-radius:999px;padding:2px 10px;}
+  .stores{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+  .stores .ph{height:42px;}
 </style>
 </head>
 <body>
 
 <div class="note">
   <h1>トップページ ワイヤーフレーム（モバイル）</h1>
-  <p>恵庭サイモンズポイント会 公式ポータルサイト ／ スマートフォン閲覧を最優先に設計したロー・ファイ ワイヤーです。</p>
+  <p>えにわ愛ポイント 公式ポータルサイト ／ スマートフォン閲覧を最優先に設計したロー・ファイ ワイヤーです。</p>
+  <p>ナビ：ポイントとは／加盟店一覧／キャンペーン／ファイターズ／お知らせ／お問い合わせ（＋会員登録ボタン）。フルナビは1080px以上で表示、未満はハンバーガー＋下部追従CTA。</p>
   <p class="legend">グレーのブロック＝画像・装飾の入る箱（仮）。配色・写真・フォント等のデザインは確定版で作り込みます。</p>
 </div>
 
@@ -109,45 +129,129 @@
 
   <!-- ヘッダー -->
   <header class="bar">
-    <div class="logo"><span class="mark">LOGO</span> 恵庭ポイント</div>
+    <div class="logo"><span class="mark">LOGO</span> えにわ愛ポイント</div>
     <div class="hamb"><span></span><span></span><span></span></div>
   </header>
 
   <!-- ① ファーストビュー -->
   <section class="fv">
     <div class="tag">① ファーストビュー</div>
-    <div class="copy">使うほど、<br>恵庭が元気になる。</div>
-    <p class="subcopy">恵庭の地域共通ポイント。お店で使って、地域に還元。</p>
-    <a class="cta">▶ アプリを登録する（無料）</a>
-    <div class="qrrow">
-      <div class="qr"></div>
-      <div class="qrtxt"><b>QRコードで かんたん登録</b><br>Apple / Android 対応 ・ 約1分</div>
+    <span class="eyebrow">買って、貯めて、地域を応援！</span>
+    <div class="copy">恵庭の「いいね！」が、<br>ここに集まる。</div>
+    <p class="subcopy">加盟店やクーポン、イベントなど、えにわ愛ポイントの最新情報をお届けします。</p>
+    <div class="row">
+      <div class="ph" style="width:110px;height:110px;flex:none;">公式キャラクター</div>
+      <p class="s"><b>「ポイントは、愛。」</b><br>キャラクターのタグライン。背景はまちなみのイメージ。</p>
     </div>
+    <p class="tbd">※「いいね！」はマゼンタで強調。900px以上でコピーとキャラクターの2カラム。</p>
   </section>
 
   <!-- ② 3導線 -->
   <section>
     <div class="tag">② 3つの導線</div>
-    <div class="cards">
-      <div class="card"><div class="ph"><span class="ico">🏪</span>加盟店を見る</div></div>
-      <div class="card"><div class="ph"><span class="ico">🎟</span>クーポンを見る</div></div>
-      <div class="card" style="grid-column:1 / -1"><div class="ph"><span class="ico">💡</span>ポイントの使い方</div></div>
-    </div>
+    <a class="cta">👤＋ 会員登録する（無料）</a>
+    <a class="cta out">⬇ アプリをダウンロード</a>
+    <a class="cta out">🏬 使えるお店を見る</a>
+    <p class="tbd">※ 900px以上で3導線を横1行（3列）に配置。</p>
   </section>
 
-  <!-- ③ 地域内循環 -->
+  <!-- ③ 使い方3ステップ -->
   <section>
-    <div class="tag">③ 地域内循環メッセージ</div>
-    <div class="row">
-      <div class="ph circ">循環図</div>
-      <p class="s">お店で使う → 地域が潤う → みんなに還る。<br>ポイントで地域内消費を循環させます。</p>
+    <div class="tag">③ 使い方3ステップ</div>
+    <h2 class="h">えにわ愛ポイントの使い方</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="no">1</span>
+        <span><b>会員登録</b><span class="t">お客様がQRコードからアプリを登録</span></span>
+      </div>
+      <div class="step">
+        <span class="no">2</span>
+        <span><b>来店・購入</b><span class="t">加盟店で買い物・サービス利用</span></span>
+      </div>
+      <div class="step">
+        <span class="no">3</span>
+        <span><b>ポイント付与・利用</b><span class="t">100円につき1ポイント付与・1ポイント＝1円として利用</span></span>
+      </div>
     </div>
-    <div class="lnk">ポイントとは</div>
+    <p class="tbd">※ 600px以上で3ステップを横3列に配置。</p>
   </section>
 
-  <!-- ④ お知らせ -->
+  <!-- ④ キャンペーン告知 -->
   <section>
-    <div class="tag">④ お知らせ（新着）</div>
+    <div class="tag">④ キャンペーン告知バナー</div>
+    <div class="two">
+      <div class="ph" style="height:74px;flex-direction:column;gap:4px;">
+        <b>🎁 オープンキャンペーン</b>愛称を投票で決めます！／抽選でポイント進呈［投票する ＞］
+      </div>
+      <div class="ph" style="height:74px;flex-direction:column;gap:4px;">
+        <b>🎓 学生の方はこちら！</b>スタンプラリー開催中！［詳しくはこちら ＞］
+      </div>
+    </div>
+    <p class="tbd">※ 900px以上は③使い方と2カラム（左：使い方／右：告知バナー）で表示。</p>
+  </section>
+
+  <!-- ⑤ 加盟店カテゴリ -->
+  <section>
+    <div class="tag">⑤ 加盟店カテゴリ</div>
+    <h2 class="h">使えるお店を探す</h2>
+    <div class="cats">
+      <div class="ph"><span class="ico">🍴</span>飲食</div>
+      <div class="ph"><span class="ico">🛍</span>小売</div>
+      <div class="ph"><span class="ico">✂</span>サービス</div>
+      <div class="ph"><span class="ico">✨</span>その他</div>
+      <div class="ph" style="grid-column:span 2;"><span class="ico">🏬</span>すべてのお店</div>
+    </div>
+    <p class="tbd">※ 768px以上で5列（1行）表示。</p>
+  </section>
+
+  <!-- ⑥ オープンキャンペーン（愛称投票フォーム） -->
+  <section style="position:relative;">
+    <span class="badge">公開時 特設</span>
+    <div class="tag">⑥ オープンキャンペーン（愛称投票）</div>
+    <h2 class="h">ポータルサイトの愛称を投票で決めます。</h2>
+    <p class="s">北海道文教大学の学生チームが考えた案です。<br>この中から好きな案を選んで投票してください。</p>
+    <div class="form">
+      <div class="opt"><span class="rd"></span><span class="k">A</span><span>○○○</span></div>
+      <div class="opt"><span class="rd"></span><span class="k">B</span><span>○○○</span></div>
+      <div class="opt"><span class="rd"></span><span class="k">C</span><span>○○○</span></div>
+      <a class="cta">この案に投票する</a>
+    </div>
+    <ul class="pts">
+      <li>本年10月末に愛称を決定します。</li>
+      <li>決定案に投票された会員から抽選で○名様に○○ポイントを進呈！</li>
+    </ul>
+    <p class="tbd">※ A〜Cの候補名・当選人数・進呈ポイント数は未定。決定次第反映します。</p>
+  </section>
+
+  <!-- ⑦ ファイターズ -->
+  <section>
+    <div class="tag">⑦ ファイターズ</div>
+    <div class="row" style="align-items:flex-start;">
+      <div class="ph" style="width:104px;height:150px;flex:none;">ポスター画像<br>fighters.jpg</div>
+      <div>
+        <h2 class="h">ファイターズ2軍本拠地が<br>恵庭に！</h2>
+        <p class="s">まちのにぎわいが、これからもっと広がります。えにわ愛ポイントで、地域のお店を応援しよう。</p>
+        <ul class="pts">
+          <li>まちがにぎわう！</li>
+          <li>くらしが楽しくなる！</li>
+          <li>未来につながる！</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tbd">※ 詳細は決まり次第お知らせします。</p>
+  </section>
+
+  <!-- ⑧ 学生スタンプラリー -->
+  <section>
+    <div class="tag">⑧ 学生スタンプラリー</div>
+    <h2 class="h">🎓 えにわのお店をめぐってスタンプを集めよう！</h2>
+    <p class="s">集めると特典がもらえる、学生向け企画です。</p>
+    <div class="ph" style="height:110px;margin-top:8px;">スタンプラリー説明画像（枠・絵柄・使い方→特典）</div>
+  </section>
+
+  <!-- ⑨ お知らせ -->
+  <section>
+    <div class="tag">⑨ お知らせ（新着）</div>
     <ul class="news">
       <li><span class="d">2026/0X/0X</span> 説明会のご案内</li>
       <li><span class="d">2026/0X/0X</span> 新規加盟店のお知らせ</li>
@@ -156,51 +260,52 @@
     <div class="lnk">お知らせ一覧</div>
   </section>
 
-  <!-- ⑤ 大学連携 -->
+  <!-- ⑩ アプリ案内 -->
   <section>
-    <div class="tag">⑤ 北海道文教大学連携</div>
-    <h2 class="h">🎓 学生参加プログラム</h2>
-    <p class="s">連携協定・学生参加・地域での学びを紹介します。</p>
-    <div class="lnk">連携・学生参加を見る</div>
-  </section>
-
-  <!-- ⑥ 愛称投票（公開時特設） -->
-  <section style="position:relative;">
-    <span class="badge">公開時 特設</span>
-    <div class="tag">⑥ 愛称投票・プレゼント応募</div>
-    <h2 class="h">🎁 サイトの愛称を投票しよう</h2>
-    <p class="s">公開記念。応募でプレゼントが当たる企画です。</p>
-    <div class="lnk">応募する</div>
-  </section>
-
-  <!-- ⑦ お問い合わせ -->
-  <section>
-    <div class="tag">⑦ お問い合わせ誘導</div>
-    <h2 class="h">❓ 加盟のご相談・ご質問</h2>
-    <div class="lnk">お問い合わせ</div>
-  </section>
-
-  <!-- ⑧ フッター -->
-  <footer>
-    <div class="tag">⑧ フッター</div>
-    <b>恵庭サイモンズポイント会</b><br>
-    事務局：株式会社北央商事<br>
-    〒北海道恵庭市〇〇／TEL 000-000-0000／info@eniwa-point.com
-    <div class="frow">
-      <div>
-        <div class="lnk" style="color:#37474f">アプリ登録はこちら</div>
-      </div>
-      <div class="fqr"></div>
+    <div class="tag">⑩ アプリ案内</div>
+    <h2 class="h">もっと便利に！えにわ愛ポイントアプリ</h2>
+    <ul class="pts">
+      <li>ポイント残高の確認</li>
+      <li>お得なクーポンを配信</li>
+      <li>使えるお店の検索が簡単</li>
+    </ul>
+    <div class="qrrow">
+      <div class="qr"></div>
+      <div class="qrtxt"><b>QRコードで かんたん登録</b><br>Apple / Android 両対応（リンク先：onelink.to/rmdmub）</div>
     </div>
+    <div class="stores">
+      <div class="ph">App Store</div>
+      <div class="ph">Google Play</div>
+    </div>
+  </section>
+
+  <!-- ⑪ お問い合わせ -->
+  <section>
+    <div class="tag">⑪ お問い合わせ</div>
+    <h2 class="h">加盟のご相談・ご利用に関するご質問</h2>
+    <p class="s">恵庭駅通商店街振興組合<br>【事務局】株式会社北央商事<br>TEL：0123-34-0828 ／ Mail：info@eniwa-point.com</p>
+    <a class="cta">✉️ お問い合わせフォーム</a>
+  </section>
+
+  <!-- ⑫ フッター -->
+  <footer>
+    <div class="tag">⑫ フッター</div>
+    <div class="fnav">
+      <span>利用規約</span><span>プライバシーポリシー</span><span>特定商取引に基づく表記</span>
+      <span>お問い合わせ</span><span>運営会社</span><span>よくあるご質問</span>
+    </div>
+    <b>えにわ愛ポイント</b>｜ポイントは、愛。<br>
+    恵庭駅通商店街振興組合【事務局】株式会社北央商事<br>
+    TEL 0123-34-0828／info@eniwa-point.com
     <div class="frow">
       <div class="sns"><span class="s">f</span><span class="s">LINE</span><span class="s">ig</span></div>
-      <span>プライバシーポリシー</span>
+      <span>© 2026 えにわ愛ポイント</span>
     </div>
   </footer>
 
-  <!-- ⑨ 追従CTA -->
+  <!-- ⑬ 追従CTA -->
   <div class="sticky">
-    <a class="cta">▶ アプリ登録（無料）</a>
+    <a class="cta">👤＋ 会員登録する（無料）</a>
   </div>
 
 </div>
