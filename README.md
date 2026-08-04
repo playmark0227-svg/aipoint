@@ -39,12 +39,27 @@
 | 5 | トップページ レイアウト（デザインモック） | [docs/05_トップページ_レイアウト.md](docs/05_トップページ_レイアウト.md) ／ [ソース](site/index.html) |
 | 6 | デザイン依頼文テンプレート（ChatGPT用） | [docs/06_デザイン依頼文_ChatGPT.md](docs/06_デザイン依頼文_ChatGPT.md) |
 
-### 🌐 トップページ プレビュー（GitHub Pages）
+### 🌐 サイト プレビュー（GitHub Pages）
 
-実際に制作したトップページのレイアウトは、下記URLでブラウザからご確認いただけます。
+ご支給原稿（2026/7/18）の **必要ページ 全10ページ** を制作済みです。下記URLでブラウザからご確認いただけます。
 
-> トップページ：**https://playmark0227-svg.github.io/aipoint/**
+| No. | ページ | URL |
+| --- | --- | --- |
+| 1 | トップ | https://playmark0227-svg.github.io/aipoint/ |
+| 2 | ポイントとは | https://playmark0227-svg.github.io/aipoint/about/ |
+| 3 | アプリ登録方法／会員登録 | https://playmark0227-svg.github.io/aipoint/join/ |
+| 4 | 加盟店一覧 | https://playmark0227-svg.github.io/aipoint/shops/ |
+| 5 | クーポン | https://playmark0227-svg.github.io/aipoint/coupon/ |
+| 6 | お知らせ | https://playmark0227-svg.github.io/aipoint/news/ |
+| 7 | 北海道文教大学連携 | https://playmark0227-svg.github.io/aipoint/student/ |
+| 8 | お問い合わせ | https://playmark0227-svg.github.io/aipoint/contact/ |
+| 9 | ファイターズ | https://playmark0227-svg.github.io/aipoint/fighters/ |
+| 10 | キャンペーン情報 | https://playmark0227-svg.github.io/aipoint/campaign/ |
+
 > ご説明資料（ブラウザ版）：**https://playmark0227-svg.github.io/aipoint/about.html**
+
+**サイト構成**：全ページ共通のスタイルは `site/assets/site.css`、共通スクリプトは `site/assets/site.js`。
+各ページは `site/<スラッグ>/index.html`（ヘッダー・フッター・追従CTAは全ページ統一）。
 
 （本ブランチの push 後、GitHub Actions が `site/` を自動デプロイします。反映に数分かかる場合があります。
 スマホ・PCどちらでも、画面幅に応じてレイアウトが切り替わります。）
