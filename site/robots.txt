@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eniwa-point.com/sitemap.xml

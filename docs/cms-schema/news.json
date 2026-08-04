@@ -1,0 +1,49 @@
+{
+  "apiName": "news",
+  "displayName": "お知らせ",
+  "type": "list",
+  "description": "説明会・イベント・新規加盟店・メンテナンス情報などを掲載します。",
+  "customFields": [],
+  "apiFields": [
+    {
+      "idValue": "title",
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true,
+      "description": "一覧に表示される見出しです。例：加盟店向け説明会を開催します"
+    },
+    {
+      "idValue": "date",
+      "fieldId": "date",
+      "name": "日付",
+      "kind": "date",
+      "required": true,
+      "description": "記事の日付。未入力の場合は公開日を使用します。"
+    },
+    {
+      "idValue": "category",
+      "fieldId": "category",
+      "name": "カテゴリ",
+      "kind": "select",
+      "required": true,
+      "multipleSelect": false,
+      "selectItems": [
+        { "id": "c1", "value": "説明会" },
+        { "id": "c2", "value": "イベント" },
+        { "id": "c3", "value": "新規加盟店" },
+        { "id": "c4", "value": "メンテナンス" },
+        { "id": "c5", "value": "キャンペーン" }
+      ],
+      "description": "サイト上のタグの色が自動で切り替わります。"
+    },
+    {
+      "idValue": "body",
+      "fieldId": "body",
+      "name": "本文",
+      "kind": "richEditorV2",
+      "required": false,
+      "description": "記事の本文。見出し・箇条書き・画像・リンクが使えます。"
+    }
+  ]
+}

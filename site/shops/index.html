@@ -56,6 +56,10 @@
 
 <section class="sec">
   <div class="wrap">
+    <div class="searchbar">
+      <input type="search" id="shop-q" placeholder="店名・カテゴリ・地域名で検索" aria-label="加盟店を検索">
+      <button type="button" class="clear" style="display:none;">クリア</button>
+    </div>
     <div class="chips">
       <a class="chip on" href="#">すべて</a>
       <a class="chip" href="#">🍴 飲食</a>
@@ -63,7 +67,7 @@
       <a class="chip" href="#">✂️ サービス</a>
       <a class="chip" href="#">✨ その他</a>
     </div>
-    <p data-cms-note="filter" style="font-size:12.5px;color:#8a7480;margin:-10px 0 18px;">※ カテゴリ絞り込みは公開時に動作します。</p>
+    <p class="result-count" style="margin:-8px 0 14px;"></p>
     <div class="prep" data-cms-note="shops" style="margin-bottom:20px;">※ 掲載店舗は準備中です。加盟店の確定リスト（店名・カテゴリ・所在地・営業時間・写真）をご提供いただき次第、管理画面から掲載します。下記はレイアウト確認用のサンプル表示です。</div>
     <div class="shop-grid">
       <div class="shop">
@@ -131,6 +135,7 @@
         </div>
       </div>
     </div>
+    <div class="no-result" style="display:none;">該当する加盟店が見つかりませんでした。<br>キーワードやカテゴリを変えてお試しください。</div>
   </div>
 </section>
 
@@ -187,7 +192,7 @@
 
 <script src="../assets/site.js"></script>
 <!-- 管理画面（ヘッドレスCMS）連携：設定前はHTMLのサンプル内容を表示します -->
-<script src="../assets/cms-config.js"></script>
+<script src="../assets/config.js"></script>
 <script src="../assets/cms.js"></script>
 
 <!-- ===== モバイル追従CTA ===== -->
@@ -197,7 +202,9 @@
 
 <script src="../assets/site.js"></script>
 <!-- 管理画面（ヘッドレスCMS）連携：設定前はHTMLのサンプル内容を表示します -->
-<script src="../assets/cms-config.js"></script>
+<script src="../assets/config.js"></script>
 <script src="../assets/cms.js"></script>
+<script src="../assets/analytics.js"></script>
+<script src="../assets/search.js"></script>
 </body>
 </html>

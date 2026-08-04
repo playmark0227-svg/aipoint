@@ -140,7 +140,7 @@
       <span class="vote-badge">投票受付中</span>
       <h3 class="vote-h">ポータルサイトの愛称を投票で決めます。</h3>
       <p class="vote-lead">北海道文教大学の学生チームが考えた案です。<br>この中から好きな案を選んで投票してください。</p>
-      <form class="vote-form" onsubmit="return false;">
+      <form class="vote-form" data-form="vote" novalidate>
         <label class="vote-opt"><input type="radio" name="nickname" value="A"><span class="k">A</span><span class="v">○○○</span></label>
         <label class="vote-opt"><input type="radio" name="nickname" value="B"><span class="k">B</span><span class="v">○○○</span></label>
         <label class="vote-opt"><input type="radio" name="nickname" value="C"><span class="k">C</span><span class="v">○○○</span></label>
@@ -297,8 +297,10 @@
 
 <script src="assets/site.js"></script>
 <!-- 管理画面（ヘッドレスCMS）連携：設定前はHTMLのサンプル内容を表示します -->
-<script src="assets/cms-config.js"></script>
+<script src="assets/config.js"></script>
 <script src="assets/cms.js"></script>
 
+<script src="assets/analytics.js"></script>
+<script src="assets/forms.js"></script>
 </body>
 </html>

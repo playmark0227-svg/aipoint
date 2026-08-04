@@ -65,8 +65,19 @@
 
 **サイト構成**：全ページ共通のスタイルは `site/assets/site.css`、共通スクリプトは `site/assets/site.js`。
 各ページは `site/<スラッグ>/index.html`（ヘッダー・フッター・追従CTAは全ページ統一）。
-**管理画面連携**：`site/assets/cms.js`＋`site/assets/cms-config.js`（お知らせ・加盟店を microCMS から取得）。
-設定前はHTMLのサンプル内容を表示するため、未接続でもサイトは正常に動作します。
+**設定ファイル**：`site/assets/config.js` の1ファイルで、CMS接続・フォーム送信先・GA4測定ID・SNSリンクをまとめて設定できます。
+**未設定でもサイトは正常に動作します**（CMS未設定→サンプル表示／フォーム未設定→メール案内／GA4未設定→タグ非読込）。
+
+| ファイル | 役割 |
+| --- | --- |
+| `assets/config.js` | サイト設定（CMS・フォーム・GA4・リンク・事務局情報） |
+| `assets/site.css` / `assets/site.js` | 全ページ共通のスタイル／メニュー開閉 |
+| `assets/cms.js` | お知らせ・加盟店を管理画面（microCMS）から取得して表示 |
+| `assets/article.js` | お知らせ記事詳細（`/news/article/?id=…`） |
+| `assets/search.js` | 加盟店のキーワード検索・カテゴリ絞り込み |
+| `assets/forms.js` | 問い合わせ／愛称投票フォームの入力チェック・送信 |
+| `assets/analytics.js` | GA4計測（アプリDL・問い合わせ・投票をイベント計測） |
+| `404.html` / `robots.txt` / `sitemap.xml` | エラーページ・SEO |
 
 （本ブランチの push 後、GitHub Actions が `site/` を自動デプロイします。反映に数分かかる場合があります。
 スマホ・PCどちらでも、画面幅に応じてレイアウトが切り替わります。）

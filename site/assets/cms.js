@@ -5,7 +5,7 @@
    事務局様は管理画面で入力するだけで、HTMLを触らずに更新できます。
 
    ■ 設定方法（納品時に実施）
-     site/assets/cms-config.js の SERVICE_DOMAIN と API_KEY を
+     site/assets/config.js の cms.serviceDomain と cms.apiKey を
      microCMS の管理画面で発行した値に書き換えてください。
      未設定の場合は、HTMLに書かれているサンプル内容がそのまま表示されます
      （＝設定前でもサイトは正常に表示されます）。
@@ -17,14 +17,14 @@
 (function () {
   'use strict';
 
-  var CFG = window.AIPOINT_CMS || {};
+  var CFG = (window.AIPOINT_CONFIG && window.AIPOINT_CONFIG.cms) || window.AIPOINT_CMS || {};
   var READY = CFG.serviceDomain && CFG.apiKey &&
               CFG.serviceDomain.indexOf('YOUR-') !== 0 &&
               CFG.apiKey.indexOf('YOUR-') !== 0;
 
   /* CMS未設定なら何もしない（HTMLのサンプル表示を維持） */
   if (!READY) {
-    if (window.console && CFG.debug) {
+    if (window.console && (window.AIPOINT_CONFIG || {}).debug) {
       console.info('[えにわ愛ポイント] CMS未設定のため、サンプル内容を表示しています。');
     }
     return;
@@ -94,14 +94,14 @@
     if (!top && !page) return;
 
     var limit = page ? 20 : 3;
-    api('news', 'limit=' + limit + '&orders=-publishedAt')
+    api(CFG.newsEndpoint || 'news', 'limit=' + limit + '&orders=-publishedAt')
       .then(function (res) {
         var items = res.contents || [];
         if (!items.length) return;
 
         if (page) {
           page.innerHTML = items.map(function (n) {
-            var href = n.id ? './' + esc(n.id) + '/' : '#';
+            var href = n.id ? './article/?id=' + encodeURIComponent(n.id) : '#';
             return '<a class="row" href="' + href + '" style="text-decoration:none;">' +
               '<span class="d">' + ymd(n.date || n.publishedAt) + '</span>' +
               '<span class="t">' + tagHtml(catOf(n)) + esc(n.title) + '</span></a>';
@@ -129,7 +129,7 @@
     var grid = document.querySelector('.shop-grid');
     if (!grid) return;
 
-    api('shops', 'limit=100')
+    api(CFG.shopsEndpoint || 'shops', 'limit=100')
       .then(function (res) {
         var items = res.contents || [];
         if (!items.length) return;

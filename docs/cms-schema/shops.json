@@ -1,0 +1,64 @@
+{
+  "apiName": "shops",
+  "displayName": "加盟店",
+  "type": "list",
+  "description": "えにわ愛ポイントが使える加盟店を登録します。",
+  "customFields": [],
+  "apiFields": [
+    {
+      "idValue": "name",
+      "fieldId": "name",
+      "name": "店名",
+      "kind": "text",
+      "required": true,
+      "description": "例：〇〇ベーカリー"
+    },
+    {
+      "idValue": "category",
+      "fieldId": "category",
+      "name": "カテゴリ",
+      "kind": "select",
+      "required": true,
+      "multipleSelect": false,
+      "selectItems": [
+        { "id": "s1", "value": "飲食" },
+        { "id": "s2", "value": "小売" },
+        { "id": "s3", "value": "サービス" },
+        { "id": "s4", "value": "その他" }
+      ],
+      "description": "加盟店一覧の絞り込みに使用します。"
+    },
+    {
+      "idValue": "address",
+      "fieldId": "address",
+      "name": "所在地",
+      "kind": "text",
+      "required": false,
+      "description": "例：北海道恵庭市〇〇1-2-3"
+    },
+    {
+      "idValue": "hours",
+      "fieldId": "hours",
+      "name": "営業時間",
+      "kind": "text",
+      "required": false,
+      "description": "例：10:00〜19:00（水曜定休）"
+    },
+    {
+      "idValue": "photo",
+      "fieldId": "photo",
+      "name": "写真",
+      "kind": "media",
+      "required": false,
+      "description": "未登録の場合は「写真準備中」と表示されます。横長（16:10程度）推奨。"
+    },
+    {
+      "idValue": "map",
+      "fieldId": "map",
+      "name": "地図リンク",
+      "kind": "text",
+      "required": false,
+      "description": "GoogleマップのURLを貼り付けてください。"
+    }
+  ]
+}
