@@ -38,6 +38,7 @@
 | 4 | 工程表 | [Markdown](docs/04_工程表.md) ／ [📄 PDF（ガントチャート）](docs/えにわ愛ポイント_工程表.pdf) ／ [印刷用HTML](site/schedule.html) |
 | 5 | トップページ レイアウト（デザインモック） | [docs/05_トップページ_レイアウト.md](docs/05_トップページ_レイアウト.md) ／ [ソース](site/index.html) |
 | 6 | デザイン依頼文テンプレート（ChatGPT用） | [docs/06_デザイン依頼文_ChatGPT.md](docs/06_デザイン依頼文_ChatGPT.md) |
+| 7 | **管理画面（ヘッドレスCMS）設計・操作ガイド** | [docs/07_管理画面_設計と操作.md](docs/07_管理画面_設計と操作.md) |
 
 ### 🌐 サイト プレビュー（GitHub Pages）
 
@@ -55,11 +56,17 @@
 | 8 | お問い合わせ | https://playmark0227-svg.github.io/aipoint/contact/ |
 | 9 | ファイターズ | https://playmark0227-svg.github.io/aipoint/fighters/ |
 | 10 | キャンペーン情報 | https://playmark0227-svg.github.io/aipoint/campaign/ |
+| ― | 利用規約 | https://playmark0227-svg.github.io/aipoint/terms/ |
+| ― | プライバシーポリシー | https://playmark0227-svg.github.io/aipoint/privacy/ |
+| ― | 特定商取引法に基づく表記 | https://playmark0227-svg.github.io/aipoint/legal/ |
+| ― | 運営会社 | https://playmark0227-svg.github.io/aipoint/company/ |
 
 > ご説明資料（ブラウザ版）：**https://playmark0227-svg.github.io/aipoint/about.html**
 
 **サイト構成**：全ページ共通のスタイルは `site/assets/site.css`、共通スクリプトは `site/assets/site.js`。
 各ページは `site/<スラッグ>/index.html`（ヘッダー・フッター・追従CTAは全ページ統一）。
+**管理画面連携**：`site/assets/cms.js`＋`site/assets/cms-config.js`（お知らせ・加盟店を microCMS から取得）。
+設定前はHTMLのサンプル内容を表示するため、未接続でもサイトは正常に動作します。
 
 （本ブランチの push 後、GitHub Actions が `site/` を自動デプロイします。反映に数分かかる場合があります。
 スマホ・PCどちらでも、画面幅に応じてレイアウトが切り替わります。）

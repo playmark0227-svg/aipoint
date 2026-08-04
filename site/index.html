@@ -190,7 +190,7 @@
 <section class="sec" id="news">
   <div class="sec-head"><h2 class="ribbon"><span class="mini-heart">♥</span> お知らせ</h2></div>
   <div class="wrap" style="max-width:760px;">
-    <div style="border-top:1px solid var(--line);">
+    <div class="news-latest" style="border-top:1px solid var(--line);">
       <a href="news/" style="display:flex;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);">
         <span style="color:var(--pink-d);font-weight:800;font-size:13px;width:92px;flex:none;">2026.0X.0X</span>
         <span style="background:var(--pink-bg);color:var(--pink-d);font-weight:800;font-size:12px;padding:3px 10px;border-radius:999px;flex:none;">説明会</span>
@@ -269,12 +269,12 @@
 <footer class="site">
   <div class="wrap">
     <nav class="fnav">
-      <a href="#">利用規約</a>
-      <a href="#">プライバシーポリシー</a>
-      <a href="#">特定商取引に基づく表記</a>
+      <a href="terms/">利用規約</a>
+      <a href="privacy/">プライバシーポリシー</a>
+      <a href="legal/">特定商取引法に基づく表記</a>
       <a href="contact/">お問い合わせ</a>
-      <a href="#">運営会社</a>
-      <a href="#">よくあるご質問</a>
+      <a href="company/">運営会社</a>
+      <a href="contact/#faq">よくあるご質問</a>
     </nav>
     <div class="fbottom">
       <div style="font-weight:900;font-size:17px;">えにわ愛ポイント<span style="font-weight:700;font-size:13px;opacity:.9;">｜ポイントは、愛。</span></div>
@@ -296,6 +296,9 @@
 </div>
 
 <script src="assets/site.js"></script>
+<!-- 管理画面（ヘッドレスCMS）連携：設定前はHTMLのサンプル内容を表示します -->
+<script src="assets/cms-config.js"></script>
+<script src="assets/cms.js"></script>
 
 </body>
 </html>
