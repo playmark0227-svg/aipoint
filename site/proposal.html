@@ -40,11 +40,12 @@
     justify-content:center;font-weight:800;font-size:9pt;letter-spacing:.04em;}
 
   /* sections */
-  .head{display:flex;align-items:center;gap:10px;margin:0 0 10px;}
+  .head{display:flex;align-items:center;gap:10px;margin:0 0 8px;}
   .head .no{flex:none;width:30px;height:30px;border-radius:9px;background:var(--pink);color:#fff;
     display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11pt;}
   .head h2{font-size:15pt;font-weight:900;color:var(--ink-d);margin:0;}
-  section{margin-bottom:9mm;}
+  section{margin-bottom:6mm;}
+  .page > section:last-of-type{margin-bottom:0;}
   .lead{color:#6a5560;margin:0 0 8px;}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
     box-shadow:0 4px 12px rgba(214,63,134,.08);}
@@ -58,7 +59,10 @@
   ul.clean li{display:flex;gap:8px;align-items:flex-start;}
   ul.clean li::before{content:"♥";color:var(--pink);font-weight:900;flex:none;}
   table{width:100%;border-collapse:collapse;font-size:9.5pt;}
-  th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top;}
+  th,td{border:1px solid var(--line);padding:5px 9px;text-align:left;vertical-align:top;}
+  .tbl-pages{font-size:8.8pt;line-height:1.5;}
+  .tbl-pages th,.tbl-pages td{padding:3.5px 8px;}
+  .tbl-pages td:first-child{width:36mm;font-weight:800;color:var(--ink-d);}
   th{background:var(--pink-bg);color:var(--ink-d);font-weight:800;}
   .pill{display:inline-block;background:var(--cream);color:#7a5a00;font-weight:800;font-size:8.5pt;padding:2px 9px;border-radius:999px;}
   .copy-quote{background:linear-gradient(135deg,#fff0f6,#ffe3ef);border:1px dashed var(--pink-soft);
@@ -73,8 +77,8 @@
   .preview{display:grid;grid-template-columns:1.4fr .7fr;gap:10px;align-items:start;}
   .preview .frame{background:#fff;border:1px solid var(--line);border-radius:12px;padding:7px;box-shadow:0 4px 12px rgba(214,63,134,.08);}
   .preview .frame img{border-radius:6px;display:block;margin:0 auto;}
-  .preview .pc img{max-height:135mm;width:auto;}
-  .preview .sp img{width:100%;max-height:135mm;object-fit:contain;}
+  .preview .pc img{max-height:86mm;width:auto;}
+  .preview .sp img{width:100%;max-height:86mm;object-fit:contain;}
   .preview .cap{font-size:8.5pt;color:#7a6671;text-align:center;margin-top:4px;font-weight:700;}
   .secfoot{position:absolute;left:0;right:0;bottom:7mm;text-align:center;font-size:8pt;color:#c79bb2;}
   strong{color:var(--ink-d);}
@@ -89,14 +93,16 @@
     <span class="doc-tag">公式ポータルサイト ご説明資料</span>
     <div class="logo"><img src="images/logo-pink.png" alt="えにわ愛ポイント" style="height:12mm;width:auto;"></div>
     <h1>えにわ<b>愛</b>ポイント<br>公式ポータルサイト</h1>
-    <div class="copy">使うほど、まちが元気になる。／ ポイントは、愛。</div>
+    <div class="copy">恵庭の「いいね！」が、ここに集まる。／ ポイントは、愛。</div>
     <div class="meta">
-      恵庭駅通商店街振興組合（事務局：株式会社北央商事）<br>
-      地域共通ポイント・CRM事業 ／ ドメイン：eniwa-point.com ／ 2026年6月
+      恵庭駅通商店街振興組合【事務局】株式会社北央商事<br>
+      TEL：0123-34-0828 ／ Mail：info@eniwa-point.com<br>
+      地域共通ポイント・CRM事業 ／ ドメイン：eniwa-point.com<br>
+      2026年6月（ご支給原稿 7/18 反映版）
     </div>
-    <img class="char" src="images/character.png" alt="えにわ愛ポイント キャラクター">
+    <img class="char" src="images/character-official.png" alt="えにわ愛ポイント 公式キャラクター｜ポイントは、愛。">
   </div>
-  <div class="foot">使うほど、まちが元気になる。　えにわ愛ポイント</div>
+  <div class="foot">恵庭の「いいね！」が、ここに集まる。　えにわ愛ポイント</div>
 </div>
 
 <!-- ===== Page 2 : 目的〜利用者 ===== -->
@@ -117,11 +123,20 @@
   <section>
     <div class="head"><span class="no">2</span><h2>コンセプト・ブランド</h2></div>
     <div class="copy-quote">買って、貯めて、地域を応援！
-      <span class="big">使うほど、<span class="mag">まち</span>が元気になる。</span>ポイントは、愛。</div>
-    <div class="grid2" style="margin-top:10px;">
+      <span class="big">恵庭の<span class="mag">「いいね！」</span>が、ここに集まる。</span>加盟店やクーポン、イベントなど、えにわ愛ポイントの最新情報をお届けします。</div>
+    <p class="lead" style="margin:6px 0 0;font-size:9pt;">※ キャッチコピーはご支給原稿（7/18）に差し替え。「ポイントは、愛。」は<strong>公式キャラクターのタグライン</strong>として継続使用します。</p>
+    <div class="grid2" style="margin-top:8px;">
       <div class="card"><strong>プラットフォーム名</strong><br>えにわ愛ポイント（ENIWA AI POINT）<br>
         <span style="color:#7a6671;font-size:9pt;">※ ラフ案（デザイン：目谷裕美子氏／コピー：三浦清隆氏）に準拠</span></div>
       <div class="card"><strong>ポイントの仕組み</strong><br>100円で <b class="mag">1ポイント</b>／<b class="mag">1pt＝1円</b> として加盟店で使える。使うほど地域内でお金が循環します。</div>
+    </div>
+    <p class="lead" style="margin:8px 0 5px;"><strong>ポイントの使い方（ご支給のフロー図に準拠）</strong></p>
+    <div class="flow">
+      <div class="step"><span class="ic">📱</span><div><strong>① 会員登録</strong><br><span style="color:#7a6671;font-size:8.5pt;">QRからアプリを登録</span></div></div>
+      <div class="arrow">➜</div>
+      <div class="step"><span class="ic">🏬</span><div><strong>② 来店・購入</strong><br><span style="color:#7a6671;font-size:8.5pt;">加盟店で買い物・利用</span></div></div>
+      <div class="arrow">➜</div>
+      <div class="step"><span class="ic">💗</span><div><strong>③ ポイント付与・利用</strong><br><span style="color:#7a6671;font-size:8.5pt;">100円=1pt／1pt=1円</span></div></div>
     </div>
   </section>
 
@@ -142,25 +157,31 @@
 <div class="page brk">
   <section>
     <div class="head"><span class="no">4</span><h2>サイトの全体像（ページ構成）</h2></div>
-    <p class="lead">ナビ：トップ／えにわ愛ポイントとは／使えるお店を探す／キャンペーン／お知らせ／よくあるご質問（＋会員登録）</p>
-    <table>
+    <p class="lead">ご支給原稿「5. 必要ページ」に基づき、<strong>初期公開は全10ページ</strong>です。ナビ：トップ／ポイントとは／加盟店一覧／キャンペーン／ファイターズ／お知らせ／お問い合わせ（＋会員登録）</p>
+    <table class="tbl-pages">
       <tr><th>ページ</th><th>主な内容</th></tr>
-      <tr><td>トップ</td><td>キャッチ・キャラクター・会員登録/アプリDL/使えるお店の導線・使い方・キャンペーン</td></tr>
-      <tr><td>えにわ愛ポイントとは</td><td>ポイントの仕組み（100円=1pt／1pt=1円）・地域内循環</td></tr>
-      <tr><td>アプリ登録方法／会員登録（無料）</td><td>QRコード・登録手順（かんたん3ステップ）・Apple/Android</td></tr>
-      <tr><td>使えるお店を探す（加盟店一覧）</td><td>飲食店／買い物／サービス／美容・健康／すべて・地図</td></tr>
-      <tr><td>キャンペーン</td><td>新規登録500ptプレゼント・学生スタンプラリー・クーポン</td></tr>
-      <tr><td>お知らせ ／ 学生・大学連携 ／ FAQ ／ お問い合わせ</td><td>新着情報・学生参加・Q&A・問い合わせフォーム</td></tr>
+      <tr><td>1 トップページ</td><td>キャッチコピー・アプリ登録導線・QRコード・加盟店／クーポンへのリンク</td></tr>
+      <tr><td>2 ポイントとは</td><td>地域共通ポイントの説明・100円=1pt／1pt=1円・地域内循環・使い方フロー</td></tr>
+      <tr><td>3 アプリ登録方法</td><td>Apple／Android対応QRコード・登録手順・登録無料・個人情報の管理　<span class="pill">原稿：提出待ち</span></td></tr>
+      <tr><td>4 加盟店一覧</td><td>カテゴリ4分類（飲食／小売／サービス／その他）・すべてのお店・地図</td></tr>
+      <tr><td>5 クーポン</td><td>最新クーポン・期間限定企画・スタンプラリー 等　<span class="pill">企画中</span></td></tr>
+      <tr><td>6 お知らせ</td><td>説明会・イベント・新規加盟店・メンテナンス情報　<span class="pill">随時</span></td></tr>
+      <tr><td>7 北海道文教大学連携</td><td>連携協定・学生参加プログラム・参加メリット・地域での学び　<span class="pill">検討中</span></td></tr>
+      <tr><td>8 お問い合わせ</td><td>恵庭駅通商店街振興組合【事務局】株式会社北央商事／TEL 0123-34-0828／info@eniwa-point.com／問い合わせフォーム</td></tr>
+      <tr><td>9 ファイターズ <span class="pill">★新規</span></td><td>2軍本拠地関連（ご支給ポスター）・まちがにぎわう！／くらしが楽しくなる！／未来につながる！</td></tr>
+      <tr><td>10 キャンペーン情報 <span class="pill">★新規</span></td><td>愛称投票（北海道文教大学の学生チーム案 A／B／C）・本年10月末に愛称決定・決定案に投票した会員から抽選でポイント進呈・投票フォーム実装</td></tr>
     </table>
+    <p class="lead" style="margin:6px 0 0;font-size:9pt;">※ クーポンとキャンペーン情報を分離し、ファイターズを新規追加。よくあるご質問（FAQ）は全10ページに含まれていないため掲載要否を要確認。<span class="pill">ステータス</span>は原稿の進行状況（制作側メモ）で、サイトの掲載文ではありません。</p>
   </section>
 
   <section>
     <div class="head"><span class="no">5</span><h2>トップページ デザイン</h2></div>
     <p class="lead">ピンク（桜・愛）を基調に、親しみやすく信頼感のあるデザイン。スマホ最優先で制作。</p>
     <div class="preview">
-      <div class="frame pc"><img src="images/preview-pc.jpg" alt="PC表示"><div class="cap">PC表示</div></div>
-      <div class="frame sp"><img src="images/preview-sp.jpg" alt="スマホ表示"><div class="cap">スマホ表示</div></div>
+      <div class="frame pc"><img src="images/preview-pc-0718.jpg" alt="PC表示"><div class="cap">PC表示</div></div>
+      <div class="frame sp"><img src="images/preview-sp-0718.jpg" alt="スマホ表示"><div class="cap">スマホ表示</div></div>
     </div>
+    <p class="lead" style="margin:5px 0 0;font-size:8.5pt;">※ 画面は<strong>原稿（7/18）反映後</strong>の制作中イメージ（上部のみ）です。最新の全体はブラウザ版プレビューをご確認ください。</p>
   </section>
   <div class="secfoot">えにわ愛ポイント 公式ポータルサイト ご説明資料 ・ 3</div>
 </div>
@@ -170,13 +191,16 @@
   <section>
     <div class="head"><span class="no">6</span><h2>主な機能</h2></div>
     <div class="grid2">
-      <div class="card"><strong>👤 会員登録・アプリ誘導</strong><br>会員登録（無料）／アプリDL／QRで登録まで最短誘導。</div>
+      <div class="card"><strong>👤 会員登録・アプリ誘導</strong><br>会員登録（無料）／アプリDL／<strong>ご支給の実物QRコード</strong>で最短誘導。リンク先はApple／Android両対応（onelink.to/rmdmub）。</div>
+      <div class="card"><strong>🗳️ オープンキャンペーン（愛称投票）</strong><br><strong>北海道文教大学の学生チームが考えた案</strong>A／B／Cを選ぶ<strong>投票フォーム</strong>を実装。10月末に愛称決定・抽選でポイント進呈。</div>
+      <div class="card"><strong>🏬 加盟店一覧</strong><br>カテゴリ4分類（飲食／小売／サービス／その他）別表示＋Googleマップ連携。</div>
+      <div class="card"><strong>🎫 クーポン</strong><br>最新クーポン・期間限定企画・スタンプラリー等（企画中）。</div>
+      <div class="card"><strong>⚾ ファイターズ</strong><br>2軍本拠地関連ページ。ご支給ポスター「ファイターズ2軍本拠地が恵庭に！」を掲載。</div>
       <div class="card"><strong>📢 お知らせ</strong><br>説明会・イベント・新規加盟店を管理画面から発信。</div>
-      <div class="card"><strong>🏬 加盟店一覧</strong><br>カテゴリ別表示＋Googleマップ連携。</div>
-      <div class="card"><strong>🎁 キャンペーン</strong><br>新規登録500pt・学生スタンプラリー等。</div>
-      <div class="card"><strong>✉️ お問い合わせ</strong><br>加盟希望・利用者の問い合わせを受付。</div>
+      <div class="card"><strong>✉️ お問い合わせ</strong><br>加盟希望・利用者の問い合わせを受付。TEL 0123-34-0828／info@eniwa-point.com。</div>
       <div class="card"><strong>🔗 SNS・解析</strong><br>Facebook/LINE/Instagram、GA4で効果測定。</div>
     </div>
+    <div class="note" style="margin-top:8px;">愛称の候補名（A／B／C）・抽選人数・進呈ポイント数は<strong>未定</strong>のため、サイト上は「○○○」表記です。決定次第反映します。</div>
   </section>
 
   <section>
@@ -223,7 +247,7 @@
 
   <section>
     <div class="head"><span class="no">10</span><h2>スケジュール</h2></div>
-    <p class="lead"><strong>2段階の納品</strong>です。まず<strong>7月中（7/31目標）にレビュー用の「仮納品」</strong>、確認・コンテンツ投入・テストを経て<strong>9月1日に本公開</strong>します。</p>
+    <p class="lead"><strong>2段階の納品</strong>です。<strong>7/31にレビュー用の「仮納品」</strong>、確認・投入・テストを経て<strong>9月1日に本公開</strong>します。</p>
     <div class="big-date">🟡 仮納品：7/31（金）　／　🔴 公開：9/1（火）</div>
     <table>
       <tr><th>期間</th><th>内容</th></tr>
@@ -240,16 +264,18 @@
       <div class="card"><strong>制作費</strong><div class="big-date" style="font-size:16pt;">500,000円（税別）</div>
         <span style="font-size:9pt;color:#7a6671;">納品物：完成サイト一式（HTML）／管理画面ログイン・操作マニュアル／元データ 等</span></div>
       <div class="card"><strong>着手時のお願い</strong>
-        <ul class="clean" style="margin-top:5px;">
-          <li><span class="pill">素材</span> ロゴ・公式キャラ・QR・各URL・SNS</li>
-          <li><span class="pill">加盟店</span> 初期掲載の確定リスト</li>
+        <ul class="clean" style="margin-top:5px;font-size:9pt;gap:3px;">
+          <li><span class="pill">素材</span> ロゴ・公式キャラ・各URL・SNS</li>
+          <li><span class="pill">加盟店</span> 初期掲載リスト（4カテゴリ）</li>
+          <li><span class="pill">原稿</span> アプリ登録方法（提出待ち）</li>
+          <li><span class="pill">未定</span> 愛称候補A〜C・抽選人数・進呈pt</li>
           <li><span class="pill">承認</span> 各確認を原則1営業日以内で</li>
         </ul>
       </div>
     </div>
     <div class="note" style="margin-top:8px;">詳細は <strong>要件確認書「14. 確認・要決定事項」</strong>・各資料をご参照ください。</div>
   </section>
-  <div class="secfoot">えにわ愛ポイント｜ポイントは、愛。 ・ 恵庭駅通商店街振興組合／株式会社北央商事 ・ 5</div>
+  <div class="secfoot">えにわ愛ポイント｜ポイントは、愛。 ・ 恵庭駅通商店街振興組合【事務局】株式会社北央商事 ・ TEL 0123-34-0828 ／ info@eniwa-point.com ・ 5</div>
 </div>
 
 </body>
