@@ -39,6 +39,7 @@
 | 5 | トップページ レイアウト（デザインモック） | [docs/05_トップページ_レイアウト.md](docs/05_トップページ_レイアウト.md) ／ [ソース](site/index.html) |
 | 6 | デザイン依頼文テンプレート（ChatGPT用） | [docs/06_デザイン依頼文_ChatGPT.md](docs/06_デザイン依頼文_ChatGPT.md) |
 | 7 | **管理画面（ヘッドレスCMS）設計・操作ガイド** | [docs/07_管理画面_設計と操作.md](docs/07_管理画面_設計と操作.md) |
+| 8 | **公開準備チェックリスト（ゼンロジック設置→本番URL→QR）** | [docs/08_公開準備チェックリスト.md](docs/08_公開準備チェックリスト.md) |
 
 ### 🌐 サイト プレビュー（GitHub Pages）
 
@@ -49,7 +50,7 @@
 | 1 | トップ | https://playmark0227-svg.github.io/aipoint/ |
 | 2 | ポイントとは | https://playmark0227-svg.github.io/aipoint/about/ |
 | 3 | アプリ登録方法／会員登録 | https://playmark0227-svg.github.io/aipoint/join/ |
-| 4 | 加盟店一覧 | https://playmark0227-svg.github.io/aipoint/shops/ |
+| 4 | 加盟店のご案内 | https://playmark0227-svg.github.io/aipoint/shops/ |
 | 5 | クーポン | https://playmark0227-svg.github.io/aipoint/coupon/ |
 | 6 | お知らせ | https://playmark0227-svg.github.io/aipoint/news/ |
 | 7 | 北海道文教大学連携 | https://playmark0227-svg.github.io/aipoint/student/ |
@@ -96,7 +97,8 @@
 
 - **ポイントの流れ**：① 会員登録（QRコードからアプリを登録）→ ② 来店・購入（加盟店で買い物・サービス利用）→ ③ ポイント付与・利用（100円につき1ポイント付与／1ポイント＝1円）
 - **アプリDL導線**：ご支給の実QRコード（リンク先 `onelink.to/rmdmub` ＝ Apple / Android 両対応）
-- **オープンキャンペーン**：ポータルサイトの愛称を投票で決定（A／B／C案・本年10月末に決定／候補名・進呈ポイント数は未定）
+- **オープンキャンペーン**：ポータルサイトの愛称を投票で決定
+  （**A：はなっぷ／B：haru nonno／C：えにわぽけっと** ＝北海道文教大学 人間科学部・地域未来学の学生チーム考案。本年10月末に決定／当選人数・進呈ポイント数は未定）
 - **ファイターズ**：2軍本拠地が恵庭に（★新規ページ）
 
 > ※ プラットフォーム名「**えにわ愛ポイント**」・キャラクターは、ご支給のラフ案
