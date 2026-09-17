@@ -14,6 +14,14 @@
       "description": "例：〇〇ベーカリー"
     },
     {
+      "idValue": "slug",
+      "fieldId": "slug",
+      "name": "URL用の英字名（スラッグ）",
+      "kind": "text",
+      "required": false,
+      "description": "店舗詳細ページのURLに使う英小文字・数字・ハイフン（例：milk-no-atelier）。入力すると一覧から詳細ページへリンクします。"
+    },
+    {
       "idValue": "category",
       "fieldId": "category",
       "name": "カテゴリ",
@@ -21,10 +29,22 @@
       "required": true,
       "multipleSelect": false,
       "selectItems": [
-        { "id": "s1", "value": "飲食" },
-        { "id": "s2", "value": "小売" },
-        { "id": "s3", "value": "サービス" },
-        { "id": "s4", "value": "その他" }
+        {
+          "id": "s1",
+          "value": "飲食"
+        },
+        {
+          "id": "s2",
+          "value": "小売"
+        },
+        {
+          "id": "s3",
+          "value": "サービス"
+        },
+        {
+          "id": "s4",
+          "value": "その他"
+        }
       ],
       "description": "加盟店一覧の絞り込みに使用します。"
     },

@@ -70,7 +70,8 @@
     clearBtn.addEventListener('click', function () { if (input) { input.value = ''; input.focus(); } apply(); });
   }
 
-  /* CMSが後からカードを差し替えても件数表示を更新する */
+  /* 一覧が後から描画・差し替えされても件数表示を更新する */
+  window.aipointRefreshShops = apply;
   if (window.MutationObserver) {
     new MutationObserver(function () { apply(); }).observe(grid, { childList: true });
   }

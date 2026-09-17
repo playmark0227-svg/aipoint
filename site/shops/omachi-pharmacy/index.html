@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>お知らせ｜えにわ愛ポイント</title>
-<meta name="description" content="えにわ愛ポイントからのお知らせ記事です。">
+<title>大町調剤薬局｜加盟店のご案内｜えにわ愛ポイント</title>
+<meta name="description" content="大町調剤薬局（調剤薬局・服薬相談・健康相談）｜皆さまの健康で安心な暮らしをサポートする地域密着型の調剤薬局です。">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#e85a9c">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="えにわ愛ポイント">
-<meta property="og:title" content="お知らせ｜えにわ愛ポイント">
-<meta property="og:description" content="えにわ愛ポイントからのお知らせです。">
+<meta property="og:title" content="大町調剤薬局｜加盟店のご案内｜えにわ愛ポイント">
+<meta property="og:description" content="大町調剤薬局（調剤薬局・服薬相談・健康相談）｜皆さまの健康で安心な暮らしをサポートする地域密着型の調剤薬局です。">
 <meta property="og:image" content="https://playmark0227-svg.github.io/aipoint/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <link rel="icon" type="image/png" href="../../images/favicon.png">
@@ -47,35 +47,31 @@
 <div class="pagehead">
   <div class="wrap">
     <nav class="crumb" aria-label="パンくず">
-      <a href="../../">トップ</a><span class="sep">›</span><a href="../">お知らせ</a><span class="sep">›</span><span>記事</span>
+      <a href="../../">トップ</a><span class="sep">›</span><a href="../">加盟店のご案内</a><span class="sep">›</span><span>大町調剤薬局</span>
     </nav>
-    <h1>お知らせ</h1>
-    <p class="ph-lead">説明会・イベント・新規加盟店・メンテナンス情報をお届けします。</p>
+    <h1>大町調剤薬局</h1>
+    <p class="ph-lead">調剤薬局・服薬相談・健康相談</p>
   </div>
 </div>
 
+<!-- ===== 店舗情報（assets/shops.js が描画） ===== -->
 <section class="sec">
   <div class="wrap">
-    <article class="article" id="article">
-      <div class="meta-row">
-        <span class="date skeleton" style="width:110px;height:14px;"></span>
-      </div>
-      <div class="skeleton" style="width:80%;height:26px;"></div>
-      <div class="skeleton" style="width:100%;"></div>
-      <div class="skeleton" style="width:92%;"></div>
-      <div class="skeleton" style="width:70%;"></div>
-    </article>
-    <div style="margin-top:34px;">
-      <a class="btn btn-out btn-sm" href="./">‹ お知らせ一覧へ戻る</a>
-    </div>
+    <div id="shop-detail" data-shop="omachi-pharmacy"></div>
   </div>
 </section>
+
+<!-- ===== 次への導線 ===== -->
 <section class="sec" style="background:var(--pink-bg);">
   <div class="wrap">
+    <div class="cta-row two" style="max-width:720px;margin:0 auto 22px;">
+      <a class="btn btn-pink" href="../../join/">👤＋ 会員登録する（無料）<span class="chev">›</span></a>
+      <a class="btn btn-out" href="../">🏬 加盟店のご案内へ戻る<span class="chev">›</span></a>
+    </div>
     <div class="nextnav">
-      <a href="../../campaign/">キャンペーン<span class="ar">›</span></a>
-      <a href="../../shops/">加盟店のご案内<span class="ar">›</span></a>
-      <a href="../../contact/">お問い合わせ<span class="ar">›</span></a>
+      <a href="../../about/">💡 ポイントとは<span class="ar">›</span></a>
+      <a href="../../coupon/">🎫 クーポン<span class="ar">›</span></a>
+      <a href="../../contact/">✉️ お問い合わせ<span class="ar">›</span></a>
     </div>
   </div>
 </section>
@@ -114,7 +110,8 @@
 
 <script src="../../assets/config.js"></script>
 <script src="../../assets/site.js"></script>
+<script src="../../assets/shops-data.js"></script>
+<script src="../../assets/shops.js"></script>
 <script src="../../assets/analytics.js"></script>
-<script src="../../assets/article.js"></script>
 </body>
 </html>

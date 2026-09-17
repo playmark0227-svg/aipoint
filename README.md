@@ -51,6 +51,12 @@
 | 2 | ポイントとは | https://playmark0227-svg.github.io/aipoint/about/ |
 | 3 | アプリ登録方法／会員登録 | https://playmark0227-svg.github.io/aipoint/join/ |
 | 4 | 加盟店のご案内 | https://playmark0227-svg.github.io/aipoint/shops/ |
+| ― | └ ショップ酒蔵 | https://playmark0227-svg.github.io/aipoint/shops/shop-sakagura/ |
+| ― | └ シャディサラダ館 恵庭駅前店 | https://playmark0227-svg.github.io/aipoint/shops/shaddy-salad-eniwa/ |
+| ― | └ クリクラ恵央 | https://playmark0227-svg.github.io/aipoint/shops/crecla-keio/ |
+| ― | └ 株式会社北央商事 配置薬事業部 | https://playmark0227-svg.github.io/aipoint/shops/hokuo-haichiyaku/ |
+| ― | └ 大町調剤薬局 | https://playmark0227-svg.github.io/aipoint/shops/omachi-pharmacy/ |
+| ― | └ みるくのアトリエ | https://playmark0227-svg.github.io/aipoint/shops/milk-no-atelier/ |
 | 5 | クーポン | https://playmark0227-svg.github.io/aipoint/coupon/ |
 | 6 | お知らせ | https://playmark0227-svg.github.io/aipoint/news/ |
 | 7 | 北海道文教大学連携 | https://playmark0227-svg.github.io/aipoint/student/ |
@@ -75,6 +81,8 @@
 | `assets/site.css` / `assets/site.js` | 全ページ共通のスタイル／メニュー開閉 |
 | `assets/cms.js` | お知らせ・加盟店を管理画面（microCMS）から取得して表示 |
 | `assets/article.js` | お知らせ記事詳細（`/news/article/?id=…`） |
+| `assets/shops-data.js` | **加盟店データ（ここを編集すれば一覧・詳細に反映）** |
+| `assets/shops.js` | 加盟店の一覧カード・店舗詳細ページの描画 |
 | `assets/search.js` | 加盟店のキーワード検索・カテゴリ絞り込み |
 | `assets/forms.js` | 問い合わせ／愛称投票フォームの入力チェック・送信 |
 | `assets/analytics.js` | GA4計測（アプリDL・問い合わせ・投票をイベント計測） |

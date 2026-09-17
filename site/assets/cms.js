@@ -143,18 +143,24 @@
           var map = s.map
             ? '<a href="' + esc(s.map) + '" target="_blank" rel="noopener" style="color:var(--pink-d);font-weight:800;">地図を見る ›</a>'
             : '';
-          return '<div class="shop" data-cat="' + esc(catOf(s)) + '">' + ph +
+          /* slug があれば店舗詳細ページへのリンクカードにする */
+          var open = s.slug ? '<a class="shop" href="./' + esc(s.slug) + '/"' : '<div class="shop"';
+          var close = s.slug ? '</a>' : '</div>';
+          var more = s.slug
+            ? '<span style="color:var(--pink-d);font-weight:800;font-size:13.5px;">くわしく見る ›</span>'
+            : map;
+          return open + ' data-cat="' + esc(catOf(s)) + '">' + ph +
             '<div class="body">' +
             (catOf(s) ? '<span class="cat-tag">' + esc(catOf(s)) + '</span>' : '') +
             '<div class="nm">' + esc(s.name) + '</div>' +
             '<div class="meta">' +
             (s.address ? '所在地：' + esc(s.address) + '<br>' : '') +
             (s.hours ? '営業時間：' + esc(s.hours) + '<br>' : '') +
-            map + '</div></div></div>';
+            '</div>' + more + '</div>' + close;
         }).join('');
 
         document.querySelectorAll('[data-cms-note="shops"]').forEach(function (el) { el.remove(); });
-        wireFilter();
+        if (window.aipointRefreshShops) window.aipointRefreshShops(); else wireFilter();
       })
       .catch(function (e) { if (window.console) console.warn('[CMS] 加盟店の取得に失敗:', e.message); });
   }
