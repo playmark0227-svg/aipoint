@@ -271,6 +271,8 @@ def character_layers(data):
     # 目の先端のような細い所でも体が透けないようにする（体の輪郭の1px分は下地を敷かず、なめらかに抜く）
     lo, _ = _label(lp != body)
     outside = np.isin(lo, list(set(np.unique(np.concatenate([lo[0], lo[-1], lo[:, 0], lo[:, -1]]))) - {0}))
+    outside[[0, -1], :] = True     # 元画像の端で体が切れている所（頭の上端）には下地を敷かない
+    outside[:, [0, -1]] = True
     under = ~_grow(outside, 1)
     lw, nw = _label(~ink)
     edge = set(np.unique(np.concatenate([lw[0], lw[-1], lw[:, 0], lw[:, -1]]))) - {0}
@@ -313,34 +315,53 @@ def character_rgb(data):
     return Image.fromarray(out, 'RGBA')
 
 
+EYE_PX = 818                     # 目1つの面積（元の大きさで。三日月2つ）
+
+
 def check_character(char, data):
-    """透過の仕上がりを確かめる（以前の不具合＝白いフチ・文字の穴の白が再発していないか）"""
+    """透過の仕上がりを確かめる（以前の不具合＝白いフチ・文字の穴の白・ギザギザが再発していないか）。
+    python -O でも消えないよう assert ではなく fail() で止める"""
     import numpy as np
+
+    def need(ok, msg):
+        if not ok:
+            fail('キャラクター画像：' + msg)
     pink, text, under, eyes, holes = character_layers(data)
     H, W = pink.shape
     s, p = CHAR_SCALE, CHAR_PAD
-    assert char.size == ((W + 2 * p) * s, (H + 2 * p) * s), char.size
+    need(char.size == ((W + 2 * p) * s, (H + 2 * p) * s), f'大きさが想定と違います {char.size}')
     a = np.asarray(char).astype(int)
     alpha, mn = a[..., 3], a[..., :3].min(2)
     at = lambda m: np.kron(np.pad(m, p), np.ones((s, s), bool))    # 元の座標 → 書き出し後の座標
+    # 目は2つ（三日月）。体に囲まれた背景を目と取り違えていないかを、面積で確かめる
+    le, ne = _label(eyes)
+    sizes = sorted((int(v) for v in np.bincount(le.ravel())[1:] if v >= 10), reverse=True)
+    need(len(sizes) == 2 and all(abs(v - EYE_PX) <= EYE_PX * 0.05 for v in sizes),
+         f'目の判定がおかしい（面積 {sizes}）')
     white = (alpha > 0) & (mn >= 235)
     n = int((white & ~at(under)).sum())
-    assert n == 0, f'体の外に白い画素が {n} 個あります（白いフチ・文字の穴の白）'
+    need(n == 0, f'体の外に白い画素が {n} 個あります（白いフチ・文字の穴の白）')
     eye_px = at(eyes).sum()
-    n = int((white & at(under)).sum())
-    assert 0.8 * eye_px < n < 1.3 * eye_px, f'体の中の白（目）の量がおかしい：{n}px（目 {eye_px}px）'
+    n_eye = int((white & at(under)).sum())
+    need(0.8 * eye_px < n_eye < 1.3 * eye_px, f'体の中の白（目）の量がおかしい：{n_eye}px（目 {eye_px}px）')
     for m in holes:              # 細い隙間の縁は元データでも半分ほどインクがかかるため、穴全体で判定
         h = alpha[at(m)]
         ys, xs = np.nonzero(m)
-        assert (h == 0).mean() >= 0.5 and h.mean() < 64, \
-            f'文字の穴（x{xs.min()} y{ys.min()} 付近）が透明になっていません'
+        need((h == 0).mean() >= 0.5 and h.mean() < 64, f'文字の穴（x{xs.min()} y{ys.min()} 付近）が透明になっていません')
     body_in = at(under & ~_grow(~under, 1))                       # 体の内側（輪郭から少し内側）
-    assert (alpha[body_in] == 255).all(), '体の内側に透ける画素があります'
+    need((alpha[body_in] == 255).all(), '体の内側に透ける画素があります')
     ink = (pink + text) > 0.5
-    ink[[0, -1], :] = ink[:, [0, -1]] = False                     # 元画像の端で切れている所は除く
+    ink[[0, -1], :] = False                                       # 元画像の端で切れている所は除く
+    ink[:, [0, -1]] = False
     text_in = at(~_grow(~ink, 2) & (text > pink))
-    assert (alpha[text_in] == 255).mean() > 0.99, '文字の内側に透ける画素が多すぎます'
-    return dict(eye_white=n, holes=len(holes))
+    n = int((alpha[text_in] < 255).sum())
+    need(n <= 16, f'文字の内側に透ける画素が {n} 個あります')
+    # 輪郭がなめらか（半透明の階調がある）こと。透明／不透明の2段階に戻るとギザギザになる
+    hi = alpha >= 128                                             # 書き出し後の輪郭（内外1px）
+    contour = (_grow(hi, 1) & ~hi) | (hi & _grow(~hi, 1))
+    part = ((alpha > 0) & (alpha < 255))[contour].mean()
+    need(part > 0.4, f'輪郭に半透明の階調がありません（{part:.0%}）＝ギザギザです')
+    return dict(eye_white=n_eye, holes=len(holes), smooth_edge=round(float(part), 2))
 
 
 # ------------------------------------------------ ①会員登録アイコン（制作側で作図）
@@ -735,6 +756,10 @@ def build(update_site, date):
         note='LINEで受領した画像で、印刷には小さいサイズです。印刷用（CMYK）のため、画面では紫がかって見えることがあります')
     char = character_rgb(data)
     check_character(char, data)
+    if not update_site:          # サイトで表示中の画像と同じものをお渡しする
+        site_char = Image.open(os.path.join(ROOT, 'site/images/character-official.png')).convert('RGBA')
+        if site_char.size != char.size or ImageChops.difference(site_char, char).getbbox():
+            fail('site/images/character-official.png が今回の書き出しと違います（--update-site で更新してください）')
     save(char, '02_character/official-character_transparent.png')
     if update_site:
         char.save(os.path.join(ROOT, 'site/images/character-official.png'), optimize=True)
