@@ -207,38 +207,140 @@ def cmyk_to_rgb(im):
     return out
 
 
-def character_rgb(data):
+# 透過の作り方：受領データはインク量（ピンク＝M、文字＝K）がそのまま残っているので、
+# 「インクの量＝不透明度」として輪郭をなめらかに抜く（白背景を色で判定して切り抜くと、
+# 輪郭に白いフチが残り、文字の穴や半濁点の輪の中の白も残ってしまうため）。
+# 目の白だけは、キャラクターの体に囲まれた白として残す。
+# サイトでは最大400px幅で表示するため、高精細画面向けに2倍の大きさで書き出す。
+INK_PINK = (1, 166, 1, 10)       # キャラクターのピンク（C0 M65 Y0 K4）
+INK_TEXT = (0, 0, 0, 204)        # 文字のグレー（K80）
+CHAR_SCALE, CHAR_PAD = 2, 4      # 2倍で書き出し／周囲に4pxの余白
+
+
+def _label(mask):
+    """つながった領域ごとに番号を振る（上下左右でつながるもの）"""
+    import numpy as np
     from collections import deque
+    H, W = mask.shape
+    lab = np.zeros((H, W), np.int32)
+    n = 0
+    for y0, x0 in zip(*np.nonzero(mask)):
+        if lab[y0, x0]:
+            continue
+        n += 1
+        lab[y0, x0] = n
+        dq = deque([(y0, x0)])
+        while dq:
+            y, x = dq.popleft()
+            for ny, nx in ((y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)):
+                if 0 <= ny < H and 0 <= nx < W and mask[ny, nx] and not lab[ny, nx]:
+                    lab[ny, nx] = n
+                    dq.append((ny, nx))
+    return lab, n
+
+
+def _grow(m, r):
+    """領域を r ピクセル太らせる"""
+    out = m.copy()
+    for _ in range(r):
+        o = out.copy()
+        o[1:] |= out[:-1]; o[:-1] |= out[1:]; o[:, 1:] |= out[:, :-1]; o[:, :-1] |= out[:, 1:]
+        out = o
+    return out
+
+
+def character_layers(data):
+    """受領データ（CMYK）から、ピンク・文字・白の下地（体の内側）それぞれの「塗られている量（0〜1）」を求める"""
+    import numpy as np
     src = Image.open(io.BytesIO(data))
     assert src.mode == 'CMYK'
-    im = cmyk_to_rgb(src).convert('RGBA')
-    # 外周につながる白だけを透明にする（目の白は残す）＝サイト掲載時と同じ方法
-    W, H = im.size
-    px = im.load()
-    white = lambda x, y: min(px[x, y][:3]) >= 236
-    seen = bytearray(W * H)
-    dq = deque((x, y) for x in range(W) for y in (0, H - 1))
-    dq.extend((x, y) for y in range(H) for x in (0, W - 1))
-    while dq:
-        x, y = dq.popleft()
-        if seen[y * W + x] or not white(x, y):
+    a = np.asarray(src).astype(float)
+    M, K = a[..., 1], a[..., 3]
+    # 体の内側でもJPEGの揺らぎでインクが100%に届かない画素があるため、9割前後で不透明にする
+    pink = np.clip((M - 8) / (150 - 8), 0, 1)
+    text = np.clip((K - INK_PINK[3] * pink - 8) / (180 - 8), 0, 1)
+    ink = (pink + text) > 0.5
+    # 塗りから2px以上離れた所の揺らぎ（白地のノイズ）は消す
+    far = ~_grow(ink, 2)
+    pink[far] = 0
+    text[far] = 0
+    # 体（いちばん大きいピンクの領域）に囲まれた白＝目
+    lp, _ = _label(pink > 0.5)
+    body = 1 + int(np.argmax(np.bincount(lp.ravel())[1:]))
+    # 体の外側（画像の端につながる部分）。その内側には白の下地を敷き、目の白を残すとともに、
+    # 目の先端のような細い所でも体が透けないようにする（体の輪郭の1px分は下地を敷かず、なめらかに抜く）
+    lo, _ = _label(lp != body)
+    outside = np.isin(lo, list(set(np.unique(np.concatenate([lo[0], lo[-1], lo[:, 0], lo[:, -1]]))) - {0}))
+    under = ~_grow(outside, 1)
+    lw, nw = _label(~ink)
+    edge = set(np.unique(np.concatenate([lw[0], lw[-1], lw[:, 0], lw[:, -1]]))) - {0}
+    eyes = np.zeros_like(ink)
+    holes = []                       # 目以外の囲まれた白（文字の穴・半濁点の輪の中）＝透明にする所
+    for i in range(1, nw + 1):
+        if i in edge:
             continue
-        seen[y * W + x] = 1
-        r, g, b, _ = px[x, y]
-        px[x, y] = (r, g, b, 0)
-        for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
-            if 0 <= nx < W and 0 <= ny < H and not seen[ny * W + nx]:
-                dq.append((nx, ny))
-    return im.crop(im.getchannel('A').getbbox())
+        m = lw == i
+        ring = _grow(m, 2) & ~m
+        if (lp[ring] == body).mean() > 0.8:
+            eyes |= m
+        else:
+            holes.append(m)
+    return pink, text, under, eyes, holes
 
 
-def check_character_mask(char):
-    """透過の切り抜きが、公開中のサイト画像（git の最新コミット）と変わっていないか確かめる"""
-    head = Image.open(io.BytesIO(git_blob('HEAD', 'site/images/character-official.png'))).convert('RGBA')
-    assert head.size == char.size, f'キャラクターの大きさが変わりました {head.size} → {char.size}'
-    diff = ImageChops.difference(head.getchannel('A'), char.getchannel('A')).point(lambda v: 255 if v else 0)
-    n = diff.histogram()[255]
-    assert n <= 50, f'キャラクターの透過の切り抜きが {n}px 変わりました'
+def ink_rgb(cmyk):
+    return cmyk_to_rgb(Image.new('CMYK', (1, 1), cmyk)).getpixel((0, 0))
+
+
+def character_rgb(data):
+    import numpy as np
+    pink, text, under, _, _ = character_layers(data)
+
+    def up(x):       # 余白を付けて2倍に拡大し、輪郭がぼけないよう傾きを戻す
+        x = np.pad(x.astype(np.float32), CHAR_PAD)
+        im = Image.fromarray(x, 'F').resize((x.shape[1] * CHAR_SCALE, x.shape[0] * CHAR_SCALE), Image.BICUBIC)
+        return np.clip((np.asarray(im) - 0.5) * 1.8 + 0.5, 0, 1)
+    pink, text, under = up(pink), up(text), up(under)
+    P, T, Wt = (np.array(ink_rgb(c), float) for c in (INK_PINK, INK_TEXT, (0, 0, 0, 0)))
+    # 白の下地（体の内側）→ ピンク → 文字 の順に重ねる
+    A = under.copy()
+    C = under[..., None] * Wt
+    for cov, col in ((pink, P), (text, T)):
+        C = cov[..., None] * col + (1 - cov[..., None]) * C
+        A = cov + (1 - cov) * A
+    rgb = np.where(A[..., None] > 0, C / np.maximum(A, 1e-6)[..., None], 0)
+    out = np.dstack([np.clip(rgb, 0, 255), np.clip(A * 255, 0, 255)]).round().astype(np.uint8)
+    return Image.fromarray(out, 'RGBA')
+
+
+def check_character(char, data):
+    """透過の仕上がりを確かめる（以前の不具合＝白いフチ・文字の穴の白が再発していないか）"""
+    import numpy as np
+    pink, text, under, eyes, holes = character_layers(data)
+    H, W = pink.shape
+    s, p = CHAR_SCALE, CHAR_PAD
+    assert char.size == ((W + 2 * p) * s, (H + 2 * p) * s), char.size
+    a = np.asarray(char).astype(int)
+    alpha, mn = a[..., 3], a[..., :3].min(2)
+    at = lambda m: np.kron(np.pad(m, p), np.ones((s, s), bool))    # 元の座標 → 書き出し後の座標
+    white = (alpha > 0) & (mn >= 235)
+    n = int((white & ~at(under)).sum())
+    assert n == 0, f'体の外に白い画素が {n} 個あります（白いフチ・文字の穴の白）'
+    eye_px = at(eyes).sum()
+    n = int((white & at(under)).sum())
+    assert 0.8 * eye_px < n < 1.3 * eye_px, f'体の中の白（目）の量がおかしい：{n}px（目 {eye_px}px）'
+    for m in holes:              # 細い隙間の縁は元データでも半分ほどインクがかかるため、穴全体で判定
+        h = alpha[at(m)]
+        ys, xs = np.nonzero(m)
+        assert (h == 0).mean() >= 0.5 and h.mean() < 64, \
+            f'文字の穴（x{xs.min()} y{ys.min()} 付近）が透明になっていません'
+    body_in = at(under & ~_grow(~under, 1))                       # 体の内側（輪郭から少し内側）
+    assert (alpha[body_in] == 255).all(), '体の内側に透ける画素があります'
+    ink = (pink + text) > 0.5
+    ink[[0, -1], :] = ink[:, [0, -1]] = False                     # 元画像の端で切れている所は除く
+    text_in = at(~_grow(~ink, 2) & (text > pink))
+    assert (alpha[text_in] == 255).mean() > 0.99, '文字の内側に透ける画素が多すぎます'
+    return dict(eye_white=n, holes=len(holes))
 
 
 # ------------------------------------------------ ①会員登録アイコン（制作側で作図）
@@ -406,6 +508,8 @@ def print_size(x):
         return '<b>拡大自由</b><br><small>（ベクター）</small>'
     if x['kind'] == 'ref' or not x['px']:
         return '—'
+    if x.get('noprint'):
+        return '画面用'
     w, h = (round(v * 25.4 / DPI) for v in x['px'])
     return f'約{w}×{h}mm'
 
@@ -604,12 +708,13 @@ def build(update_site, date):
         os.makedirs(os.path.join(OUT, d))
     files = []
 
-    def add(rel, kind, desc, used, source, px=None, note=''):
+    def add(rel, kind, desc, used, source, px=None, note='', noprint=False):
         p = os.path.join(OUT, rel)
         if px is None and rel.lower().endswith(('.png', '.jpg')):
             px = Image.open(p).size
         files.append(dict(file=rel, kind=kind, desc=desc, used=used, source=source,
-                          px=list(px) if px else None, bytes=os.path.getsize(p), note=note))
+                          px=list(px) if px else None, bytes=os.path.getsize(p), note=note,
+                          noprint=noprint))
 
     # 01 公式ロゴ（ご支給データをそのまま）
     for en, ja in LOGOS:
@@ -629,13 +734,14 @@ def build(update_site, date):
         'トップページのメインビジュアル', 'ご支給',
         note='LINEで受領した画像で、印刷には小さいサイズです。印刷用（CMYK）のため、画面では紫がかって見えることがあります')
     char = character_rgb(data)
-    check_character_mask(char)
+    check_character(char, data)
     save(char, '02_character/official-character_transparent.png')
     if update_site:
         char.save(os.path.join(ROOT, 'site/images/character-official.png'), optimize=True)
     add('02_character/official-character_transparent.png', 'char',
-        '同上・白背景を透過にしたWeb用（RGB・印刷時の色味に合わせて変換）',
-        'トップページのメインビジュアル', 'ご支給を加工')
+        '同上・背景を透過にしたWeb用（RGB・印刷時の色味に合わせて変換）',
+        'トップページのメインビジュアル', 'ご支給を加工', noprint=True,
+        note='画面用に2倍の大きさで輪郭を整えたものです。印刷にはデザイナー様の元データをご使用ください')
 
     # 03 背景
     data = git_blob(UP_0627, HERO)
